@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0990c4ec4c5ba84bb8221db617afb24, type: 3}
+  m_Name: LootBagData 0
+  m_EditorClassIdentifier: Assembly-CSharp::LootBagData
+  itemName: 
+  description: 
+  itemType: 6
+  weaponType: 0
+  itemImage: {fileID: -3290573182547071134, guid: dbe8842a9a5310a47b212c4e28b34c54, type: 3}
+  rarity: 0
+  possibleContents:
+  - itemData: {fileID: 11400000, guid: 35733530781ee224185ce10fb3696879, type: 2}
+    dropPrefab: {fileID: 539915651322587873, guid: b997f9caccee1bd4082c1ccb59b7c9cc, type: 3}
+    dropChance: 91
+    dropAmount: 1
+  - itemData: {fileID: 11400000, guid: 485b8f1d491dafd4fb8c94f1f09e1fdf, type: 2}
+    dropPrefab: {fileID: 7660254268123155686, guid: 4b47265f35a6bb641982bcbf3b4b4a2b, type: 3}
+    dropChance: 21
+    dropAmount: 1
+  - itemData: {fileID: 11400000, guid: 899ba736c33fed3428f7da5ee7b29597, type: 2}
+    dropPrefab: {fileID: 868708594060917896, guid: a342baf75dbff5642a0df3a84e12a43f, type: 3}
+    dropChance: 68
+    dropAmount: 1
+  - itemData: {fileID: 11400000, guid: cb17a9c93f850ad4aae994fcb8322573, type: 2}
+    dropPrefab: {fileID: 6423042638674713238, guid: 8c592686d14cb354b9ec5fde149a3331, type: 3}
+    dropChance: 51
+    dropAmount: 1
+  - itemData: {fileID: 11400000, guid: 2ba8d855666f03c48a38f4acadd49d30, type: 2}
+    dropPrefab: {fileID: 3808125216207613239, guid: 2c4b4af39867a92438e0597dd8b4d7f4, type: 3}
+    dropChance: 100
+    dropAmount: 50
+  - itemData: {fileID: 11400000, guid: 67aa75949b37d7843a36c0f279de5ec8, type: 2}
+    dropPrefab: {fileID: 2635661145168059354, guid: 56cc31f04b9ba84428c1e380f47940de, type: 3}
+    dropChance: 100
+    dropAmount: 1
+  - itemData: {fileID: 11400000, guid: 180f425db74978d42bbd2924a13b79b8, type: 2}
+    dropPrefab: {fileID: 7359375617285306540, guid: 2c58adffd5670d7448d0019739a2d5fa, type: 3}
+    dropChance: 100
+    dropAmount: 1

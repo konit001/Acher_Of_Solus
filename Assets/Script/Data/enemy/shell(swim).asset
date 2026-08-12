@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 847d5da6a7f89924c80019ec669420b0, type: 3}
+  m_Name: shell(swim)
+  m_EditorClassIdentifier: Assembly-CSharp::enemyStatus
+  characterName: shell
+  description: 
+  enemyType: 2
+  elementType: 0
+  ExpReward: 25
+  maxHealth: 1010
+  basespeed: 4
+  stamina: 0
+  baseAttack: 100
+  ElementalBonus: 12
+  CritRate: 77.4
+  CritDamage: 1
+  Defend: 25
+  ResistanceDamage: 46.8
+  ElementalResistance: 55
+  CritDamageResistance: 70.3

@@ -1,0 +1,933 @@
+fileFormatVersion: 2
+guid: a0b3070308c03334893c69d4e4d5823f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3987230821058290992
+    second: Bg_sea floor_0
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Bg_sea floor_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1376
+        width: 667
+        height: 687
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 728d4afd1648dae4abbbee2cd394b2cc
+      internalID: -860329995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bg_sea floor_17
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 1376
+        width: 667
+        height: 687
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd972e1bdb4f38940b90b97445f57148
+      internalID: -1679832106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bg_sea floor_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 689
+        width: 667
+        height: 687
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1cf7477a2b822e439f0953fb78bab95
+      internalID: 1639080751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bg_sea floor_19
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 689
+        width: 667
+        height: 687
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8edeb8f012db00c439cdddd2a515170b
+      internalID: -1029326764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bg_sea floor_20
+      rect:
+        serializedVersion: 2
+        x: 1334
+        y: 689
+        width: 667
+        height: 687
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94becc321e00c4a47a99a98c5c6a8ef3
+      internalID: -844746686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bg_sea floor_21
+      rect:
+        serializedVersion: 2
+        x: 2001
+        y: 689
+        width: 667
+        height: 687
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28402538e9ac2f7478e3667c3f578222
+      internalID: 147475812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bg_sea floor_22
+      rect:
+        serializedVersion: 2
+        x: 2668
+        y: 689
+        width: 667
+        height: 687
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9241cb8fcfe5e094187c5a5a3f4b217e
+      internalID: 1269602999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bg_sea floor_23
+      rect:
+        serializedVersion: 2
+        x: 3335
+        y: 689
+        width: 667
+        height: 687
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f9ce1bc552ddc948a0d83caa584e6e7
+      internalID: 1137828706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bg_sea floor_24
+      rect:
+        serializedVersion: 2
+        x: 4002
+        y: 689
+        width: 667
+        height: 687
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 805074db63bdb8e44947815fbe79c9bf
+      internalID: -1146385983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bg_sea floor_25
+      rect:
+        serializedVersion: 2
+        x: 4669
+        y: 689
+        width: 667
+        height: 687
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1799be2d05ddb6946af259b63694966b
+      internalID: 1757947136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bg_sea floor_26
+      rect:
+        serializedVersion: 2
+        x: 5336
+        y: 689
+        width: 667
+        height: 687
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccb55511d7c188e429977aedd0d41dbb
+      internalID: -496157122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bg_sea floor_27
+      rect:
+        serializedVersion: 2
+        x: 6003
+        y: 689
+        width: 667
+        height: 687
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb6f330954b30324997536b81b323d1d
+      internalID: 5187981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bg_sea floor_28
+      rect:
+        serializedVersion: 2
+        x: 6670
+        y: 689
+        width: 667
+        height: 687
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8ac6540de625e64fb6ba27dc7ab348e
+      internalID: -875044506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bg_sea floor_29
+      rect:
+        serializedVersion: 2
+        x: 7337
+        y: 689
+        width: 667
+        height: 687
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5621767a34427984c891776869d24e2d
+      internalID: -1879267352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bg_sea floor_30
+      rect:
+        serializedVersion: 2
+        x: 8004
+        y: 689
+        width: 667
+        height: 687
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57833190914b36245b92a57170b6e1af
+      internalID: 1979449438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bg_sea floor_31
+      rect:
+        serializedVersion: 2
+        x: 8671
+        y: 689
+        width: 667
+        height: 687
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4cdeb45bd1d90c449c7067c68f939b3
+      internalID: 185422107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bg_sea floor_32
+      rect:
+        serializedVersion: 2
+        x: 9338
+        y: 689
+        width: 667
+        height: 687
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c924a5b123aacd1458a3c8321967171d
+      internalID: 1085036534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bg_sea floor_33
+      rect:
+        serializedVersion: 2
+        x: 10005
+        y: 689
+        width: 667
+        height: 687
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3bb71a56a94aa148bad046492af8bf9
+      internalID: 1911191675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bg_sea floor_34
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2
+        width: 667
+        height: 687
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fd8bd42761e51140ac0e29e5e5b4f97
+      internalID: 1035272510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bg_sea floor_35
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 2
+        width: 667
+        height: 687
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f73635c9c12a3a4ca1828d14ec65b7c
+      internalID: -1652166580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bg_sea floor_36
+      rect:
+        serializedVersion: 2
+        x: 1334
+        y: 2
+        width: 667
+        height: 687
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bec6d96d7c46e7642910f33c74123c1a
+      internalID: 450786325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bg_sea floor_37
+      rect:
+        serializedVersion: 2
+        x: 2001
+        y: 2
+        width: 667
+        height: 687
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e0cbed5be68a7f4a9e84d96da126f4e
+      internalID: 854638322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bg_sea floor_38
+      rect:
+        serializedVersion: 2
+        x: 2668
+        y: 2
+        width: 667
+        height: 687
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab97f31681e629f47901d068a8c88ffa
+      internalID: -542478725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bg_sea floor_39
+      rect:
+        serializedVersion: 2
+        x: 3335
+        y: 2
+        width: 667
+        height: 687
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf42830c26322444eaa80e97d452ba05
+      internalID: -505039019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bg_sea floor_40
+      rect:
+        serializedVersion: 2
+        x: 4002
+        y: 2
+        width: 667
+        height: 687
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e55406ac638b2e44b911b57e95dd90d1
+      internalID: 2020063606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bg_sea floor_41
+      rect:
+        serializedVersion: 2
+        x: 4669
+        y: 2
+        width: 667
+        height: 687
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 216fc1d37e2328147aa80bb5419e85f1
+      internalID: -491227102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bg_sea floor_42
+      rect:
+        serializedVersion: 2
+        x: 5336
+        y: 2
+        width: 667
+        height: 687
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7748d50686e39c245a79954b3d365836
+      internalID: 767203305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bg_sea floor_43
+      rect:
+        serializedVersion: 2
+        x: 6003
+        y: 2
+        width: 667
+        height: 687
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2dbf1185fa278443bbed89442ab7c76
+      internalID: 1785406570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bg_sea floor_44
+      rect:
+        serializedVersion: 2
+        x: 6670
+        y: 2
+        width: 667
+        height: 687
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d36921b8f6e1d0a46b5d781946df301e
+      internalID: 2095385932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bg_sea floor_45
+      rect:
+        serializedVersion: 2
+        x: 7337
+        y: 2
+        width: 667
+        height: 687
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 107db2297bb3eeb498315eee5eb52f6b
+      internalID: 217707098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bg_sea floor_46
+      rect:
+        serializedVersion: 2
+        x: 8004
+        y: 2
+        width: 667
+        height: 687
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 354062f54c1f1a94a95ddfa5cd9352dd
+      internalID: 952717877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bg_sea floor_47
+      rect:
+        serializedVersion: 2
+        x: 8671
+        y: 2
+        width: 667
+        height: 687
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b18e193b6f3cd9e428dcec594de09f79
+      internalID: 1988843903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bg_sea floor_48
+      rect:
+        serializedVersion: 2
+        x: 9338
+        y: 2
+        width: 667
+        height: 687
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad1a04bcb1878f145be1903af8254159
+      internalID: -1427819569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bg_sea floor_49
+      rect:
+        serializedVersion: 2
+        x: 10005
+        y: 2
+        width: 667
+        height: 687
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8aa462634b44b9446b6d71ea6b0b73ce
+      internalID: 1384644036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":16.0,"y":4.0},"gridSpriteSize":{"x":667.0,"y":687.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Bg_sea floor_0: -3987230821058290992
+      Bg_sea floor_1: -497167330
+      Bg_sea floor_10: -995105008
+      Bg_sea floor_11: -1676428506
+      Bg_sea floor_12: -1440155873
+      Bg_sea floor_13: -544198998
+      Bg_sea floor_14: -1914902301
+      Bg_sea floor_15: -1377079397
+      Bg_sea floor_16: -860329995
+      Bg_sea floor_17: -1679832106
+      Bg_sea floor_18: 1639080751
+      Bg_sea floor_19: -1029326764
+      Bg_sea floor_2: 1551463679
+      Bg_sea floor_20: -844746686
+      Bg_sea floor_21: 147475812
+      Bg_sea floor_22: 1269602999
+      Bg_sea floor_23: 1137828706
+      Bg_sea floor_24: -1146385983
+      Bg_sea floor_25: 1757947136
+      Bg_sea floor_26: -496157122
+      Bg_sea floor_27: 5187981
+      Bg_sea floor_28: -875044506
+      Bg_sea floor_29: -1879267352
+      Bg_sea floor_3: -1264630318
+      Bg_sea floor_30: 1979449438
+      Bg_sea floor_31: 185422107
+      Bg_sea floor_32: 1085036534
+      Bg_sea floor_33: 1911191675
+      Bg_sea floor_34: 1035272510
+      Bg_sea floor_35: -1652166580
+      Bg_sea floor_36: 450786325
+      Bg_sea floor_37: 854638322
+      Bg_sea floor_38: -542478725
+      Bg_sea floor_39: -505039019
+      Bg_sea floor_4: 1352930408
+      Bg_sea floor_40: 2020063606
+      Bg_sea floor_41: -491227102
+      Bg_sea floor_42: 767203305
+      Bg_sea floor_43: 1785406570
+      Bg_sea floor_44: 2095385932
+      Bg_sea floor_45: 217707098
+      Bg_sea floor_46: 952717877
+      Bg_sea floor_47: 1988843903
+      Bg_sea floor_48: -1427819569
+      Bg_sea floor_49: 1384644036
+      Bg_sea floor_5: -1890308127
+      Bg_sea floor_6: 1657504371
+      Bg_sea floor_7: 820125575
+      Bg_sea floor_8: 321067432
+      Bg_sea floor_9: 654928466
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
