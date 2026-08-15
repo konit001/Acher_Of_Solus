@@ -135,4 +135,12 @@ public class DebuffController : MonoBehaviour
     {
         return activeDebuffs.Exists(d => d.debuffEffect.debuffType == type);
     }
+
+    // ใช้โดย UI เพื่อหาว่าธาตุนี้กำลังมีดีบัฟ active อยู่หรือไม่ (เอาไอคอน/สีของตัว active มาแสดงแทน default)
+    public ElementalDebuffEffect GetActiveElementalDebuff(ElementType element)
+    {
+        Debuff match = activeDebuffs.Find(d =>
+            d.debuffEffect is ElementalDebuffEffect elemental && elemental.elementType == element);
+        return match?.debuffEffect as ElementalDebuffEffect;
+    }
 }

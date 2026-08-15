@@ -45,4 +45,11 @@ public class DebuffGaugeController : MonoBehaviour
 
         gauges[element] = current;
     }
+
+    // ใช้โดย UI เพื่ออ่านสัดส่วนเกจปัจจุบัน (0-1) ของธาตุนั้นๆ
+    public float GetGaugeRatio(ElementType element)
+    {
+        gauges.TryGetValue(element, out float current);
+        return maxGauge <= 0f ? 0f : Mathf.Clamp01(current / maxGauge);
+    }
 }
