@@ -33,7 +33,7 @@ public class StatusBox : MonoBehaviour, IPointerClickHandler
         {
             return;
         }
-        SetStatUI(StatusType.Heath, currentPlayerStats.maxHealth);
+        SetStatUI(StatusType.Health, currentPlayerStats.maxHealth);
         SetStatUI(StatusType.Stamina, currentPlayerStats.stamina);
         SetStatUI(StatusType.Attack, currentPlayerStats.baseAttack);
         SetStatUI(StatusType.ElementalBonus, currentPlayerStats.ElementalBonus);

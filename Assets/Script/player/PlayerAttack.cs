@@ -94,6 +94,7 @@ private void OnDrawGizmos()
                 if (weaponInfo != null)
                 {
                     currentMeleeElement = weaponInfo.elementType;
+                    Debug.Log($"[PlayerAttack] ธาตุจากอาวุธ '{weaponInfo.itemName}' = {currentMeleeElement}");
                 }
                 ExecuteSpearAttack();
                 break;
@@ -198,6 +199,18 @@ private void ExecuteGunAttack(BaseItemData currentItem, weaponsData weaponInfo)
         // สี Damage Pop-up อิงตามธาตุของอาวุธที่โจมตี ผ่าน ElementalManager
         Color popupColor = ElementalManager.GetElementColor(attackElement);
         targetEnemy.takeDamage(totalDamage * multiple, popupColor, !isCrit);
+
+        // เติมเกจดีบัฟตามธาตุของอาวุธที่โจมตี เมื่อเกจธาตุนั้นเต็มจะ apply ดีบัฟให้ศัตรูอัตโนมัติ
+        Debug.Log($"[PlayerAttack] ตี {targetEnemy.gameObject.name} ด้วยธาตุ {attackElement} -> ส่งเข้าเกจดีบัฟ");
+        DebuffGaugeController gaugeController = targetEnemy.GetComponent<DebuffGaugeController>();
+        if (gaugeController != null)
+        {
+            gaugeController.AddGauge(attackElement);
+        }
+        else
+        {
+            Debug.LogWarning($"[PlayerAttack] {targetEnemy.gameObject.name} ไม่มี DebuffGaugeController ติดตั้งอยู่");
+        }
     }
 
     #endregion

@@ -15,8 +15,14 @@ public class CharacterHealth : MonoBehaviour
     protected float currentHp;
     protected float maxHealth;
     protected Coroutine trailCoroutine;
-    // [Header("Debuff Settings")] update debuff Gage
-    // private DebuffControllerBase debuffController;
+
+    [Header("Debuff Settings")]
+    public DebuffController debuffController;
+
+    protected virtual void Awake()
+    {
+        debuffController = GetComponent<DebuffController>();
+    }
 
     protected virtual void Start()
     {

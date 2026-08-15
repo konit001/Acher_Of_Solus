@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27be3e64c91492a48881b0119b4a8d6e, type: 3}
+  m_Name: DebuffDatabase
+  m_EditorClassIdentifier: Assembly-CSharp::DebuffDatabase
+  table:
+  - element: 1
+    debuffs:
+    - {fileID: 11400000, guid: 4cad1db48667e034a9689837a0d33b31, type: 2}
+    - {fileID: 11400000, guid: ffff9b54332239e43af562774729cc74, type: 2}
+  - element: 2
+    debuffs:
+    - {fileID: 11400000, guid: 31c485a22f8d0ef499d6b1f9211bd51d, type: 2}
+  - element: 3
+    debuffs:
+    - {fileID: 11400000, guid: 5ebc22af1d5cdfa4683b26f3820a9eaa, type: 2}
+    - {fileID: 11400000, guid: 954fb8a03f5b81248b5d2a31ed6175e2, type: 2}
+  - element: 4
+    debuffs:
+    - {fileID: 11400000, guid: 48c7282bd80873140b82300dadeb66d3, type: 2}
+    - {fileID: 11400000, guid: 61c5f8d9b09e3364b89a872e1dc674e9, type: 2}
+    - {fileID: 11400000, guid: 0c210274fe0640c4f9cc2d6e279f7bdd, type: 2}
+  - element: 5
+    debuffs:
+    - {fileID: 11400000, guid: 56e7d5849d6a3bf46b6bf9572a4db6e8, type: 2}
+  - element: 6
+    debuffs:
+    - {fileID: 11400000, guid: 274f9c9fd45825c4482560fef0b1f24c, type: 2}
+    - {fileID: 11400000, guid: 32d5df71c3a922e46b77d1c1b3a3a46b, type: 2}
