@@ -130,6 +130,13 @@ public class playerControl : Core
 
     public void move()
     {
+        if (IsMovementDisabled || IsActionDisabled)
+        {
+            rb.linearVelocity = Vector2.zero;
+            currentSpeed = 0f;
+            return;
+        }
+
         Vector2 inputDir = userInput.instance.moveInput.normalized;
 
         if (inputDir.sqrMagnitude > 0.01f)

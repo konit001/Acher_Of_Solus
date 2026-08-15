@@ -22,7 +22,6 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 31c485a22f8d0ef499d6b1f9211bd51d, type: 2}
   - element: 3
     debuffs:
-    - {fileID: 11400000, guid: 5ebc22af1d5cdfa4683b26f3820a9eaa, type: 2}
     - {fileID: 11400000, guid: 954fb8a03f5b81248b5d2a31ed6175e2, type: 2}
   - element: 4
     debuffs:

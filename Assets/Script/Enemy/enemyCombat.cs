@@ -23,6 +23,13 @@ public class enemyCombat : MonoBehaviour
     [Range(0f, 100f)] public float debuffChance = 20f;
     public DebuffDatabase debuffDatabase;
 
+    private Core core;
+
+    private void Awake()
+    {
+        core = GetComponent<Core>();
+    }
+
     public bool DetectPlayer()
     {
         return detectPlayer = Physics2D.OverlapCircle(detectCheck.transform.position, detectRadius, playerLayer);
@@ -30,6 +37,8 @@ public class enemyCombat : MonoBehaviour
 
     public void ExecuteShoot()
     {
+        if (core != null && core.IsActionDisabled) return;
+
         fireTimer += Time.deltaTime;
 
         if (fireTimer >= fireInterval)

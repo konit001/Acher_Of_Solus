@@ -33,7 +33,7 @@ private void Update()
         // ให้ Attack Point หมุนตามการเล็งตลอดเวลา
         RotateAttackPoint();
 
-        if (!canAttack || isAttacking || !canShoot || isShooting) return;
+        if (!canAttack || isAttacking || !canShoot || isShooting || playerController.IsActionDisabled) return;
 
         if (userInput.instance.attackLeftInput)
         {

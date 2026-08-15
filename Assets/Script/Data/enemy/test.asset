@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::enemyStatus
   characterName: 
   description: 
+  enemyType: 0
   elementType: 4
   ExpReward: 10000
-  maxHealth: 1200
+  maxHealth: 999999
   basespeed: 0
   stamina: 0
   baseAttack: 0

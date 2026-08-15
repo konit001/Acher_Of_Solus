@@ -9,17 +9,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d5aa508c9d054d40b79fecf729109e3, type: 3}
+  m_Script: {fileID: 11500000, guid: 7ac323cfcf04fedd07924a2526b9cbed, type: 3}
   m_Name: Thalassophobia
-  m_EditorClassIdentifier: Assembly-CSharp::DebuffEffect
-  debuffName: Freeze
-  description: 
+  m_EditorClassIdentifier: Assembly-CSharp::GeneralDebuffEffect
+  debuffName: Thalassophobia
+  description:
   icon: {fileID: 7482667652216324306, guid: bdd4dc4936d99234181ab72cb9a44407, type: 3}
-  elementType: 3
-  debuffType: 1
+  debuffType: 3
   debuffDamage: 0
   debuffDamagePerTick: 0
   debuffDuration: 0.25
   debuffStack: 0
-  affectedStat: 8
-  statModifierPercent: 1000
+  affectedStat: 0
+  statModifierPercent: 0
+  disablesMovement: 0
+  disablesAction: 0

@@ -27,34 +27,38 @@ public class DebuffController : MonoBehaviour
     public event Action OnDebuffsChanged;
 
     private CharacterHealth characterHealth;
+    private Core core;
+
+    // เปิดให้ DebuffEffect.OnApply เรียก characterHealth ได้ผ่าน property นี้
+    public CharacterHealth Health => characterHealth;
 
     private void Awake()
     {
         characterHealth = GetComponent<CharacterHealth>();
+        core = GetComponent<Core>();
     }
 
     public void ApplyDebuff(DebuffEffect effect)
     {
         if (effect == null) return;
 
-        Debuff _Debuff = activeDebuffs.Find(d => d.debuffEffect == effect);
-        if (_Debuff != null)
+        Debuff instance = activeDebuffs.Find(d => d.debuffEffect == effect);
+        if (instance != null)
         {
-            _Debuff.Duration = effect.debuffDuration;
-            _Debuff.currentStack = Mathf.Min(_Debuff.currentStack + 1, Mathf.Max(1, effect.debuffStack));
-            Debug.Log($"[Debuff] {gameObject.name}: ต่ออายุ '{effect.debuffName}' (stack {_Debuff.currentStack}/{Mathf.Max(1, effect.debuffStack)})");
+            instance.Duration = effect.debuffDuration;
+            instance.currentStack = Mathf.Min(instance.currentStack + 1, Mathf.Max(1, effect.debuffStack));
+            Debug.Log($"[Debuff] {gameObject.name}: ต่ออายุ '{effect.debuffName}' (stack {instance.currentStack}/{Mathf.Max(1, effect.debuffStack)})");
         }
         else
         {
-            activeDebuffs.Add(new Debuff(effect));
-            Debug.Log($"[Debuff] {gameObject.name}: ติดดีบัฟใหม่ '{effect.debuffName}' ธาตุ {effect.elementType} ระยะเวลา {effect.debuffDuration}s");
-            if (effect.debuffDamage > 0f)
-            {
-                characterHealth?.takeDamage(effect.debuffDamage);
-                Debug.Log($"[Debuff] {gameObject.name}: โดนดาเมจแรกเข้าจาก '{effect.debuffName}' {effect.debuffDamage}");
-            }
+            instance = new Debuff(effect);
+            activeDebuffs.Add(instance);
+            string elementInfo = effect is ElementalDebuffEffect elemental ? elemental.elementType.ToString() : "General";
+            Debug.Log($"[Debuff] {gameObject.name}: ติดดีบัฟใหม่ '{effect.debuffName}' ธาตุ {elementInfo} ระยะเวลา {effect.debuffDuration}s");
         }
 
+        effect.OnApply(instance, this);
+        RecomputeLockFlags();
         OnDebuffsChanged?.Invoke();
     }
 
@@ -87,7 +91,31 @@ public class DebuffController : MonoBehaviour
             }
         }
 
-        if (changed) OnDebuffsChanged?.Invoke();
+        if (changed)
+        {
+            RecomputeLockFlags();
+            OnDebuffsChanged?.Invoke();
+        }
+    }
+
+    // รวม disablesMovement/disablesAction จากดีบัฟที่ active ทั้งหมดแบบ OR แล้วสั่ง Core
+    // ต้องคำนวณใหม่ทุกครั้งที่ list เปลี่ยน (ไม่ toggle เดี่ยวๆ ต่อดีบัฟ) เพื่อไม่ให้ปลดล็อกพลาด
+    // ตอนมีดีบัฟล็อกซ้อนกันหลายตัวแล้วตัวหนึ่งหมดอายุก่อน
+    private void RecomputeLockFlags()
+    {
+        if (core == null) return;
+
+        bool movementLocked = false;
+        bool actionLocked = false;
+
+        foreach (Debuff debuff in activeDebuffs)
+        {
+            if (debuff.debuffEffect.disablesMovement) movementLocked = true;
+            if (debuff.debuffEffect.disablesAction) actionLocked = true;
+        }
+
+        core.SetMovementDisabled(movementLocked);
+        core.SetActionDisabled(actionLocked);
     }
 
     public float GetStatModifierPercent(StatusType stat)

@@ -8,6 +8,14 @@ public abstract class Core : MonoBehaviour
     // ตัวแปร State Machine หลักที่ใช้ควบคุมสถานะของ Core นี้
     public stateMacines stateMacines;
 
+    // ใช้โดยระบบดีบัฟ (DebuffController) เพื่อล็อกการเคลื่อนที่/การกระทำ
+    // แยก 2 flag เพราะบางดีบัฟ (Freeze) ล็อกแค่เดิน แต่ยังโจมตีได้
+    public bool IsMovementDisabled { get; private set; }
+    public bool IsActionDisabled { get; private set; }
+
+    public void SetMovementDisabled(bool value) => IsMovementDisabled = value;
+    public void SetActionDisabled(bool value) => IsActionDisabled = value;
+
     /// ฟังก์ชันสำหรับเซ็ตอัปค่าเริ่มต้น
     public void setupInstances()
     {
