@@ -19,17 +19,6 @@ public class enemyCombat : MonoBehaviour
     public float fireInterval = 1.5f;
     protected float fireTimer;
 
-    [Header("Debuff")]
-    [Range(0f, 100f)] public float debuffChance = 20f;
-    public DebuffDatabase debuffDatabase;
-
-    private Core core;
-
-    private void Awake()
-    {
-        core = GetComponent<Core>();
-    }
-
     public bool DetectPlayer()
     {
         return detectPlayer = Physics2D.OverlapCircle(detectCheck.transform.position, detectRadius, playerLayer);
@@ -37,8 +26,6 @@ public class enemyCombat : MonoBehaviour
 
     public void ExecuteShoot()
     {
-        if (core != null && core.IsActionDisabled) return;
-
         fireTimer += Time.deltaTime;
 
         if (fireTimer >= fireInterval)
@@ -91,7 +78,7 @@ public class enemyCombat : MonoBehaviour
             damage *= cirtMult;
         }
 
-        //player 
+        //player
         float enemyDefend = targetEnemy.playerStats.Defend * (targetEnemy.playerStats.ResistanceDamage / 100f);
 
         float totalDamage = damage - enemyDefend;
@@ -99,31 +86,6 @@ public class enemyCombat : MonoBehaviour
 
         Debug.Log(totalDamage);
         targetEnemy.takeDamage(totalDamage);
-
-        // สุ่มโอกาสติดดีบัฟตามธาตุของศัตรูตัวนี้ทุกครั้งที่ตีโดนผู้เล่น
-        if (debuffDatabase == null)
-        {
-            Debug.LogWarning($"[EnemyDebuff] {gameObject.name}: ไม่ได้ผูก debuffDatabase ไว้ ข้ามการสุ่มดีบัฟ");
-        }
-        else
-        {
-            float roll = Random.Range(0f, 100f);
-            bool success = roll <= debuffChance;
-            Debug.Log($"[EnemyDebuff] {gameObject.name}: สุ่มโอกาสติดดีบัฟ roll={roll:F1} <= chance={debuffChance} -> {(success ? "ติด" : "ไม่ติด")}");
-
-            if (success)
-            {
-                DebuffEffect effect = debuffDatabase.GetRandomDebuff(enemy.elementType);
-                if (effect != null && targetEnemy.debuffController != null)
-                {
-                    targetEnemy.debuffController.ApplyDebuff(effect);
-                }
-                else if (targetEnemy.debuffController == null)
-                {
-                    Debug.LogWarning("[EnemyDebuff] ผู้เล่นไม่มี DebuffController ติดตั้งอยู่");
-                }
-            }
-        }
     }
 
     void OnDrawGizmosSelected()

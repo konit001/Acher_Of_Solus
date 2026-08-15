@@ -6,8 +6,6 @@ public class GroundPatrolState : patrolState
 
     public override void Do()
     {
-        if (groundCore.IsMovementDisabled || groundCore.IsActionDisabled) return;
-
         if (groundCore.IsWall() || (!groundCore.IsGrounded()))
         {
             groundCore.flip();

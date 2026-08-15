@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,38 +15,6 @@ public class CharacterHealth : MonoBehaviour
     protected float currentHp;
     protected float maxHealth;
     protected Coroutine trailCoroutine;
-
-    [Header("Debuff Settings")]
-    public DebuffController debuffController;
-
-    [Header("Buff Settings")]
-    public BuffController buffController;
-
-    [System.Serializable]
-    public class DebuffColorEntry
-    {
-        public DebuffType type;
-        public Color color = Color.white;
-    }
-
-    [Header("Debuff Color Override")]
-    [SerializeField] private List<DebuffColorEntry> debuffColors = new List<DebuffColorEntry>();
-
-    protected virtual void Awake()
-    {
-        debuffController = GetComponent<DebuffController>();
-        buffController = GetComponent<BuffController>();
-    }
-
-    protected virtual void OnEnable()
-    {
-        if (debuffController != null) debuffController.OnDebuffsChanged += UpdateHealthBarColor;
-    }
-
-    protected virtual void OnDisable()
-    {
-        if (debuffController != null) debuffController.OnDebuffsChanged -= UpdateHealthBarColor;
-    }
 
     protected virtual void Start()
     {
@@ -79,24 +46,6 @@ public class CharacterHealth : MonoBehaviour
     {
         currentHp = Mathf.Clamp(currentHp, 0, maxHealth);
         if (fillHp != null) fillHp.fillAmount = currentHp / maxHealth;
-    }
-
-    // ไล่ debuffColors ตามลำดับที่ตั้งไว้ใน Inspector (ลำดับ = priority) ตัวแรกที่ active จะชนะ
-    // ไม่มีตัวไหน active เลยก็กลับไปใช้ normalColor
-    protected void UpdateHealthBarColor()
-    {
-        if (fillHp == null || debuffController == null) return;
-
-        foreach (DebuffColorEntry entry in debuffColors)
-        {
-            if (debuffController.HasDebuffType(entry.type))
-            {
-                fillHp.color = entry.color;
-                return;
-            }
-        }
-
-        fillHp.color = normalColor;
     }
 
     protected IEnumerator updateTrailHealthBar()

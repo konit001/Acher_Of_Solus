@@ -2,8 +2,6 @@ using UnityEngine;
 
 public enum ElementType { None, Fire, Wind, Water, Lightning, Nature, Earth, ElementelLess }
 public enum enemyType{Friendly,Nautel,Aggressive }
-public enum DebuffType { None, Freeze, Blisters, Thalassophobia, Paralyzed, Shock, Volt, Burnt, Stun, Crack, Poison, Faint }
-public enum BuffType { None }
 public enum Rarity { Common, Uncommon, Rare, Epic, Legendary }
 public enum ItemType { Coin, Material, Consumable, Artifact, Orb, Weapon, LootBag }
 public enum MouseChange { Normal, Attack }

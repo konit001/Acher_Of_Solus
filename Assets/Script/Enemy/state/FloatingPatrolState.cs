@@ -6,8 +6,6 @@ public class FloatingPatrolState : patrolState
 
     public override void Do()
     {
-        if (floatCore.IsMovementDisabled || floatCore.IsActionDisabled) return;
-
         float leftPos = floatCore.startPoint - floatCore.patrolDistanceLeft;
         float rightPos = floatCore.startPoint + floatCore.patrolDistanceRight;
 
