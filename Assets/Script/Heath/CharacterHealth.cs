@@ -2,7 +2,16 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CharacterHealth : MonoBehaviour
+
+[System.Serializable]
+public class DebuffHealth
+{
+    public elementDebuffType debuffType;
+    public Color colorImage;
+    public int priority; // higher wins when multiple debuffs are active at once
+}
+
+public class CharacterHealth : MonoBehaviour , IDamageable
 {
     [Header("HealthBar Image")]
     public Image fillHp;
@@ -15,6 +24,14 @@ public class CharacterHealth : MonoBehaviour
     protected float currentHp;
     protected float maxHealth;
     protected Coroutine trailCoroutine;
+
+    [Header("Debuff Settings")]
+    public DebuffHealth[] debuffHealths;
+    public bool isBrun;
+    public bool isFreeze;
+    public bool isPoison;
+    public bool isParalyzed;
+    
 
     protected virtual void Start()
     {
@@ -30,7 +47,7 @@ public class CharacterHealth : MonoBehaviour
         }
     }
 
-    public virtual void takeDamage(float damage)
+    public virtual void TakeDamage(float damage)
     {
         currentHp -= damage;
         updateHealthBar();
@@ -60,6 +77,54 @@ public class CharacterHealth : MonoBehaviour
         }
 
         if (trailHp != null) trailHp.fillAmount = targetRatio;
+    }
+
+    public virtual void ChangeHpBar(elementDebuffType debuffType, bool isActive)
+    {
+        switch (debuffType)
+        {
+            case elementDebuffType.poison: isPoison = isActive; break;
+            case elementDebuffType.Freeze: isFreeze = isActive; break;
+            case elementDebuffType.Burn: isBrun = isActive; break;
+            case elementDebuffType.Paralyzed: isParalyzed = isActive; break;
+            default: return;
+        }
+
+        ApplyHighestPriorityColor();
+    }
+
+    // picks the active debuff with the highest configured priority (Inspector-driven, not hardcoded)
+    private void ApplyHighestPriorityColor()
+    {
+        DebuffHealth best = null;
+
+        foreach (DebuffHealth dh in debuffHealths)
+        {
+            if (!IsDebuffActive(dh.debuffType)) continue;
+            if (best == null || dh.priority > best.priority)
+                best = dh;
+        }
+
+        SetFillColor(best != null ? best.colorImage : normalColor);
+    }
+
+    private bool IsDebuffActive(elementDebuffType type)
+    {
+        switch (type)
+        {
+            case elementDebuffType.poison: return isPoison;
+            case elementDebuffType.Freeze: return isFreeze;
+            case elementDebuffType.Burn: return isBrun;
+            case elementDebuffType.Paralyzed: return isParalyzed;
+            default: return false;
+        }
+    }
+
+    // keeps the bar visible even if a configured color's alpha was left at 0
+    private void SetFillColor(Color color)
+    {
+        color.a = 1f;
+        fillHp.color = color;
     }
 
     protected virtual void Die()

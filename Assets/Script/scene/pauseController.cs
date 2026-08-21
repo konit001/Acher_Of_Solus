@@ -45,12 +45,12 @@ public class PauseController : MonoBehaviour
     {
         if (uiInput.instance.EscapeInput)
         {
-            // 1. เช็คก่อนว่าเปิด Inventory ค้างไว้หรือไม่
-            if (UiPanelController.instance != null && UiPanelController.instance.IsInventoryOpen)
+            // 1. เช็คก่อนว่าเปิดแผง Inventory/Equipment/Skill/Map/Tasks/Codex ค้างไว้หรือไม่
+            if (UiPanelController.instance != null && UiPanelController.instance.IsPanelOpen)
             {
-                // ถ้า Inventory เปิดอยู่ ให้ปิดแค่ Inventory อย่างเดียว แล้วข้ามการทำงานส่วนอื่นไปเลย
+                // ถ้ามีแผงเปิดอยู่ ให้ปิดแผงนั้นอย่างเดียว แล้วข้ามการทำงานส่วนอื่นไปเลย
                 UiPanelController.instance.CloseAll();
-                return; 
+                return;
             }
 
             // 2. ถ้าไม่ได้เปิด Inventory อยู่ ให้จัดการเปิด/ปิด Pause ตามปกติ

@@ -198,7 +198,13 @@ private void ExecuteGunAttack(BaseItemData currentItem, weaponsData weaponInfo)
 
         // สี Damage Pop-up อิงตามธาตุของอาวุธที่โจมตี ผ่าน ElementalManager
         Color popupColor = ElementalManager.GetElementColor(attackElement);
-        targetEnemy.takeDamage(totalDamage * multiple, popupColor, !isCrit);
+        targetEnemy.TakeDamage(totalDamage * multiple, popupColor, !isCrit);
+
+        // elementDebuffType debuffType = ElementDebuffMapper.Map(attackElement);
+        // if (debuffType != elementDebuffType.None)
+        // {
+        //     targetEnemy.GetComponent<ElementalDebuffController>()?.TryToGetElementalDebuff(debuffType, 1f);
+        // }
     }
 
     #endregion

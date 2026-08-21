@@ -32,19 +32,19 @@ public class EnemyHealth : CharacterHealth
         }
     }
 
-    public void takeDamage(float damage, Color popupColor, bool isCrit)
+    public void TakeDamage(float damage, Color popupColor, bool isCrit)
     {
-        base.takeDamage(damage);
+        base.TakeDamage(damage);
         DamagePopUp.Create((int)damage, transform.position + Vector3.up, popupColor, isCrit);
     }
-    public void takeDamage(float damage, Color popupColor)
+    public void TakeDamage(float damage, Color popupColor)
     {
-        takeDamage(damage, popupColor, false);
+        TakeDamage(damage, popupColor, false);
     }
 
-    public override void takeDamage(float damage)
+    public override void TakeDamage(float damage)
     {
-        takeDamage(damage, Color.white, false);
+        TakeDamage(damage, Color.white, false);
     }
 
     protected override void Die()

@@ -85,7 +85,13 @@ public class enemyCombat : MonoBehaviour
         totalDamage = Mathf.Max(totalDamage, 1f);
 
         Debug.Log(totalDamage);
-        targetEnemy.takeDamage(totalDamage);
+        targetEnemy.TakeDamage(totalDamage);
+
+        // elementDebuffType debuffType = ElementDebuffMapper.Map(enemy.elementType);
+        // if (debuffType != elementDebuffType.None)
+        // {
+        //     targetEnemy.GetComponent<ElementalDebuffController>()?.TryToGetElementalDebuff(debuffType, 1f);
+        // }
     }
 
     void OnDrawGizmosSelected()

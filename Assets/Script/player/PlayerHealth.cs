@@ -15,9 +15,9 @@ public class PlayerHealth : CharacterHealth
                  
     }
 
-    public override void takeDamage(float damage)
+    public override void TakeDamage(float damage)
     {
-        base.takeDamage(damage);
+        base.TakeDamage(damage);
     }
 
     // เมื่อผู้เล่นเลือดหมด ฟังก์ชัน Die จาก CharacterHealth จะทำงาน
