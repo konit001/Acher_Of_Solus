@@ -4,7 +4,7 @@ using Player.Input;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerAttack : MonoBehaviour
+public class PlayerAttack : MonoBehaviour, IActionGate
 {
     [Header("References")]
     public Transform attackPoint;
@@ -21,6 +21,7 @@ public class PlayerAttack : MonoBehaviour
     public bool isAttacking { get; private set; }
     public bool canShoot { get; set; } = true;
     public bool isShooting { get; private set; }
+    public bool CanAct { get; set; } = true; // external gate (status effects), separate from the animation locks above
 
     // Internal Variables
     private weaponsData currentAttackWeapon;
@@ -33,7 +34,7 @@ private void Update()
         // ให้ Attack Point หมุนตามการเล็งตลอดเวลา
         RotateAttackPoint();
 
-        if (!canAttack || isAttacking || !canShoot || isShooting) return;
+        if (!canAttack || isAttacking || !canShoot || isShooting || !CanAct) return;
 
         if (userInput.instance.attackLeftInput)
         {
@@ -199,12 +200,6 @@ private void ExecuteGunAttack(BaseItemData currentItem, weaponsData weaponInfo)
         // สี Damage Pop-up อิงตามธาตุของอาวุธที่โจมตี ผ่าน ElementalManager
         Color popupColor = ElementalManager.GetElementColor(attackElement);
         targetEnemy.TakeDamage(totalDamage * multiple, popupColor, !isCrit);
-
-        // elementDebuffType debuffType = ElementDebuffMapper.Map(attackElement);
-        // if (debuffType != elementDebuffType.None)
-        // {
-        //     targetEnemy.GetComponent<ElementalDebuffController>()?.TryToGetElementalDebuff(debuffType, 1f);
-        // }
     }
 
     #endregion

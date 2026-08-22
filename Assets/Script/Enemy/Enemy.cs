@@ -2,7 +2,7 @@ using UnityEngine;
 
 // แทนที่ EnemyBase เดิม: mirror pattern เดียวกับ playerControl.cs
 // คือ Core subclass เป็นคนเรียก setupInstances() เอง + selectState() + stateMacines.state.Do() เอง
-public abstract class Enemy : Core
+public abstract class Enemy : Core, IMoveSpeedModifiable
 {
     public enemyStatus enemy;
 
@@ -13,6 +13,15 @@ public abstract class Enemy : Core
     public float patrolDir = 1f;
     public bool isFacingRight = true;
     [HideInInspector] public float startPoint;
+    public float moveSpeedMultiplier = 1f;
+
+    float IMoveSpeedModifiable.MoveSpeedMultiplier
+    {
+        get => moveSpeedMultiplier;
+        set => moveSpeedMultiplier = value;
+    }
+
+    bool IMoveSpeedModifiable.ResistsFullStop => enemy != null && enemy.isBoss;
 
     [Header("State Machine & Combat")]
     public enemyCombat combat; 

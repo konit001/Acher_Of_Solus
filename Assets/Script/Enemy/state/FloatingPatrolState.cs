@@ -18,6 +18,6 @@ public class FloatingPatrolState : patrolState
             return;
         }
 
-        rb.linearVelocity = new Vector2(floatCore.enemy.basespeed * floatCore.patrolDir, 0f);
+        rb.linearVelocity = new Vector2(floatCore.enemy.basespeed * floatCore.patrolDir * floatCore.moveSpeedMultiplier, 0f);
     }
 }

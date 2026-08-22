@@ -12,3 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc75befb07e65b3469725c1dfa8d48f8, type: 3}
   m_Name: _Freeze
   m_EditorClassIdentifier: Assembly-CSharp::WaterEffectSO
+  effectName: 
+  duration: 2.5
+  tickInterval: 1
+  icon: {fileID: -1703894955, guid: 280dc195d6c824941a6b5dc433278266, type: 3}
+  statusEffectType: 2
+  element: 3
+  elementDebuff: 4
+  generalDebuff: 0
+  statModifiers:
+  - status: 8
+    value: 0
+  maxStack: 1
+  refreshDurationOnStack: 1
+  vfxPrefab: {fileID: 0}
+  slowMultiplier: 0.2

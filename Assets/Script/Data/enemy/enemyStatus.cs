@@ -9,6 +9,7 @@ public class enemyStatus : ScriptableObject
     public enemyType enemyType;
     public ElementType elementType;
     public int ExpReward;
+    public bool isBoss;
 
     [Space(10)]
     [Header("Base Stats")]

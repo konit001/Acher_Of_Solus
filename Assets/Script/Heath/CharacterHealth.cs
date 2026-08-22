@@ -25,9 +25,11 @@ public class CharacterHealth : MonoBehaviour , IDamageable
     protected float maxHealth;
     protected Coroutine trailCoroutine;
 
+    public float MaxHealth => maxHealth;
+
     [Header("Debuff Settings")]
     public DebuffHealth[] debuffHealths;
-    public bool isBrun;
+    public bool isBurn;
     public bool isFreeze;
     public bool isPoison;
     public bool isParalyzed;
@@ -85,7 +87,7 @@ public class CharacterHealth : MonoBehaviour , IDamageable
         {
             case elementDebuffType.poison: isPoison = isActive; break;
             case elementDebuffType.Freeze: isFreeze = isActive; break;
-            case elementDebuffType.Burn: isBrun = isActive; break;
+            case elementDebuffType.Burn: isBurn = isActive; break;
             case elementDebuffType.Paralyzed: isParalyzed = isActive; break;
             default: return;
         }
@@ -114,7 +116,7 @@ public class CharacterHealth : MonoBehaviour , IDamageable
         {
             case elementDebuffType.poison: return isPoison;
             case elementDebuffType.Freeze: return isFreeze;
-            case elementDebuffType.Burn: return isBrun;
+            case elementDebuffType.Burn: return isBurn;
             case elementDebuffType.Paralyzed: return isParalyzed;
             default: return false;
         }

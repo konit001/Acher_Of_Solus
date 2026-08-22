@@ -1,11 +1,18 @@
 using UnityEngine;
 
-public class enemyCombat : MonoBehaviour
+public class enemyCombat : MonoBehaviour, IActionGate
 {
     public enemyStatus enemy;
     public GameObject enemyHpbar;
     public bool isAttacking;
     public bool isAttacked;
+    public bool canAct = true;
+
+    bool IActionGate.CanAct
+    {
+        get => canAct;
+        set => canAct = value;
+    }
 
     [Header("detect")]
     public GameObject detectCheck;
@@ -26,6 +33,8 @@ public class enemyCombat : MonoBehaviour
 
     public void ExecuteShoot()
     {
+        if (!canAct) return;
+
         fireTimer += Time.deltaTime;
 
         if (fireTimer >= fireInterval)
@@ -86,12 +95,6 @@ public class enemyCombat : MonoBehaviour
 
         Debug.Log(totalDamage);
         targetEnemy.TakeDamage(totalDamage);
-
-        // elementDebuffType debuffType = ElementDebuffMapper.Map(enemy.elementType);
-        // if (debuffType != elementDebuffType.None)
-        // {
-        //     targetEnemy.GetComponent<ElementalDebuffController>()?.TryToGetElementalDebuff(debuffType, 1f);
-        // }
     }
 
     void OnDrawGizmosSelected()

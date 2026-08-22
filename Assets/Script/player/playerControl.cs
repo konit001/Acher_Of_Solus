@@ -3,7 +3,7 @@ using Player.Input;
 using Unity.Mathematics;
 using UnityEngine;
 
-public class playerControl : Core
+public class playerControl : Core, IMoveSpeedModifiable
 {
     [Header("Components & References")]
     public Transform visualTransform;
@@ -13,6 +13,15 @@ public class playerControl : Core
     [Header("Player Stats & Movement")]
     public playerStatus playerStats;
     public float currentSpeed = 0f;
+    public float moveSpeedMultiplier = 1f;
+
+    float IMoveSpeedModifiable.MoveSpeedMultiplier
+    {
+        get => moveSpeedMultiplier;
+        set => moveSpeedMultiplier = value;
+    }
+
+    bool IMoveSpeedModifiable.ResistsFullStop => true;
 
     [Header("Attack")]
     public PlayerAttack attackScript;
@@ -134,7 +143,7 @@ public class playerControl : Core
 
         if (inputDir.sqrMagnitude > 0.01f)
         {
-            Vector2 targetVelocity = inputDir * playerStats.maxSpeed;
+            Vector2 targetVelocity = inputDir * playerStats.maxSpeed * moveSpeedMultiplier;
             float t = 1f - Mathf.Exp(-playerStats.acceleration * Time.fixedDeltaTime);
             rb.linearVelocity = Vector2.Lerp(rb.linearVelocity, targetVelocity, t);
             rb.linearDamping = 0f;

@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [System.Serializable]
-public class StatusEffectList
+public class StatusEffectEntry
 {
     public StatusEffectSO effectSO;
     public StatusEffectType effectType;
@@ -12,10 +12,25 @@ public class StatusEffectList
 
 public class StatusEffectManager : MonoBehaviour
 {
-    public List<StatusEffectList> Effect = new List<StatusEffectList>();
+    public static StatusEffectManager Instance;
+
+    public List<StatusEffectEntry> Effect = new List<StatusEffectEntry>();
 
     public StatusEffectController Player;
     public List<StatusEffectController> Enemy = new List<StatusEffectController>();
+
+    void Awake()
+    {
+        Instance = this;
+    }
+
+    // priorities are authored in the Inspector but nothing reads them yet
+    public int GetPriority(StatusEffectSO effectSO)
+    {
+        foreach (StatusEffectEntry entry in Effect)
+            if (entry.effectSO == effectSO) return entry.Priority;
+        return 0;
+    }
 
     void Start()
     {

@@ -12,6 +12,6 @@ public class GroundPatrolState : patrolState
             return;
         }
 
-        rb.linearVelocity = new Vector2(groundCore.enemy.basespeed * groundCore.patrolDir, rb.linearVelocity.y);
+        rb.linearVelocity = new Vector2(groundCore.enemy.basespeed * groundCore.patrolDir * groundCore.moveSpeedMultiplier, rb.linearVelocity.y);
     }
 }
