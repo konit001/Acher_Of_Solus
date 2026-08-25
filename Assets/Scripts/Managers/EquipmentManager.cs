@@ -1,6 +1,8 @@
 using UnityEngine;
 
-public class EquipmentManager : MonoBehaviour
+// หน้า Equipment — เก็บ weapon กับ artifact ในกองของหน้าตัวเอง (สืบทอดมาจาก ItemStorage)
+// และดูแลช่องสวมใส่ (socket) ทั้งอาวุธและ artifact
+public class EquipmentManager : ItemStorage
 {
     public static EquipmentManager instance;
 
@@ -8,21 +10,52 @@ public class EquipmentManager : MonoBehaviour
     [SerializeField] private weaponSlot[] hudWeaponSlots;
     [SerializeField] private ArtifactSlot[] artifactSlots;
 
-       private InventoryManager inventoryManager
-        => InventoryManager.instance;
+    [Header("--- ฝั่งขวาของหน้า Equipment ---")]
+    [Tooltip("GameObject 'EquipmentItem' ที่เป็นกริดเก็บของ — โชว์ตอนแท็บ Weapon / Artifact")]
+    [SerializeField] private GameObject itemGridRoot;
+    [Tooltip("GameObject 'SkillTree' — โชว์ตอนแท็บ Charector")]
+    [SerializeField] private GameObject skillTreeRoot;
 
     void Awake()
     {
         if (instance == null) instance = this;
         else Destroy(gameObject);
     }
-    public void Start()
+
+    // ─── แท็บย่อย ─────────────────────────────────────────────
+
+    // แท็บ Charector ไม่รับ item เลย โชว์ skill tree แทนกริด
+    public void ShowCategory(EquipmentCategory category)
     {
-        
+        bool isCharector = category == EquipmentCategory.Charector;
+
+        if (skillTreeRoot != null) skillTreeRoot.SetActive(isCharector);
+        if (itemGridRoot != null) itemGridRoot.SetActive(!isCharector);
+
+        if (!isCharector) DisplayItems();
     }
+
+    // ของถูกเก็บรวมกันทั้ง weapon และ artifact แท็บมีผลแค่ตอนแสดงเท่านั้น
+    protected override bool ShouldDisplay(BaseItemData item)
+    {
+        if (item == null || UiPanelController.instance == null) return false;
+
+        switch (UiPanelController.instance.CurrentCategory)
+        {
+            case EquipmentCategory.Weapon:
+                return item.itemType == ItemType.Weapon;
+
+            case EquipmentCategory.Artifact:
+                return item.itemType == ItemType.Artifact;
+
+            default:
+                return false;   // แท็บ Charector ซ่อนกริดอยู่แล้ว ไม่ต้องวาดอะไร
+        }
+    }
+
     // ─── Weapon ───────────────────────────────────────────────
 
-    public void EquipWeapon(BaseItemData weapon)
+    public void EquipWeapon(weaponsData weapon)
     {
         if (weapon == null || weapon.itemType != ItemType.Weapon) return;
 
@@ -43,35 +76,32 @@ public class EquipmentManager : MonoBehaviour
         if (isFull)
         {
             targetIndex = 0;
-            inventoryManager.AddItem(weaponSlots[targetIndex].GetCurrentItem());
+            AddItem(weaponSlots[targetIndex].GetCurrentItem());
         }
 
         weaponSlots[targetIndex].SetItem(weapon, 1);
         hudWeaponSlots[targetIndex].SetItem(weapon, 1);
-        inventoryManager.RemoveItem(weapon);
+        RemoveItem(weapon);
     }
 
     public void UnEquipWeapon(Slot slotType)
     {
         int index = (int)slotType;
-        inventoryManager.AddItem(weaponSlots[index].GetCurrentItem());
+        AddItem(weaponSlots[index].GetCurrentItem());
         weaponSlots[index].Clear();
         hudWeaponSlots[index].Clear();
     }
 
     // ─── Artifact ─────────────────────────────────────────────
 
-    public void EquipArtifact(BaseItemData artifact)
+    public void EquipArtifact(artifactData artifact)
     {
         if (artifact == null || artifact.itemType != ItemType.Artifact) return;
-
-        artifactData artiData = artifact as artifactData;
-        if (artiData == null) return;
 
         int targetIndex = -1;
         for (int i = 0; i < artifactSlots.Length; i++)
         {
-            if (artifactSlots[i].artifactType == artiData.artifactType)
+            if (artifactSlots[i].artifactType == artifact.artifactType)
             {
                 targetIndex = i;
                 break;
@@ -80,22 +110,21 @@ public class EquipmentManager : MonoBehaviour
 
         if (targetIndex == -1)
         {
-            Debug.LogWarning("ไม่มีช่องสวมใส่สำหรับ Artifact ประเภท: " + artiData.artifactType);
+            Debug.LogWarning("ไม่มีช่องสวมใส่สำหรับ Artifact ประเภท: " + artifact.artifactType);
             return;
         }
 
         if (!artifactSlots[targetIndex].IsEmpty)
-            inventoryManager.AddItem(artifactSlots[targetIndex].GetCurrentItem());
+            AddItem(artifactSlots[targetIndex].GetCurrentItem());
 
         artifactSlots[targetIndex].SetItem(artifact, 1);
-        inventoryManager.RemoveItem(artifact);
+        RemoveItem(artifact);
     }
 
     public void UnEquipArtifact(ArtifactSlot slot)
     {
         if (slot == null || slot.IsEmpty) return;
-        inventoryManager.AddItem(slot.GetCurrentItem());
+        AddItem(slot.GetCurrentItem());
         slot.Clear();
     }
 }
-

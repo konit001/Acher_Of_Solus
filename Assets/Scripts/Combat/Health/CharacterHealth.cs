@@ -26,6 +26,7 @@ public class CharacterHealth : MonoBehaviour , IDamageable
     protected Coroutine trailCoroutine;
 
     public float MaxHealth => maxHealth;
+    public bool IsAlive => currentHp > 0f;
 
     [Header("Debuff Settings")]
     public DebuffHealth[] debuffHealths;

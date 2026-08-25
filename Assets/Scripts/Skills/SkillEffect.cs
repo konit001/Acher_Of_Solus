@@ -10,8 +10,7 @@ public class SkillEffect : ScriptableObject
     public Sprite icon;
 
     [Header("Weapon Tree")]
-    public WeaponsType ownerWeaponType;
-    public int tier;
+    public weaponsData ownerWeaponType;
     public SkillEffect requiredPreviousSkill;
 
     [Header("Unlock Cost")]

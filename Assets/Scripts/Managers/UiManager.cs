@@ -35,11 +35,26 @@ public class UiManager : MonoBehaviour
 
     // ─── Public API (delegate ต่อทั้งหมด) ────────────────────
 
+    // ด่านแยกทางจุดเดียวของเกม — ของชิ้นไหนควรอยู่หน้าไหน ตัดสินที่นี่
+    public ItemStorage StorageFor(BaseItemData item)
+        => ItemPageRouting.BelongsToEquipmentPage(item)
+            ? (ItemStorage)equipmentManager
+            : inventoryManager;
+
     public void AddItem(BaseItemData item)
-        => inventoryManager.AddItem(item);
+    {
+        if (item == null) return;
+        StorageFor(item).AddItem(item);
+    }
 
     public void RemoveItem(BaseItemData item)
-        => inventoryManager.RemoveItem(item);
+        => RemoveItem(item, 1);
+
+    public void RemoveItem(BaseItemData item, int amount)
+    {
+        if (item == null) return;
+        StorageFor(item).RemoveItem(item, amount);
+    }
 
     public void UseItem(BaseItemData item)
         => itemUseDispatcher.Dispatch(item);

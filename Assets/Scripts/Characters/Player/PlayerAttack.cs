@@ -25,7 +25,6 @@ public class PlayerAttack : MonoBehaviour, IActionGate
 
     // Internal Variables
     private weaponsData currentAttackWeapon;
-    private ElementType currentMeleeElement;
 
     #region Unity Methods
 
@@ -83,29 +82,29 @@ private void OnDrawGizmos()
     {
         if (currentSlot.IsEmpty) return;
 
-        BaseItemData currentItem = currentSlot.GetCurrentItem();
-        WeaponsType currentWeaponType = currentItem.weaponType;
-        weaponsData weaponInfo = currentItem as weaponsData;
+        weaponsData weaponInfo = currentSlot.GetCurrentItem() as weaponsData;
+        if (weaponInfo == null)
+        {
+            Debug.LogWarning("ไอเทมในช่องนี้ไม่ใช่อาวุธ จึงโจมตีไม่ได้");
+            return;
+        }
+
+        currentAttackWeapon = weaponInfo;   // TriggerSpearDamage ถูกเรียกจาก Animation Event จึงต้องจำอาวุธของไม้นี้ไว้
 
         playerController.FaceAimDirection();
 
-        switch (currentWeaponType)
+        switch (weaponInfo.weaponType)
         {
             case WeaponsType.Spear:
-                if (weaponInfo != null)
-                {
-                    currentMeleeElement = weaponInfo.elementType;
-                    Debug.Log($"[PlayerAttack] ธาตุจากอาวุธ '{weaponInfo.itemName}' = {currentMeleeElement}");
-                }
                 ExecuteSpearAttack();
                 break;
 
             case WeaponsType.Gun:
-                ExecuteGunAttack(currentItem, weaponInfo);
+                ExecuteGunAttack(weaponInfo);
                 break;
 
             default:
-                Debug.LogWarning($"ยังไม่ได้เขียนโค้ดโจมตีสำหรับอาวุธชนิดนี้: {currentWeaponType}");
+                Debug.LogWarning($"ยังไม่ได้เขียนโค้ดโจมตีสำหรับอาวุธชนิดนี้: {weaponInfo.weaponType}");
                 break;
         }
     }
@@ -116,9 +115,9 @@ private void OnDrawGizmos()
         StartCoroutine(AttackRoutine(playerController.SpearAttackState));
     }
 
-private void ExecuteGunAttack(BaseItemData currentItem, weaponsData weaponInfo)
+private void ExecuteGunAttack(weaponsData weaponInfo)
     {
-        RangedWeaponData gunData = currentItem as RangedWeaponData;
+        RangedWeaponData gunData = weaponInfo as RangedWeaponData;
         if (gunData == null || gunData.bulletPrefab == null) return; 
 
         Vector2 aimDir = playerController.aimDirection;
@@ -135,10 +134,10 @@ private void ExecuteGunAttack(BaseItemData currentItem, weaponsData weaponInfo)
             {
                 bulletScript.Setup(gunData.bulletSpeed, gunData.bulletlifetime, enemyLayers, (hitCollider) =>
                 {
-                    EnemyHealth enemy = hitCollider.GetComponent<EnemyHealth>();
+                    EnemyHealth enemy = hitCollider.GetComponentInParent<EnemyHealth>();
                     if (enemy != null)
                     {
-                        DamageCalculation(enemy, 0.1f, weaponInfo.elementType);
+                        DamageCalculation(enemy, 0.1f, weaponInfo);
                     }
                 });
             }
@@ -165,24 +164,41 @@ private void ExecuteGunAttack(BaseItemData currentItem, weaponsData weaponInfo)
 
         foreach (Collider2D enemy in hitEnemies)
         {
-            EnemyHealth hitEnemyHealth = enemy.GetComponent<EnemyHealth>();
+            EnemyHealth hitEnemyHealth = enemy.GetComponentInParent<EnemyHealth>();
 
             if (hitEnemyHealth != null && hitAlready.Add(hitEnemyHealth))
             {
-                DamageCalculation(hitEnemyHealth, 0.25f, currentMeleeElement);
+                DamageCalculation(hitEnemyHealth, 0.25f, currentAttackWeapon);
             }
         }
     }
 
-    public void DamageCalculation(EnemyHealth targetEnemy, float multiple, ElementType attackElement)
+    public void DamageCalculation(EnemyHealth targetEnemy, float multiple, weaponsData attackWeapon)
     {
-        // --- Player Damage Calculation ---
-        float damage = playerStats.baseAttack * (1 + playerStats.ElementalBonus / 100f);
-        bool isCrit = Random.Range(0f, 100f) <= playerStats.CritRate;
+        ElementType attackElement = attackWeapon != null ? attackWeapon.elementType : ElementType.None;
+
+        // --- Player + Weapon Damage Calculation ---
+        // ค่าสถานะของอาวุธจะแรงขึ้นตามเลเวลของอาวุธเล่มนั้น
+        float weaponMultiplier = GetWeaponMultiplier(attackWeapon);
+
+        float totalAttack = playerStats.baseAttack + GetWeaponBaseAttack(attackWeapon) * weaponMultiplier;
+        float totalElementalBonus = playerStats.ElementalBonus;
+        float totalCritRate = playerStats.CritRate;
+        float totalCritDamage = playerStats.CritDamage;
+
+        if (attackWeapon != null)
+        {
+            totalElementalBonus += attackWeapon.ElementalBonus * weaponMultiplier;
+            totalCritRate += attackWeapon.CritRate * weaponMultiplier;
+            totalCritDamage += attackWeapon.CritDamage * weaponMultiplier;
+        }
+
+        float damage = totalAttack * (1 + totalElementalBonus / 100f);
+        bool isCrit = Random.Range(0f, 100f) <= Mathf.Clamp(totalCritRate, 0f, 100f);
         
         if (isCrit)
         {
-            float cirtMult = (1 + playerStats.CritDamage / 100f) * 1.25f;
+            float cirtMult = (1 + totalCritDamage / 100f) * 1.25f;
             damage *= cirtMult;
         }
 
@@ -200,6 +216,38 @@ private void ExecuteGunAttack(BaseItemData currentItem, weaponsData weaponInfo)
         // สี Damage Pop-up อิงตามธาตุของอาวุธที่โจมตี ผ่าน ElementalManager
         Color popupColor = ElementalManager.GetElementColor(attackElement);
         targetEnemy.TakeDamage(totalDamage * multiple, popupColor, !isCrit);
+
+        // ติดสถานะได้เฉพาะเป้าหมายที่ยังไม่ตายจากหมัดนี้ — โชคของผู้เล่นบวกโชคของอาวุธ
+        if (targetEnemy.IsAlive)
+        {
+            float luck = Mathf.Clamp(playerStats.Luck + (attackWeapon != null ? attackWeapon.Luck : 0f), 0f, 100f);
+            Debug.Log($"[OnHit] PlayerAttack → manager {(StatusEffectManager.Instance != null ? "พร้อม" : "= null!")} | อาวุธ = {(attackWeapon != null ? attackWeapon.itemName : "null")} | playerLuck {playerStats.Luck} + weaponLuck {(attackWeapon != null ? attackWeapon.Luck : 0f)} = {luck}");
+            StatusEffectManager.Instance?.TryApplyOnHit(targetEnemy.gameObject, attackElement, luck);
+        }
+        else
+        {
+            Debug.Log("[OnHit] PlayerAttack → ศัตรูตายจากหมัดนี้แล้ว ข้ามการติดสถานะ");
+        }
+    }
+
+    // ค่าโจมตีพื้นฐานของอาวุธ (ยังไม่คิดเลเวล)
+    private float GetWeaponBaseAttack(weaponsData weapon)
+    {
+        MeleeWeaponData melee = weapon as MeleeWeaponData;
+        if (melee != null) return melee.MeleeAttack;
+
+        RangedWeaponData ranged = weapon as RangedWeaponData;
+        if (ranged != null) return ranged.rangedAttack;
+
+        return 0f;
+    }
+
+    // ตัวคูณค่าสถานะตามเลเวลของอาวุธ — ไม่มีอาวุธหรือยังไม่มีตัวจัดการก็คือ 1 เท่า
+    private float GetWeaponMultiplier(weaponsData weapon)
+    {
+        if (weapon == null || WeaponProgressManager.instance == null) return 1f;
+
+        return WeaponProgressManager.instance.GetStatMultiplier(weapon);
     }
 
     #endregion

@@ -16,10 +16,10 @@ public class ItemUseDispatcher : MonoBehaviour
                 lootManager.OpenLootBag(item);
                 break;
             case ItemType.Weapon:
-                equipmentManager.EquipWeapon(item);
+                equipmentManager.EquipWeapon(item as weaponsData);
                 break;
             case ItemType.Artifact:
-                equipmentManager.EquipArtifact(item);
+                equipmentManager.EquipArtifact(item as artifactData);
                 break;
             case ItemType.Consumable:
                 // consumableManager.Use(item); ← เพิ่มทีหลังได้เลย

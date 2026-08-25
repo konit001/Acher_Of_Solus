@@ -65,7 +65,7 @@ public class enemyCombat : MonoBehaviour, IActionGate
                 {
                     bulletScript.Setup(10f, 3f, playerLayer, (hitCollider) =>
                     {
-                        PlayerHealth playerHealth = hitCollider.GetComponent<PlayerHealth>();
+                        PlayerHealth playerHealth = hitCollider.GetComponentInParent<PlayerHealth>();
                         if (playerHealth != null)
                         {
                             DamageCalculation(playerHealth);
@@ -95,6 +95,17 @@ public class enemyCombat : MonoBehaviour, IActionGate
 
         Debug.Log(totalDamage);
         targetEnemy.TakeDamage(totalDamage);
+
+        // ติดสถานะได้เฉพาะเป้าหมายที่ยังไม่ตายจากหมัดนี้ — ฝั่งศัตรูใช้โชคของตัวเองตัวเดียว ไม่มีอาวุธมาบวก
+        if (targetEnemy.IsAlive)
+        {
+            Debug.Log($"[OnHit] enemyCombat → manager {(StatusEffectManager.Instance != null ? "พร้อม" : "= null!")} | ธาตุ = {enemy.elementType} | enemyLuck = {enemy.Luck}");
+            StatusEffectManager.Instance?.TryApplyOnHit(targetEnemy.gameObject, enemy.elementType, enemy.Luck);
+        }
+        else
+        {
+            Debug.Log("[OnHit] enemyCombat → ผู้เล่นตายจากนัดนี้แล้ว ข้ามการติดสถานะ");
+        }
     }
 
     void OnDrawGizmosSelected()

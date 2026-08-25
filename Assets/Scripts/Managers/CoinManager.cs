@@ -20,6 +20,17 @@ public class CoinManager : MonoBehaviour
         UpdateUI(); 
     }
 
+    public bool HasCoin(int amount)
+    {
+        return CoinCount >= amount;
+    }
+
+    public void SpendCoin(int amount)
+    {
+        CoinCount = Mathf.Max(0, CoinCount - amount);
+        UpdateUI();
+    }
+
     private void UpdateUI()
     {
         if (coinText != null)

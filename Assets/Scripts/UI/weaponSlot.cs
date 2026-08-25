@@ -1,49 +1,81 @@
 using UnityEngine;
-using TMPro;
-using UnityEngine.UI;
-using UnityEngine.EventSystems;
 
 public enum Slot { Slot1, Slot2 }
 
-public class weaponSlot : MonoBehaviour, IPointerClickHandler
+public class weaponSlot : SlotBase
 {
     public Slot slot;
-    public Image icon;
-    private BaseItemData currentItem;
-    public bool IsEmpty => currentItem == null;
-    public BaseItemData GetCurrentItem() => currentItem;
-    public void SetItem(BaseItemData item, int amount)
+
+    // ไม่ Clear() ตอน Awake — มี script แจกอาวุธเริ่มต้นและบังคับสวมใส่ให้ตั้งแต่เริ่มเกม
+
+    void OnEnable()
     {
-        currentItem = item;
-        icon.color = Color.white;
-        icon.sprite = item.itemImage;
+        if (WeaponProgressManager.instance != null)
+            WeaponProgressManager.instance.OnWeaponUpgraded += OnWeaponUpgraded;
+
+        if (!IsEmpty) ShowInfo();   // เปิดแผงทีหลังก็ยังเห็นค่าล่าสุด
     }
 
-    public void Clear()
+    void OnDisable()
     {
-        currentItem = null;
-        icon.color = new Color(1, 1, 1, 0);
-        icon.sprite = null;
+        if (WeaponProgressManager.instance != null)
+            WeaponProgressManager.instance.OnWeaponUpgraded -= OnWeaponUpgraded;
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    // อาวุธเล่มเดียวกันโชว์อยู่ทั้งช่อง HUD และช่องในแผง Equipment จึงต้องรีเฟรชทั้งคู่
+    private void OnWeaponUpgraded(weaponsData weapon)
     {
-        if (IsEmpty) return;
-        if (eventData.button == PointerEventData.InputButton.Right && UiPanelController.instance.IsInventoryOpen == true)
+        if (currentItem == weapon) ShowInfo();
+    }
+
+    protected override void ShowInfo()
+    {
+        base.ShowInfo();            // ไอคอน + ชื่อ แล้วซ่อนกลุ่มเลเวลไว้ก่อน
+
+        weaponsData weapon = currentItem as weaponsData;
+        if (weapon == null || weapon.levelData == null) return;   // อาวุธที่ยังไม่ผูกตารางอัปเกรด โชว์แค่ชื่อพอ
+        if (WeaponProgressManager.instance == null) return;
+
+        ShowLevel(weapon);
+        ShowMaterials(weapon);
+        ShowUpgradeButton(weapon);
+    }
+
+    private void ShowLevel(weaponsData weapon)
+    {
+        int level = WeaponProgressManager.instance.GetLevel(weapon);
+        int maxLevel = weapon.levelData.maxLevel;
+
+        if (_Level != null) _Level.text = level + "/" + maxLevel;
+        if (_LevelFill != null) _LevelFill.fillAmount = maxLevel > 0 ? (float)level / maxLevel : 0f;
+    }
+
+    private void ShowMaterials(weaponsData weapon)
+    {
+        if (_Materials == null) return;
+
+        WeaponLevelData.UpgradeStep step = WeaponProgressManager.instance.GetNextStep(weapon);
+
+        if (step == null || WeaponProgressManager.instance.IsMaxLevel(weapon))
         {
-            UiManager.instance.UnEquipWeapon(this.slot);
+            _Materials.HideAll();          // เลเวลเต็มแล้วไม่ต้องโชว์วัสดุ
+            return;
         }
+
+        _Materials.ShowCosts(step.materials);
     }
 
-    // public void OnDrop(PointerEventData eventData)
-    // {
-    //     if (currentItem == null)
-    //     {
-    //         GameObject dropped = eventData.pointerDrag;
-    //         if (dragableItem != null)
-    //         {
-    //             dragableItem.parentAfterDrag = transform;
-    //         }
-    //     }
-    // }
+    private void ShowUpgradeButton(weaponsData weapon)
+    {
+        if (_Upgrade == null) return;
+
+        _Upgrade.onClick.RemoveAllListeners();
+        _Upgrade.onClick.AddListener(() => WeaponProgressManager.instance.Upgrade(weapon));
+        _Upgrade.interactable = WeaponProgressManager.instance.CanUpgrade(weapon);
+    }
+
+    protected override void OnRightClickInMenu()
+    {
+        UiManager.instance.UnEquipWeapon(slot);
+    }
 }

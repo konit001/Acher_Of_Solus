@@ -4,7 +4,6 @@ public class LootManager : MonoBehaviour
 {
     public static LootManager instance;
 
-    private InventoryManager inventoryManager;
     private CoinManager coinManager;
 
     void Awake()
@@ -15,7 +14,6 @@ public class LootManager : MonoBehaviour
 
     void Start()
     {
-        inventoryManager = InventoryManager.instance;
         coinManager = FindFirstObjectByType<CoinManager>();
     }
 
@@ -37,7 +35,7 @@ public class LootManager : MonoBehaviour
             GiveLoot(loot);
         }
 
-        inventoryManager.RemoveItem(lootBagItem);
+        UiManager.instance.RemoveItem(lootBagItem);
     }
 
     // ─── Private ──────────────────────────────────────────────
@@ -50,7 +48,7 @@ public class LootManager : MonoBehaviour
     private void GiveLoot(lootItem loot)
     {
         for (int i = 0; i < loot.dropAmount; i++)
-            inventoryManager.AddItem(loot.itemData);
+            UiManager.instance.AddItem(loot.itemData);
 
         if (loot.itemData.itemType == ItemType.Coin)
             coinManager.AddCoin(loot.dropAmount);

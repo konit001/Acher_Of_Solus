@@ -7,6 +7,8 @@ public enum ItemType { Coin, Material, Consumable, Artifact, Orb, Weapon, LootBa
 public enum MouseChange { Normal, Attack }
 public enum WeaponsType { none, Spear, Gun, Sword, Bow, Staff, Dagger }
 public enum ArtifactType { Brooch, Ear, Ring, Scepter }
+// แท็บย่อยของหน้า Equipment — ลำดับต้องตรงกับ categoryBar ที่ผูกไว้ใน MenuBarController
+public enum EquipmentCategory { Charector, Weapon, Artifact }
 public enum StatusType { None, Health, Stamina, Attack, ElementalBonus, Defend, CritRate, CritDamage, Speed }
 
 

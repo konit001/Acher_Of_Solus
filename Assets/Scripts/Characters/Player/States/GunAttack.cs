@@ -10,7 +10,7 @@ public class GunAttack : State
     }
     public override void Do()
     {
-        Debug.Log($"Current Time: {time} / Anim Length: {anim.length}");
+        // Debug.Log($"Current Time: {time} / Anim Length: {anim.length}");
         if (time >= anim.length)
         {
             IsComplete = true;

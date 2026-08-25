@@ -25,6 +25,8 @@ public class playerStatus : ScriptableObject
     public float ElementalBonus;
     [Range(0f, 100f)] public float CritRate;
     public float CritDamage;
+    [Tooltip("โอกาสทำให้เป้าหมายติดสถานะตามธาตุ (%)")]
+    [Range(0f, 100f)] public float Luck;
 
     [Space(10)]
     [Header("Defensive Stats")]

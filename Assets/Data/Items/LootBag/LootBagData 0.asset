@@ -15,7 +15,6 @@ MonoBehaviour:
   itemName: 
   description: 
   itemType: 6
-  weaponType: 0
   itemImage: {fileID: -3290573182547071134, guid: dbe8842a9a5310a47b212c4e28b34c54, type: 3}
   rarity: 0
   possibleContents:
@@ -47,3 +46,19 @@ MonoBehaviour:
     dropPrefab: {fileID: 7359375617285306540, guid: 2c58adffd5670d7448d0019739a2d5fa, type: 3}
     dropChance: 100
     dropAmount: 1
+  - itemData: {fileID: 11400000, guid: f5b162d20ad98d5449ecc2b52d82258b, type: 2}
+    dropPrefab: {fileID: 268782468946212182, guid: f046f2cccf723034eae01a8b984e2a39, type: 3}
+    dropChance: 100
+    dropAmount: 26
+  - itemData: {fileID: 11400000, guid: 396794bcfeb2ab44b923a3d6fd6a8acf, type: 2}
+    dropPrefab: {fileID: 1922218839837942245, guid: e04405c8ea042914c92a97801954f9f2, type: 3}
+    dropChance: 100
+    dropAmount: 20
+  - itemData: {fileID: 11400000, guid: 18b20fd5512f58e4189037843575b481, type: 2}
+    dropPrefab: {fileID: 7359375617285306540, guid: 2c58adffd5670d7448d0019739a2d5fa, type: 3}
+    dropChance: 100
+    dropAmount: 35
+  - itemData: {fileID: 11400000, guid: 037650f257446ab41b73d21887c9b8dc, type: 2}
+    dropPrefab: {fileID: 5211831497543965116, guid: be4902c1c008fd247a6d1c0d9196d5bf, type: 3}
+    dropChance: 100
+    dropAmount: 27

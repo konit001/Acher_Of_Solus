@@ -25,6 +25,7 @@ MonoBehaviour:
   ElementalBonus: 20
   CritRate: 50
   CritDamage: 100
+  Luck: 100
   Defend: 100
   ResistanceDamage: 56
   dashSpeed: 45

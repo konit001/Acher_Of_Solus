@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3b74185688dbc04a9bb7cbd40b3b72b, type: 3}
+  m_Name: _MegaBlast
+  m_EditorClassIdentifier: Assembly-CSharp::ActiveSkillData
+  skillId: 1000
+  skillName: MegaBlast
+  description: 
+  icon: {fileID: 0}
+  ownerWeaponType: {fileID: 0}
+  requiredPreviousSkill: {fileID: 0}
+  skillPointCost: 0
+  cooldown: 0
+  castAnim: {fileID: 0}
+  castEffectPrefab: {fileID: 0}
+  castSfx: {fileID: 0}

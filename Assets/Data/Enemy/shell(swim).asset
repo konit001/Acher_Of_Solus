@@ -15,8 +15,9 @@ MonoBehaviour:
   characterName: shell
   description: 
   enemyType: 2
-  elementType: 0
+  elementType: 3
   ExpReward: 25
+  isBoss: 0
   maxHealth: 1010
   basespeed: 4
   stamina: 0
@@ -24,6 +25,7 @@ MonoBehaviour:
   ElementalBonus: 12
   CritRate: 77.4
   CritDamage: 1
+  Luck: 100
   Defend: 25
   ResistanceDamage: 46.8
   ElementalResistance: 55

@@ -34,11 +34,10 @@ public class ItemSlotUI : MonoBehaviour , IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if(eventData.button == PointerEventData.InputButton.Right)
-        {
-            Debug.Log("CLICK! button=" + eventData.button + " currentItem=" + currentItem);
-            UiManager.instance.UseItem(currentItem);
-        }
+        if (currentItem == null) return;
+        if (eventData.button != PointerEventData.InputButton.Right) return;
+
+        UiManager.instance.UseItem(currentItem);
     }
 
 
