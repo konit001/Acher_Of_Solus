@@ -3,10 +3,21 @@ using TMPro;
 
 public class CoinManager : MonoBehaviour
 {
+    public static CoinManager instance;
+
     public int CoinCount;
     private int MaxCoinCount = 999;
     public TextMeshProUGUI coinText;
-    
+
+    // ยิงทุกครั้งที่เหรียญเปลี่ยน — ให้ปุ่ม Upgrade ในแผง Equipment รีเฟรชสถานะตาม
+    public event System.Action OnCoinChanged;
+
+    void Awake()
+    {
+        if (instance == null) instance = this;
+        else Destroy(gameObject);
+    }
+
     void Start()
     {
         CoinCount = 0;
@@ -16,8 +27,9 @@ public class CoinManager : MonoBehaviour
     {
         CoinCount += amount;
         CoinCount = Mathf.Clamp(CoinCount, 0, MaxCoinCount);
-        
-        UpdateUI(); 
+
+        UpdateUI();
+        OnCoinChanged?.Invoke();
     }
 
     public bool HasCoin(int amount)
@@ -29,6 +41,7 @@ public class CoinManager : MonoBehaviour
     {
         CoinCount = Mathf.Max(0, CoinCount - amount);
         UpdateUI();
+        OnCoinChanged?.Invoke();
     }
 
     private void UpdateUI()

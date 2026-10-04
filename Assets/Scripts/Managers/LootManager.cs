@@ -48,7 +48,7 @@ public class LootManager : MonoBehaviour
     private void GiveLoot(lootItem loot)
     {
         for (int i = 0; i < loot.dropAmount; i++)
-            UiManager.instance.AddItem(loot.itemData);
+            UiManager.instance.CollectItem(loot.itemData);
 
         if (loot.itemData.itemType == ItemType.Coin)
             coinManager.AddCoin(loot.dropAmount);

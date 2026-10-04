@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PassiveSkillData
   skillId: 2000
   skillName: PowerUp
-  description: 
+  description:
+  tier: 0
   icon: {fileID: 0}
-  ownerWeaponType: {fileID: 0}
   requiredPreviousSkill: {fileID: 0}
-  skillPointCost: 0
-  affectedStat: 0
-  statModifierPercent: 0
+  skillPointCost: 1
+  statModifiers:
+  - status: 6
+    value: 5

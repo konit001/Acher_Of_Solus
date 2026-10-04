@@ -1,0 +1,684 @@
+fileFormatVersion: 2
+guid: 60f5f279ab4772a48b45e4909143d2f9
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: strightRedPlsnat_Shaded_Blurlv2_Finished_0
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 2387
+        width: 461
+        height: 1125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d83411c40f7283448bbe8e0e87bf2e17
+      internalID: -1404786847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: strightRedPlsnat_Shaded_Blurlv2_Finished_1
+      rect:
+        serializedVersion: 2
+        x: 1157
+        y: 2387
+        width: 461
+        height: 1125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 359768149d984834794c83c6a8ae5c53
+      internalID: -958017273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: strightRedPlsnat_Shaded_Blurlv2_Finished_2
+      rect:
+        serializedVersion: 2
+        x: 1983
+        y: 2387
+        width: 461
+        height: 1125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e66db37069a85e4497cc179fc1c18e0
+      internalID: -634058550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: strightRedPlsnat_Shaded_Blurlv2_Finished_3
+      rect:
+        serializedVersion: 2
+        x: 2894
+        y: 2387
+        width: 461
+        height: 1125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99c1f58c1e49ee843aad5e0cf2e89436
+      internalID: 1276089892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: strightRedPlsnat_Shaded_Blurlv2_Finished_4
+      rect:
+        serializedVersion: 2
+        x: 3815
+        y: 2387
+        width: 461
+        height: 1125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8eafb4f360d8c4145ae7ce0ef21d164d
+      internalID: 177320216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: strightRedPlsnat_Shaded_Blurlv2_Finished_5
+      rect:
+        serializedVersion: 2
+        x: 4802
+        y: 2387
+        width: 459
+        height: 1125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8037f9644ec3dc04db8830fef439058b
+      internalID: 2091048674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: strightRedPlsnat_Shaded_Blurlv2_Finished_6
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 1386
+        width: 319
+        height: 771
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f79e7e4857659b46bc1856b1a4e45b4
+      internalID: 1674084490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: strightRedPlsnat_Shaded_Blurlv2_Finished_7
+      rect:
+        serializedVersion: 2
+        x: 722
+        y: 1386
+        width: 318
+        height: 773
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8a1c0a33e9f8cb4ab35ed5ad671f7d9
+      internalID: 1023675650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: strightRedPlsnat_Shaded_Blurlv2_Finished_8
+      rect:
+        serializedVersion: 2
+        x: 1113
+        y: 1386
+        width: 318
+        height: 773
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f82d11839bd8620428befc0cb03550b9
+      internalID: 1279952891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: strightRedPlsnat_Shaded_Blurlv2_Finished_9
+      rect:
+        serializedVersion: 2
+        x: 1545
+        y: 1386
+        width: 318
+        height: 773
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5666a92574c04447a91b6dfe09ba981
+      internalID: -1881028428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: strightRedPlsnat_Shaded_Blurlv2_Finished_10
+      rect:
+        serializedVersion: 2
+        x: 1954
+        y: 1386
+        width: 317
+        height: 771
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 058a8c4614fd72943bfe79e9bc1ad197
+      internalID: -212090979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: strightRedPlsnat_Shaded_Blurlv2_Finished_11
+      rect:
+        serializedVersion: 2
+        x: 2385
+        y: 1386
+        width: 318
+        height: 773
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1fb86d04d607204abe8e63beaaeb0db
+      internalID: -130881026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: strightRedPlsnat_Shaded_Blurlv2_Finished_12
+      rect:
+        serializedVersion: 2
+        x: 2836
+        y: 1386
+        width: 318
+        height: 773
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a16b66a44e262644987a73e51414ade
+      internalID: 787989089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: strightRedPlsnat_Shaded_Blurlv2_Finished_13
+      rect:
+        serializedVersion: 2
+        x: 3268
+        y: 1386
+        width: 319
+        height: 773
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e7b6dded40bf8e46885acd64fb41db5
+      internalID: -551207098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: strightRedPlsnat_Shaded_Blurlv2_Finished_14
+      rect:
+        serializedVersion: 2
+        x: 3659
+        y: 1386
+        width: 319
+        height: 773
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b78a15880394d3f4bac3c65cee06ebfe
+      internalID: -981897818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: strightRedPlsnat_Shaded_Blurlv2_Finished_15
+      rect:
+        serializedVersion: 2
+        x: 4092
+        y: 1386
+        width: 318
+        height: 773
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e4d3b5e26da3e1418216fe01821b778
+      internalID: -276232974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: strightRedPlsnat_Shaded_Blurlv2_Finished_16
+      rect:
+        serializedVersion: 2
+        x: 4499
+        y: 1386
+        width: 318
+        height: 773
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c75b49ae21f7fc40a33f71fe4bf55f9
+      internalID: -618761155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: strightRedPlsnat_Shaded_Blurlv2_Finished_17
+      rect:
+        serializedVersion: 2
+        x: 4933
+        y: 1386
+        width: 317
+        height: 773
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c3aa847b7251ee4e8719c5892552906
+      internalID: -827004596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: strightRedPlsnat_Shaded_Blurlv2_Finished_18
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 128
+        width: 461
+        height: 1123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6928164a4c6e4a4409e4fc4247efd68b
+      internalID: -1609507218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: strightRedPlsnat_Shaded_Blurlv2_Finished_19
+      rect:
+        serializedVersion: 2
+        x: 1157
+        y: 128
+        width: 461
+        height: 1122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 176280f0e9f525947a57dd64de178dad
+      internalID: 714091021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: strightRedPlsnat_Shaded_Blurlv2_Finished_20
+      rect:
+        serializedVersion: 2
+        x: 1983
+        y: 128
+        width: 461
+        height: 1122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45d768997e8b97f45afa429805984cc3
+      internalID: 1756486314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: strightRedPlsnat_Shaded_Blurlv2_Finished_21
+      rect:
+        serializedVersion: 2
+        x: 2894
+        y: 128
+        width: 461
+        height: 1122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d95e04afbd04576469f318d9f868f6eb
+      internalID: 1447136307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: strightRedPlsnat_Shaded_Blurlv2_Finished_22
+      rect:
+        serializedVersion: 2
+        x: 3815
+        y: 128
+        width: 461
+        height: 1122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a6d727d518735c4884f1f5a65032196
+      internalID: -168475925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: strightRedPlsnat_Shaded_Blurlv2_Finished_23
+      rect:
+        serializedVersion: 2
+        x: 4802
+        y: 128
+        width: 459
+        height: 1122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 177797a07db5b4d47879c1fba4bb45ac
+      internalID: 643000299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 4cc5f32cc44138f4fbc4c98f21717cb8
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      strightRedPlsnat_Shaded_Blurlv2_Finished_0: -1404786847
+      strightRedPlsnat_Shaded_Blurlv2_Finished_1: -958017273
+      strightRedPlsnat_Shaded_Blurlv2_Finished_10: -212090979
+      strightRedPlsnat_Shaded_Blurlv2_Finished_11: -130881026
+      strightRedPlsnat_Shaded_Blurlv2_Finished_12: 787989089
+      strightRedPlsnat_Shaded_Blurlv2_Finished_13: -551207098
+      strightRedPlsnat_Shaded_Blurlv2_Finished_14: -981897818
+      strightRedPlsnat_Shaded_Blurlv2_Finished_15: -276232974
+      strightRedPlsnat_Shaded_Blurlv2_Finished_16: -618761155
+      strightRedPlsnat_Shaded_Blurlv2_Finished_17: -827004596
+      strightRedPlsnat_Shaded_Blurlv2_Finished_18: -1609507218
+      strightRedPlsnat_Shaded_Blurlv2_Finished_19: 714091021
+      strightRedPlsnat_Shaded_Blurlv2_Finished_2: -634058550
+      strightRedPlsnat_Shaded_Blurlv2_Finished_20: 1756486314
+      strightRedPlsnat_Shaded_Blurlv2_Finished_21: 1447136307
+      strightRedPlsnat_Shaded_Blurlv2_Finished_22: -168475925
+      strightRedPlsnat_Shaded_Blurlv2_Finished_23: 643000299
+      strightRedPlsnat_Shaded_Blurlv2_Finished_3: 1276089892
+      strightRedPlsnat_Shaded_Blurlv2_Finished_4: 177320216
+      strightRedPlsnat_Shaded_Blurlv2_Finished_5: 2091048674
+      strightRedPlsnat_Shaded_Blurlv2_Finished_6: 1674084490
+      strightRedPlsnat_Shaded_Blurlv2_Finished_7: 1023675650
+      strightRedPlsnat_Shaded_Blurlv2_Finished_8: 1279952891
+      strightRedPlsnat_Shaded_Blurlv2_Finished_9: -1881028428
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

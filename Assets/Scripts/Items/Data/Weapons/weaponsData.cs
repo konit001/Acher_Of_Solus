@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 // [CreateAssetMenu(fileName = "weaponsData", menuName = "ItemData/weaponsData")]
@@ -15,17 +16,35 @@ public class weaponsData : BaseItemData
     public float CritDamage;
     [Tooltip("โอกาสทำให้เป้าหมายติดสถานะตามธาตุ (%)")]
     [Range(0f, 100f)] public float Luck;
-    // ค่าเริ่มต้นเท่านั้น — เลเวลตอนเล่นจริงอยู่ที่ WeaponProgressManager
-    // (ห้ามเขียนค่ากลับลงตรงนี้ เพราะจะเป็นการเขียนทับไฟล์ .asset)
     public int level;
 
     [Tooltip("ตารางวัสดุและโบนัสของการอัปเกรด")]
     public WeaponLevelData levelData;
 
+    // ต้องอัพเกรดอาวุธถึงเลเวลนี้ก่อนสกิลตัวนั้นถึงจะ "ปลดล็อกได้" — ปลดล็อกจริงยังต้องใช้ skill point ผ่าน SkillTreeManager
     [Header("Skill Unlock")]
-    public SkillEffect first;
-    public SkillEffect second;
-    public SkillEffect third;
+    public ActiveSkillData first;
+    public int firstUnlockLevel = 1;
+    public ActiveSkillData second;
+    public int secondUnlockLevel = 1;
+    public ActiveSkillData third;
+    public int thirdUnlockLevel = 1;
+
+    public struct WeaponSkillUnlock
+    {
+        public ActiveSkillData skill;
+        public int requiredLevel;
+    }
+
+    public IEnumerable<WeaponSkillUnlock> UnlockableSkills
+    {
+        get
+        {
+            if (first != null) yield return new WeaponSkillUnlock { skill = first, requiredLevel = firstUnlockLevel };
+            if (second != null) yield return new WeaponSkillUnlock { skill = second, requiredLevel = secondUnlockLevel };
+            if (third != null) yield return new WeaponSkillUnlock { skill = third, requiredLevel = thirdUnlockLevel };
+        }
+    }
 
     [Header("FX")]
     public AnimationClip attackAnim;

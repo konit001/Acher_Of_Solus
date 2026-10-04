@@ -19,6 +19,9 @@ public class ObjectPooling : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+
+            // สร้างที่นี่แทน Start() เผื่อมีคนเรียก SpawnFromPool ก่อน Start ของ Object นี้จะรัน
+            poolDictionary = new Dictionary<GameObject, Queue<GameObject>>();
         }
         else
         {
@@ -29,33 +32,53 @@ public class ObjectPooling : MonoBehaviour
 
     public List<Pool> pools;
     public Dictionary<GameObject, Queue<GameObject>> poolDictionary;
+
+    [Tooltip("ขนาด pool ที่สร้างให้อัตโนมัติ เมื่อมีคนขอ prefab ที่ไม่ได้ลงทะเบียนไว้ใน List")]
+    public int defaultPoolSize = 10;
+
     void Start()
     {
-        poolDictionary = new Dictionary<GameObject, Queue<GameObject>>();
-
         foreach (Pool pool in pools)
         {
-            Queue<GameObject> objectPool = new Queue<GameObject>();
-
-            for (int i = 0; i < pool.size; i++)
-            {
-                GameObject obj = Instantiate(pool.prefab);
-                obj.SetActive(false);
-                objectPool.Enqueue(obj);
-            }
-
-            poolDictionary.Add(pool.prefab, objectPool);
+            CreatePool(pool.prefab, pool.size);
         }
+    }
+
+    // แยกออกมาเพื่อให้ทั้งตอน Start และตอนสร้าง pool อัตโนมัติใช้โค้ดชุดเดียวกัน
+    private Queue<GameObject> CreatePool(GameObject prefab, int size)
+    {
+        Queue<GameObject> objectPool = new Queue<GameObject>();
+
+        for (int i = 0; i < size; i++)
+        {
+            GameObject obj = Instantiate(prefab);
+            obj.SetActive(false);
+            objectPool.Enqueue(obj);
+        }
+
+        poolDictionary.Add(prefab, objectPool);
+        return objectPool;
     }
 
     public GameObject SpawnFromPool(GameObject prefab, Vector3 position, Quaternion rotation)
     {
-        if (!poolDictionary.ContainsKey(prefab))
+        if (prefab == null) return null;
+
+        // prefab ของสกิลใหม่ ๆ มักไม่ได้ถูกใส่ใน List ของ Inspector — สร้าง pool ให้เองดีกว่าเงียบหาย
+        if (!poolDictionary.TryGetValue(prefab, out Queue<GameObject> objectPool))
         {
-            return null;
+            objectPool = CreatePool(prefab, defaultPoolSize);
         }
 
-        GameObject objToSpawn = poolDictionary[prefab].Dequeue();
+        GameObject objToSpawn = objectPool.Dequeue();
+
+        // ถ้าตัวหัวคิวยังบินอยู่ แปลว่า pool หมด — สร้างเพิ่มแทนที่จะแย่งกระสุนที่ยังทำงานอยู่มาใช้
+        if (objToSpawn.activeInHierarchy)
+        {
+            objectPool.Enqueue(objToSpawn);
+            objToSpawn = Instantiate(prefab);
+        }
+
         objToSpawn.SetActive(true);
         objToSpawn.transform.position = position;
         objToSpawn.transform.rotation = rotation;
@@ -66,7 +89,7 @@ public class ObjectPooling : MonoBehaviour
             pooledObj.OnObjectSpawn();
         }
 
-        poolDictionary[prefab].Enqueue(objToSpawn);
+        objectPool.Enqueue(objToSpawn);
 
         return objToSpawn;
     }

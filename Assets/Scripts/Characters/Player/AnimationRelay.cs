@@ -4,6 +4,7 @@ public class AnimationRelay : MonoBehaviour
 {
     [Header("References")]
     public PlayerAttack playerAttack; // อ้างอิงไปที่สคริปต์บนตัวแม่
+    public SkillCaster skillCaster;   // ไว้ยิง Animation Event ตอนสกิลถึงจังหวะลงดาเมจ/กระสุน/บัฟ
 
     void Awake()
     {
@@ -11,6 +12,10 @@ public class AnimationRelay : MonoBehaviour
         if (playerAttack == null)
         {
             playerAttack = GetComponentInParent<PlayerAttack>();
+        }
+        if (skillCaster == null)
+        {
+            skillCaster = GetComponentInParent<SkillCaster>();
         }
     }
 
@@ -21,6 +26,15 @@ public class AnimationRelay : MonoBehaviour
         {
             // สั่งให้ตัวแม่ทำดาเมจ
             playerAttack.TriggerSpearDamage();
+        }
+    }
+
+    // มิเรอร์ CallSpearDamage — Animation Event ของคลิป castAnim จะเรียกกลางคลิป
+    public void CallSkillImpact()
+    {
+        if (skillCaster != null)
+        {
+            skillCaster.OnCastImpact();
         }
     }
 }

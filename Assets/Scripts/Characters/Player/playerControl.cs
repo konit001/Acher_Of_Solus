@@ -26,12 +26,16 @@ public class playerControl : Core, IMoveSpeedModifiable
     [Header("Attack")]
     public PlayerAttack attackScript;
 
+    [Header("Skills")]
+    public SkillCaster skillCaster;
+
     [Header("State Machine")]
     public State IdleState;
     public State MoveState;
     public State DashState;
     public State SpearAttackState;
     public State GunAttackState;
+    public State SkillCastState;
 
     [Header("Status Flags")]
     public bool isFacingRight;
@@ -39,6 +43,7 @@ public class playerControl : Core, IMoveSpeedModifiable
     public bool isDashing { get; private set; }
     public bool isAttacking => attackScript != null && attackScript.isAttacking;
     public bool isShooting => attackScript != null && attackScript.isShooting;
+    public bool isCasting => skillCaster != null && skillCaster.isCasting;
     public Vector2 aimDirection { get; private set; } = Vector2.right;
 
     [Header("Look Settings")]
@@ -105,6 +110,11 @@ public class playerControl : Core, IMoveSpeedModifiable
 
     private void selectState()
     {
+        if (isCasting)
+        {
+            stateMacines.set(SkillCastState);
+            return;
+        }
         if (isAttacking)
         {
             stateMacines.set(SpearAttackState);
@@ -237,7 +247,7 @@ public class playerControl : Core, IMoveSpeedModifiable
             shootHoldTimer -= Time.deltaTime;
         }
 
-        isAiming = isAttacking || isShooting || shootHoldTimer > 0f;
+        isAiming = isAttacking || isShooting || isCasting || shootHoldTimer > 0f;
 
         if (isAiming || mainCamera == null) return;
 

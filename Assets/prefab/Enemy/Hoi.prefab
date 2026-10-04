@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FloatingPatrolState
   parent: {fileID: 0}
+  priority: -999
   anim: {fileID: 7400000, guid: 52f581b57855dfc43995621d7f418599, type: 2}
 --- !u!1 &2855003434691003030
 GameObject:
@@ -244,6 +245,7 @@ Transform:
   m_Children:
   - {fileID: 1443112324775065198}
   - {fileID: 9025253867197791340}
+  - {fileID: 5371140068812396724}
   m_Father: {fileID: 1924862050936664656}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3903995187965570042
@@ -533,6 +535,52 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &5286464416961417257
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5371140068812396724}
+  - component: {fileID: 4849067908660753098}
+  m_Layer: 7
+  m_Name: Cooldown
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5371140068812396724
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5286464416961417257}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4729931793370766585}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4849067908660753098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5286464416961417257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ba0f1dc08e6b82418eb49d189b65c1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CooldownState
+  parent: {fileID: 0}
+  priority: 0
 --- !u!1 &5294183942794493685
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,7 +626,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShootState
   parent: {fileID: 0}
+  priority: 0
   shootAnim: {fileID: 0}
+  shotsPerBurst: 3
+  cooldownDuration: 2
 --- !u!1 &5390387760519417895
 GameObject:
   m_ObjectHideFlags: 0
@@ -940,6 +991,10 @@ MonoBehaviour:
     dropPrefab: {fileID: 3808125216207613239, guid: 2c4b4af39867a92438e0597dd8b4d7f4, type: 3}
     dropChance: 100
     dropAmount: 13
+  - itemData: {fileID: 11400000, guid: 8fbe48a56f73ca445b1a8eb9dcd20868, type: 2}
+    dropPrefab: {fileID: 1217320369360677752, guid: db2da71e563d4634c9ac0b57282001c3, type: 3}
+    dropChance: 100
+    dropAmount: 6
 --- !u!114 &8283559570226260240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -954,15 +1009,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FloatingEnemyCore
   animator: {fileID: 5313814844566939978}
   rb: {fileID: 1190670790168654237}
+  childStates:
+  - {fileID: 449942501556920950}
+  - {fileID: 4849067908660753098}
+  - {fileID: 1887601170700460556}
   enemy: {fileID: 11400000, guid: 6567cf8b1947da0458b8e9f9a264e97b, type: 2}
-  enemyType: 0
+  enemyType: 2
   patrolDir: 1
   isFacingRight: 1
   startPoint: 0
   moveSpeedMultiplier: 1
   combat: {fileID: 5586360375808465836}
-  patrolState: {fileID: 1887601170700460556}
-  shootState: {fileID: 449942501556920950}
   patrolDistanceLeft: 6.67
   patrolDistanceRight: 7.52
 --- !u!114 &3196861257815268022
@@ -1004,6 +1061,7 @@ MonoBehaviour:
   firePoint: {fileID: 2347451831420973259}
   enemyBulletPrefab: {fileID: 2296684803298533560, guid: 64fe1c67504cb474aa4411bf20189c42, type: 3}
   fireInterval: 0.5
+  cooldownUntil: 0
 --- !u!114 &-1747665351036660940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1074,15 +1132,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 249992674930317201, guid: 094e45acb320cd54a81d0e63423da91d, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.008888617
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 249992674930317201, guid: 094e45acb320cd54a81d0e63423da91d, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.008888617
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 249992674930317201, guid: 094e45acb320cd54a81d0e63423da91d, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.008888617
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 249992674930317201, guid: 094e45acb320cd54a81d0e63423da91d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1114,11 +1172,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 249992674930317201, guid: 094e45acb320cd54a81d0e63423da91d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 249992674930317201, guid: 094e45acb320cd54a81d0e63423da91d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 2.63
+      value: 3.63
       objectReference: {fileID: 0}
     - target: {fileID: 249992674930317201, guid: 094e45acb320cd54a81d0e63423da91d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1160,8 +1218,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: StatusEffectUi
       objectReference: {fileID: 0}
+    - target: {fileID: 8423042276514921984, guid: 094e45acb320cd54a81d0e63423da91d, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5189470239090465898, guid: 094e45acb320cd54a81d0e63423da91d, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 094e45acb320cd54a81d0e63423da91d, type: 3}

@@ -15,7 +15,7 @@ MonoBehaviour:
   characterName: astoras
   description: '-'
   level: 1
-  exp: 100
+  exp: 0
   maxHealth: 1035
   stamina: 10
   acceleration: 6
@@ -25,7 +25,7 @@ MonoBehaviour:
   ElementalBonus: 20
   CritRate: 50
   CritDamage: 100
-  Luck: 100
+  Luck: 10
   Defend: 100
   ResistanceDamage: 56
   dashSpeed: 45

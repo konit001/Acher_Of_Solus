@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GroundPatrolState
   parent: {fileID: 0}
+  priority: 0
   anim: {fileID: 0}
 --- !u!1 &731602566619627047
 GameObject:
@@ -159,7 +160,7 @@ GameObject:
   - component: {fileID: 1330015802522464161}
   - component: {fileID: 3332789756311360246}
   - component: {fileID: 3581604557224026467}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Star
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -319,7 +320,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.95, y: 1.86}
+    oldSize: {x: 7.9, y: 3.72}
     newSize: {x: 3.95, y: 1.86}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -391,6 +392,11 @@ MonoBehaviour:
   fillHp: {fileID: 1911686740430244259}
   trailHp: {fileID: 2517307435269334498}
   normalColor: {r: 1, g: 0, b: 0, a: 1}
+  debuffHealths: []
+  isBurn: 0
+  isFreeze: 0
+  isPoison: 0
+  isParalyzed: 0
   enemy: {fileID: 11400000, guid: bc31061bc3224b04b99159552323300f, type: 2}
   HpBarPrefab: {fileID: 2419397241810525791}
   lootTable: []
@@ -421,14 +427,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GroundEnemyCore
   animator: {fileID: 8828558524425204428}
   rb: {fileID: 3953170915357884114}
+  childStates:
+  - {fileID: 5594832002683424266}
   enemy: {fileID: 11400000, guid: bc31061bc3224b04b99159552323300f, type: 2}
   enemyType: 0
   patrolDir: 5
   isFacingRight: 1
   startPoint: 0
+  moveSpeedMultiplier: 1
   combat: {fileID: 0}
-  patrolState: {fileID: 5594832002683424266}
-  shootState: {fileID: 0}
   wallCheck: {fileID: 8223125108657650297}
   groundCheck: {fileID: 8648009385896212394}
   groundLayer:
@@ -464,7 +471,7 @@ Transform:
   m_GameObject: {fileID: 8223125108657650297}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.66, y: 1.91, z: 0}
+  m_LocalPosition: {x: 4.96, y: 1.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

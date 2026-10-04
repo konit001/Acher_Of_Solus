@@ -15,7 +15,7 @@ MonoBehaviour:
   effectName: 
   duration: 1.5
   tickInterval: 0.2
-  icon: {fileID: -1781693562, guid: 280dc195d6c824941a6b5dc433278266, type: 3}
+  icon: {fileID: 21300000, guid: b3e074b0542438145a061a30ef3957b2, type: 3}
   statusEffectType: 2
   element: 5
   elementDebuff: 1

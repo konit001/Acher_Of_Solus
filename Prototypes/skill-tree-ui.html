@@ -1,0 +1,890 @@
+<title>Skill Tree Sandbox</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Prompt:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+/* ── Tokens: light อยู่ที่ :root เปล่า ส่วน dark นิยามซ้ำสองที่ (media + stamp) ── */
+:root {
+  --ground:      #f1eff6;
+  --surface:     #ffffff;
+  --surface-2:   #e8e4f1;
+  --line:        #d6d0e6;
+  --line-strong: #b9b1d0;
+  --text:        #191725;
+  --muted:       #67607f;
+
+  --passive:      #8f6210;
+  --passive-soft: #f4e7cb;
+  --active:       #245f8f;
+  --active-soft:  #d5e6f5;
+
+  --danger: #ab3234;
+  --ok:     #2b6f50;
+
+  --shadow: 0 1px 2px rgba(25, 23, 37, .06), 0 8px 24px rgba(25, 23, 37, .07);
+
+  --step--1: .78rem;
+  --step-0:  .95rem;
+  --step-1:  1.15rem;
+  --step-2:  1.55rem;
+  --step-3:  2.1rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground:      #110f18;
+    --surface:     #1a1825;
+    --surface-2:   #232030;
+    --line:        #332f47;
+    --line-strong: #4a4466;
+    --text:        #e2dcf0;
+    --muted:       #948dad;
+
+    --passive:      #e1ab48;
+    --passive-soft: #3b3019;
+    --active:       #6dabdf;
+    --active-soft:  #1a2c3e;
+
+    --danger: #e37271;
+    --ok:     #5ec294;
+
+    --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 10px 30px rgba(0, 0, 0, .35);
+  }
+}
+
+:root[data-theme="dark"] {
+  --ground:      #110f18;
+  --surface:     #1a1825;
+  --surface-2:   #232030;
+  --line:        #332f47;
+  --line-strong: #4a4466;
+  --text:        #e2dcf0;
+  --muted:       #948dad;
+
+  --passive:      #e1ab48;
+  --passive-soft: #3b3019;
+  --active:       #6dabdf;
+  --active-soft:  #1a2c3e;
+
+  --danger: #e37271;
+  --ok:     #5ec294;
+
+  --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 10px 30px rgba(0, 0, 0, .35);
+}
+
+/* ── Base ── */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: clamp(1rem, 3vw, 2.5rem) 1rem 4rem;
+  background: var(--ground);
+  color: var(--text);
+  font-family: "Prompt", "Segoe UI", system-ui, sans-serif;
+  font-weight: 300;
+  font-size: var(--step-0);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: "Chakra Petch", "Prompt", system-ui, sans-serif;
+  font-weight: 600;
+  text-wrap: balance;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.shell {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* ── กรอบแผง ── */
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.panel__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface-2);
+}
+
+.panel__head h1 { font-size: var(--step-2); }
+.panel__head p { margin: .15rem 0 0; color: var(--muted); font-size: var(--step--1); }
+
+/* แต้มสกิล — ตัวเลขที่ต้องอ่านชัดที่สุดบนหน้านี้ */
+.points { display: flex; align-items: baseline; gap: .5rem; }
+.points__value {
+  font-family: "Chakra Petch", sans-serif;
+  font-size: var(--step-3);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  color: var(--passive);
+}
+.points__label { font-size: var(--step--1); color: var(--muted); }
+
+/* ── แท็บ ── */
+.tabs {
+  display: flex;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.tab {
+  appearance: none;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: none;
+  padding: .85rem 1.5rem;
+  cursor: pointer;
+  font-family: "Chakra Petch", sans-serif;
+  font-size: var(--step-0);
+  font-weight: 600;
+  letter-spacing: .04em;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+.tab:hover { color: var(--text); }
+.tab:focus-visible { outline: 2px solid var(--tab-hue); outline-offset: -2px; }
+.tab[aria-selected="true"] { color: var(--text); border-bottom-color: var(--tab-hue); }
+.tab[data-kind="passive"] { --tab-hue: var(--passive); }
+.tab[data-kind="active"]  { --tab-hue: var(--active); }
+
+.tab__count {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: var(--step--1);
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+  background: var(--surface-2);
+  border-radius: 2px;
+  padding: 0 .4em;
+}
+
+/* ── แถวตาม tier ── */
+.page { padding: 1.5rem; display: flex; flex-direction: column; gap: 1.75rem; }
+.page[hidden] { display: none; }
+
+.tier { display: flex; flex-direction: column; gap: .75rem; }
+
+.tier__label {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  font-family: "Chakra Petch", sans-serif;
+  font-size: var(--step--1);
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.tier__label::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+
+.nodes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(172px, 1fr));
+  gap: .75rem;
+}
+
+/* ── ช่องสกิล ── */
+/* สีบอก "ชนิดสกิล" (passive/active) ส่วนความเข้มบอก "สถานะการปลด" */
+.node {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+  padding: .9rem .85rem 2.5rem;
+  text-align: left;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: var(--step-0);
+  font-weight: 300;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  transition: transform .12s ease, border-color .12s ease, background .12s ease;
+}
+.node[data-kind="passive"] { --hue: var(--passive); --hue-soft: var(--passive-soft); }
+.node[data-kind="active"]  { --hue: var(--active);  --hue-soft: var(--active-soft); }
+
+.node:disabled { cursor: not-allowed; }
+.node:not(:disabled):hover { transform: translateY(-2px); border-color: var(--hue); }
+.node:focus-visible { outline: 2px solid var(--hue); outline-offset: 2px; }
+
+.node[data-status="Locked"] { opacity: .45; border-style: dashed; }
+.node[data-status="Locked"] .node__icon { filter: grayscale(1); }
+
+.node[data-status="Available"] {
+  border-color: var(--line-strong);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--hue) 25%, transparent);
+}
+
+.node[data-status="Unlocked"] { background: var(--hue-soft); border-color: var(--hue); }
+
+.node__icon { font-size: 1.6rem; line-height: 1; }
+
+.node__name {
+  font-family: "Chakra Petch", "Prompt", sans-serif;
+  font-weight: 600;
+}
+
+.node__desc { font-size: var(--step--1); color: var(--muted); line-height: 1.45; }
+
+/* แถบล่างของช่อง: ราคา ซ้าย / ป้ายสถานะ ขวา */
+.node__foot {
+  position: absolute;
+  left: .85rem;
+  right: .85rem;
+  bottom: .7rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .5rem;
+}
+
+.node__cost {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: var(--step--1);
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+  color: var(--hue);
+}
+.node[data-afford="no"] .node__cost { color: var(--danger); }
+.node[data-status="Unlocked"] .node__cost { visibility: hidden; }
+
+.node__tag {
+  font-family: "Chakra Petch", sans-serif;
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.node[data-status="Unlocked"] .node__tag { color: var(--hue); }
+
+/* จังหวะปลดสำเร็จ — วงแหวนกระพริบครั้งเดียว */
+@keyframes unlock-ring {
+  from { box-shadow: 0 0 0 0 color-mix(in srgb, var(--hue) 55%, transparent); }
+  to   { box-shadow: 0 0 0 14px color-mix(in srgb, var(--hue) 0%, transparent); }
+}
+.node.just-unlocked { animation: unlock-ring .5s ease-out; }
+
+@media (prefers-reduced-motion: reduce) {
+  .node, .node.just-unlocked { transition: none; animation: none; }
+  .node:not(:disabled):hover { transform: none; }
+}
+
+/* ── แผงทดสอบ ── */
+.console { display: grid; grid-template-columns: 1.35fr 1fr; gap: 1px; background: var(--line); }
+@media (max-width: 720px) { .console { grid-template-columns: 1fr; } }
+
+.console__col {
+  background: var(--surface);
+  padding: 1.15rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+  min-width: 0;
+}
+
+.console__col h3 { font-size: var(--step-0); }
+
+.controls { display: flex; flex-wrap: wrap; gap: .5rem; }
+
+.btn {
+  appearance: none;
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 600;
+  font-size: var(--step--1);
+  letter-spacing: .03em;
+  padding: .45rem .9rem;
+  cursor: pointer;
+  color: var(--text);
+  background: var(--surface-2);
+  border: 1px solid var(--line-strong);
+  border-radius: 2px;
+}
+.btn:hover { border-color: var(--muted); }
+.btn:focus-visible { outline: 2px solid var(--muted); outline-offset: 2px; }
+
+.log {
+  margin: 0;
+  padding: .75rem;
+  height: 13rem;
+  overflow: auto;
+  background: var(--ground);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: var(--step--1);
+  line-height: 1.7;
+  list-style: none;
+}
+.log li { white-space: nowrap; }
+.log .ok   { color: var(--ok); }
+.log .fail { color: var(--danger); }
+.log .dim  { color: var(--muted); }
+
+.bonus { margin: 0; display: flex; flex-direction: column; gap: .3rem; }
+.bonus > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: var(--step--1);
+  font-variant-numeric: tabular-nums;
+  padding-bottom: .3rem;
+  border-bottom: 1px dashed var(--line);
+}
+.bonus dt { color: var(--muted); }
+.bonus dd { margin: 0; color: var(--passive); font-weight: 500; }
+.bonus__empty { color: var(--muted); font-size: var(--step--1); }
+
+/* ── คำอธิบายสี + โน้ต ── */
+.legend { display: flex; flex-wrap: wrap; gap: .4rem 1.1rem; }
+.legend span { display: flex; align-items: center; gap: .45rem; font-size: var(--step--1); color: var(--muted); }
+.legend i { width: .9rem; height: .9rem; border-radius: 2px; border: 1px solid var(--line-strong); flex: none; }
+.sw-locked    { border-style: dashed !important; opacity: .45; }
+.sw-available { box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--passive) 40%, transparent); }
+.sw-poor      { border-color: var(--danger) !important; }
+.sw-unlocked  { background: var(--passive-soft); border-color: var(--passive) !important; }
+
+.notes { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; padding: 1.5rem; }
+.notes h3 { font-size: var(--step-0); margin-bottom: .5rem; }
+.notes ul { margin: 0; padding-left: 1.1rem; }
+.notes li { font-size: var(--step--1); color: var(--muted); line-height: 1.7; }
+.notes code {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: .82em;
+  background: var(--surface-2);
+  padding: .1em .35em;
+  border-radius: 2px;
+  color: var(--text);
+}
+</style>
+
+<div class="shell">
+
+  <section class="panel">
+    <header class="panel__head">
+      <div>
+        <h1>Skill Tree</h1>
+        <p>prototype สำหรับทดสอบลอจิกของ SkillTreeManager ก่อนต่อ UI จริงใน Unity</p>
+      </div>
+      <div class="points">
+        <span class="points__value" id="pointsValue">0</span>
+        <span class="points__label">แต้มสกิล</span>
+      </div>
+    </header>
+
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" data-kind="passive" aria-selected="true" id="tabPassive">
+        Passive <span class="tab__count" id="countPassive">0</span>
+      </button>
+      <button class="tab" role="tab" data-kind="active" aria-selected="false" id="tabActive">
+        Active <span class="tab__count" id="countActive">0</span>
+      </button>
+    </div>
+
+    <div class="page" id="pagePassive"></div>
+    <div class="page" id="pageActive" hidden></div>
+  </section>
+
+  <section class="panel">
+    <div class="console">
+      <div class="console__col">
+        <h3>แผงทดสอบ</h3>
+        <div class="controls">
+          <button class="btn" id="btnAddPoints">+10 แต้ม</button>
+          <button class="btn" id="btnUnlockAll">ปลดที่กดได้ทั้งหมด</button>
+          <button class="btn" id="btnReset">รีเซ็ต</button>
+        </div>
+        <ul class="log" id="log"></ul>
+      </div>
+
+      <div class="console__col">
+        <h3>โบนัสจาก passive ที่ปลดแล้ว</h3>
+        <dl class="bonus" id="bonus"></dl>
+
+        <h3 style="margin-top:.5rem">สถานะช่อง</h3>
+        <div class="legend">
+          <span><i class="sw-locked"></i> Locked</span>
+          <span><i class="sw-available sw-poor"></i> Available แต่แต้มไม่พอ</span>
+          <span><i class="sw-available"></i> Available กดได้</span>
+          <span><i class="sw-unlocked"></i> Unlocked</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="notes">
+      <div>
+        <h3>แมปกลับไปหาโค้ด C#</h3>
+        <ul>
+          <li>ลอจิกทั้งหมด = <code>SkillTreeManager.cs</code> — ชื่อเมธอดใน JS ตรงกับของจริงทุกตัว</li>
+          <li>ช่อง 1 ช่อง = <code>SkillSlotUI</code> (ยังไม่ได้สร้าง) เทียบ <code>StatusEffectIconSlot</code></li>
+          <li>ทั้งหน้า = <code>SkillTreeUi</code> (ยังไม่ได้สร้าง) เทียบ <code>StatusEffectUi</code></li>
+          <li>แผงทดสอบ = <code>[ContextMenu]</code> ที่อยู่ท้าย <code>SkillTreeManager</code></li>
+        </ul>
+      </div>
+      <div>
+        <h3>ต่างจากของจริงตรงไหน</h3>
+        <ul>
+          <li><code>getState()</code> ที่นี่คีย์ด้วย <code>skillId</code> เพราะ JS ไม่มี reference ของ ScriptableObject</li>
+          <li>เหตุผลที่ปลดไม่ได้ในแถบ log คำนวณแยกต่างหาก — <code>TryUnlock()</code> จริงคืนแค่ <code>bool</code></li>
+          <li>ข้อมูลสกิลเป็นของสมมติ ไม่ได้อ่านจาก <code>.asset</code> จริง</li>
+        </ul>
+      </div>
+      <div>
+        <h3>ยังไม่ได้จำลอง</h3>
+        <ul>
+          <li>เส้นเชื่อมระหว่างช่องที่บอกว่าสกิลไหนต่อจากสกิลไหน — ตอนนี้ดูได้จากบรรทัด "ต้องปลด …" เท่านั้น</li>
+          <li>tooltip ตอน hover (ตกลงกันว่าจะเปลี่ยนไปใช้ทีหลัง)</li>
+          <li>cooldown ของ active skill — <code>SkillState</code> รอบนี้ยังไม่เก็บ</li>
+          <li>การเซฟ/โหลดสกิลที่ปลดไว้</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+// ─────────────────────────────────────────────────────────────
+// ข้อมูลจำลอง — ชื่อฟิลด์ตรงกับ SkillEffect / PassiveSkillData / ActiveSkillData
+// ─────────────────────────────────────────────────────────────
+const SKILL_DATA = [
+  // สาย passive ยาว 3 ชั้น (1 → 2 → 3) ไว้ทดสอบว่า refreshAllStatuses วนรอบเดียวพอ
+  { skillId: 1, skillName: "ร่างแกร่ง", kind: "passive", tier: "One", icon: "🛡️",
+    description: "เพิ่มพลังชีวิตสูงสุด", skillPointCost: 1, requiredPreviousSkill: null,
+    statModifiers: [{ status: "Health", value: 10 }] },
+
+  { skillId: 2, skillName: "เลือดข้น", kind: "passive", tier: "Two", icon: "🩸",
+    description: "เพิ่มพลังชีวิตและพลังป้องกัน", skillPointCost: 2, requiredPreviousSkill: 1,
+    statModifiers: [{ status: "Health", value: 15 }, { status: "Defend", value: 8 }] },
+
+  { skillId: 3, skillName: "ไม่มีวันล้ม", kind: "passive", tier: "Three", icon: "💗",
+    description: "เพิ่มพลังชีวิตอย่างมาก", skillPointCost: 4, requiredPreviousSkill: 2,
+    statModifiers: [{ status: "Health", value: 25 }] },
+
+  // สายที่สอง — รากคนละตัว ต้องปลดได้อิสระจากสายแรก
+  { skillId: 4, skillName: "ใจกล้า", kind: "passive", tier: "One", icon: "💪",
+    description: "เพิ่มพลังโจมตี", skillPointCost: 1, requiredPreviousSkill: null,
+    statModifiers: [{ status: "Attack", value: 8 }] },
+
+  { skillId: 5, skillName: "ตาเหยี่ยว", kind: "passive", tier: "Two", icon: "👁️",
+    description: "เพิ่มโอกาสคริติคอลและดาเมจคริติคอล", skillPointCost: 3, requiredPreviousSkill: 4,
+    statModifiers: [{ status: "CritRate", value: 5 }, { status: "CritDamage", value: 12 }] },
+
+  // รากตัวที่สาม — ไม่มีลูก ใช้ดูว่าช่องปลายทางแสดงผลถูกไหม
+  { skillId: 6, skillName: "ว่องไว", kind: "passive", tier: "One", icon: "🌀",
+    description: "เพิ่มความเร็วในการเคลื่อนที่", skillPointCost: 2, requiredPreviousSkill: null,
+    statModifiers: [{ status: "Speed", value: 12 }] },
+
+  // สาย active ยาว 3 ชั้น (7 → 9 → 10)
+  { skillId: 7, skillName: "ฟันวงกว้าง", kind: "active", tier: "One", icon: "⚔️",
+    description: "ฟาดเป็นวงรอบตัว", skillPointCost: 1, requiredPreviousSkill: null, cooldown: 6 },
+
+  { skillId: 8, skillName: "พุ่งทะยาน", kind: "active", tier: "One", icon: "💨",
+    description: "พุ่งไปข้างหน้าอย่างรวดเร็ว", skillPointCost: 2, requiredPreviousSkill: null, cooldown: 4 },
+
+  { skillId: 9, skillName: "ดาบเพลิง", kind: "active", tier: "Two", icon: "🔥",
+    description: "อาบไฟให้อาวุธชั่วคราว", skillPointCost: 3, requiredPreviousSkill: 7, cooldown: 12 },
+
+  { skillId: 10, skillName: "ระเบิดธาตุ", kind: "active", tier: "Three", icon: "💥",
+    description: "ปลดปล่อยพลังธาตุใส่ทุกอย่างรอบตัว", skillPointCost: 5, requiredPreviousSkill: 9, cooldown: 25 },
+];
+
+// ลำดับ tier ตาม enum SkillTier ใน SkillEffect.cs
+const TIER_ORDER = ["One", "Two", "Three", "Four", "Five"];
+
+// ─────────────────────────────────────────────────────────────
+// พอร์ตลอจิกจาก SkillTreeManager.cs — ชื่อเมธอดตรงกันทุกตัว
+// ต่างกันแค่ getState() คีย์ด้วย skillId เพราะ JS ไม่มี reference ของ SO
+// ─────────────────────────────────────────────────────────────
+const SkillNodeStatus = { Locked: "Locked", Available: "Available", Unlocked: "Unlocked" };
+
+let skillPoints = 0;
+const skillStates = [];
+const stateLookup = new Map();
+
+function registerSkill() {
+  for (const skill of SKILL_DATA) addSkill(skill);
+}
+
+function addSkill(skill) {
+  if (!skill) return;
+  if (stateLookup.has(skill.skillId)) return;
+
+  const state = { skill, status: SkillNodeStatus.Locked };
+  skillStates.push(state);
+  stateLookup.set(skill.skillId, state);
+}
+
+function refreshAllStatuses() {
+  for (const state of skillStates) {
+    if (state.status === SkillNodeStatus.Unlocked) continue;
+
+    state.status = isPrerequisite(state.skill)
+      ? SkillNodeStatus.Available
+      : SkillNodeStatus.Locked;
+  }
+}
+
+// สกิลที่ไม่ได้ตั้งสกิลก่อนหน้า ถือเป็นรากของสาย เปิดให้ปลดได้ตั้งแต่แรก
+function isPrerequisite(skill) {
+  const required = skill.requiredPreviousSkill;
+  if (required === null) return true;
+
+  return isUnlocked(required);
+}
+
+function getState(skillId) {
+  if (skillId === null || skillId === undefined) return null;
+
+  return stateLookup.get(skillId) ?? null;
+}
+
+function isUnlocked(skillId) {
+  const state = getState(skillId);
+  return state !== null && state.status === SkillNodeStatus.Unlocked;
+}
+
+function canUnlock(skillId) {
+  const state = getState(skillId);
+  if (state === null) return false;
+  if (state.status !== SkillNodeStatus.Available) return false;
+
+  return skillPoints >= state.skill.skillPointCost;
+}
+
+function tryUnlock(skillId) {
+  if (!canUnlock(skillId)) return false;
+
+  const state = getState(skillId);
+  skillPoints -= state.skill.skillPointCost;
+  state.status = SkillNodeStatus.Unlocked;
+
+  refreshAllStatuses();
+  onSkillTreeChanged();
+  return true;
+}
+
+function addSkillPoint(amount) {
+  skillPoints += amount;
+  onSkillTreeChanged();
+}
+
+function getTotalPassiveBonus(stat) {
+  let total = 0;
+
+  for (const state of skillStates) {
+    if (state.status !== SkillNodeStatus.Unlocked) continue;
+    if (state.skill.kind !== "passive") continue;
+
+    total += getBonusPercent(state.skill, stat);
+  }
+
+  return total;
+}
+
+// เทียบ PassiveSkillData.GetBonusPercent()
+function getBonusPercent(skill, stat) {
+  if (!skill.statModifiers) return 0;
+
+  let total = 0;
+  for (const modifier of skill.statModifiers)
+    if (modifier.status === stat) total += modifier.value;
+
+  return total;
+}
+
+// ─────────────────────────────────────────────────────────────
+// ชั้น UI — เทียบ SkillTreeUi + SkillSlotUI
+// ─────────────────────────────────────────────────────────────
+const slots = [];
+let justUnlockedId = null;
+
+const pointsValue  = document.getElementById("pointsValue");
+const pagePassive  = document.getElementById("pagePassive");
+const pageActive   = document.getElementById("pageActive");
+const tabPassive   = document.getElementById("tabPassive");
+const tabActive    = document.getElementById("tabActive");
+const logList      = document.getElementById("log");
+const bonusList    = document.getElementById("bonus");
+
+// spawn ครั้งเดียวตอนเปิดหน้า — ต้นไม้สกิลไม่มีการเพิ่ม/ลบช่องระหว่างเล่น
+function buildSlots() {
+  buildPage(pagePassive, "passive");
+  buildPage(pageActive, "active");
+
+  document.getElementById("countPassive").textContent = countKind("passive");
+  document.getElementById("countActive").textContent  = countKind("active");
+}
+
+function countKind(kind) {
+  return skillStates.filter(state => state.skill.kind === kind).length;
+}
+
+function buildPage(page, kind) {
+  for (const tier of TIER_ORDER) {
+    const states = skillStates.filter(s => s.skill.kind === kind && s.skill.tier === tier);
+    if (states.length === 0) continue;   // ข้าม tier ที่ยังไม่มีสกิล
+
+    const row = document.createElement("div");
+    row.className = "tier";
+
+    const label = document.createElement("div");
+    label.className = "tier__label";
+    label.textContent = "Tier " + tier;
+    row.appendChild(label);
+
+    const grid = document.createElement("div");
+    grid.className = "nodes";
+
+    for (const state of states) grid.appendChild(createSlot(state));
+
+    row.appendChild(grid);
+    page.appendChild(row);
+  }
+}
+
+// เทียบ SkillSlotUI.Bind() — ผูกช่องกับสกิล 1 ตัว ทำครั้งเดียว
+function createSlot(state) {
+  const skill = state.skill;
+
+  const button = document.createElement("button");
+  button.className = "node";
+  button.dataset.kind = skill.kind;
+
+  const icon = document.createElement("span");
+  icon.className = "node__icon";
+  icon.textContent = skill.icon;
+
+  const name = document.createElement("span");
+  name.className = "node__name";
+  name.textContent = skill.skillName;
+
+  const desc = document.createElement("span");
+  desc.className = "node__desc";
+  desc.textContent = skill.description;
+
+  const foot = document.createElement("span");
+  foot.className = "node__foot";
+
+  const cost = document.createElement("span");
+  cost.className = "node__cost";
+  cost.textContent = skill.skillPointCost + " แต้ม";
+
+  const tag = document.createElement("span");
+  tag.className = "node__tag";
+
+  foot.append(cost, tag);
+  button.append(icon, name, desc, foot);
+
+  button.addEventListener("click", () => onSlotClicked(state));
+
+  slots.push({ state, button, tag });
+  return button;
+}
+
+// รอบนี้คลิกแล้วปลดทันที
+// TODO: เปลี่ยนเป็น hover โชว์ tooltip แล้วค่อยคลิกซ้ายปลด เมื่อมีระบบ tooltip
+function onSlotClicked(state) {
+  const before = skillPoints;
+  const ok = tryUnlock(state.skill.skillId);
+
+  if (ok) {
+    justUnlockedId = state.skill.skillId;
+    log("ok", `tryUnlock("${state.skill.skillName}") → true`, `แต้ม ${before} → ${skillPoints}`);
+    refreshAll();   // เรียกซ้ำเพื่อให้ animation ติดหลัง justUnlockedId ถูกตั้ง
+  } else {
+    log("fail", `tryUnlock("${state.skill.skillName}") → false`, describeBlock(state));
+  }
+}
+
+// เหตุผลที่ปลดไม่ได้ — ส่วนนี้มีเฉพาะใน prototype เพื่อไล่ดูว่าตกที่เงื่อนไขไหน
+// TryUnlock() ตัวจริงคืนแค่ bool ไม่ได้บอกเหตุผล
+function describeBlock(state) {
+  if (state.status === SkillNodeStatus.Unlocked) return "ปลดไปแล้ว";
+
+  if (state.status === SkillNodeStatus.Locked) {
+    const required = getState(state.skill.requiredPreviousSkill);
+    return `ต้องปลด "${required.skill.skillName}" ก่อน`;
+  }
+
+  return `แต้มไม่พอ (มี ${skillPoints} ต้องใช้ ${state.skill.skillPointCost})`;
+}
+
+// เทียบ SkillTreeUi.RefreshAll() — ผูกกับ event ไม่ใช่ poll ทุกเฟรม
+function refreshAll() {
+  for (const slot of slots) refreshSlot(slot);
+
+  pointsValue.textContent = skillPoints;
+  refreshBonus();
+}
+
+// เทียบ SkillSlotUI.Refresh()
+function refreshSlot(slot) {
+  const { state, button, tag } = slot;
+  const affordable = canUnlock(state.skill.skillId);
+
+  button.dataset.status = state.status;
+  button.disabled = !affordable;
+
+  // Available แต่แต้มไม่พอ → เห็นว่าปลดได้ แค่ยังกดไม่ได้
+  button.dataset.afford =
+    state.status === SkillNodeStatus.Available && !affordable ? "no" : "yes";
+
+  tag.textContent = tagText(state);
+  button.title = tooltipText(state);
+
+  if (state.skill.skillId === justUnlockedId) {
+    button.classList.remove("just-unlocked");
+    void button.offsetWidth;               // บังคับให้ animation เล่นซ้ำได้
+    button.classList.add("just-unlocked");
+    justUnlockedId = null;
+  }
+}
+
+function tagText(state) {
+  if (state.status === SkillNodeStatus.Unlocked) return "ปลดแล้ว";
+  if (state.status === SkillNodeStatus.Locked) {
+    const required = getState(state.skill.requiredPreviousSkill);
+    return "ต้องปลด " + required.skill.skillName;
+  }
+  return "";
+}
+
+// ที่ tooltip ของเบราว์เซอร์ไปก่อน ของจริงจะเป็นแผง tooltip ในเกม
+function tooltipText(state) {
+  const skill = state.skill;
+  const lines = [skill.skillName, skill.description];
+
+  if (skill.kind === "active") lines.push("คูลดาวน์ " + skill.cooldown + " วินาที");
+  if (skill.statModifiers)
+    for (const m of skill.statModifiers) lines.push(m.status + " +" + m.value + "%");
+
+  return lines.join("\n");
+}
+
+// สรุปโบนัสรวม — พิสูจน์ว่า getTotalPassiveBonus() บวกถูก ก่อนเอาไปต่อกับ playerStatus
+const TRACKED_STATS = ["Health", "Stamina", "Attack", "ElementalBonus", "Defend", "CritRate", "CritDamage", "Speed"];
+
+function refreshBonus() {
+  bonusList.replaceChildren();
+  let any = false;
+
+  for (const stat of TRACKED_STATS) {
+    const total = getTotalPassiveBonus(stat);
+    if (total === 0) continue;
+
+    const row = document.createElement("div");
+    const dt = document.createElement("dt");
+    dt.textContent = stat;
+    const dd = document.createElement("dd");
+    dd.textContent = "+" + total + "%";
+
+    row.append(dt, dd);
+    bonusList.appendChild(row);
+    any = true;
+  }
+
+  if (!any) {
+    const empty = document.createElement("p");
+    empty.className = "bonus__empty";
+    empty.textContent = "ยังไม่ได้ปลด passive สักตัว";
+    bonusList.appendChild(empty);
+  }
+}
+
+function log(kind, message, detail) {
+  const item = document.createElement("li");
+
+  const main = document.createElement("span");
+  main.className = kind;
+  main.textContent = message;
+
+  const note = document.createElement("span");
+  note.className = "dim";
+  note.textContent = detail ? "  │  " + detail : "";
+
+  item.append(main, note);
+  logList.prepend(item);
+}
+
+// ─────────────────────────────────────────────────────────────
+// แท็บ + แผงทดสอบ
+// ─────────────────────────────────────────────────────────────
+function showPassivePage(showPassive) {
+  pagePassive.hidden = !showPassive;
+  pageActive.hidden = showPassive;
+  tabPassive.setAttribute("aria-selected", String(showPassive));
+  tabActive.setAttribute("aria-selected", String(!showPassive));
+}
+
+tabPassive.addEventListener("click", () => showPassivePage(true));
+tabActive.addEventListener("click", () => showPassivePage(false));
+
+document.getElementById("btnAddPoints").addEventListener("click", () => {
+  addSkillPoint(10);
+  log("dim", "addSkillPoint(10)", "แต้มรวม " + skillPoints);
+});
+
+// ปลดทุกช่องที่กดได้ตอนนี้ — ไล่ทีละรอบเพราะปลดช่องหนึ่งอาจเปิดช่องถัดไป
+document.getElementById("btnUnlockAll").addEventListener("click", () => {
+  let unlocked = 0;
+  let changed = true;
+
+  while (changed) {
+    changed = false;
+    for (const state of skillStates) {
+      if (tryUnlock(state.skill.skillId)) { unlocked++; changed = true; }
+    }
+  }
+
+  log(unlocked > 0 ? "ok" : "fail", "ปลดรวด " + unlocked + " ช่อง", "เหลือ " + skillPoints + " แต้ม");
+});
+
+document.getElementById("btnReset").addEventListener("click", () => {
+  skillPoints = 0;
+  for (const state of skillStates) state.status = SkillNodeStatus.Locked;
+
+  refreshAllStatuses();
+  onSkillTreeChanged();
+  logList.replaceChildren();
+  log("dim", "reset()", "กลับสู่สถานะเริ่มต้น");
+});
+
+// ─────────────────────────────────────────────────────────────
+// เริ่มทำงาน — ลำดับเดียวกับ Awake() แล้วตามด้วย SkillTreeUi.Start()
+// ─────────────────────────────────────────────────────────────
+function onSkillTreeChanged() { refreshAll(); }
+
+registerSkill();
+refreshAllStatuses();
+
+buildSlots();
+refreshAll();
+showPassivePage(true);
+log("dim", "registerSkill()", skillStates.length + " ช่อง");
+</script>

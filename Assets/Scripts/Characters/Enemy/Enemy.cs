@@ -24,9 +24,7 @@ public abstract class Enemy : Core, IMoveSpeedModifiable
     bool IMoveSpeedModifiable.ResistsFullStop => enemy != null && enemy.isBoss;
 
     [Header("State Machine & Combat")]
-    public enemyCombat combat; 
-    public State patrolState;
-    public State shootState;
+    public enemyCombat combat;
 
     protected virtual void Awake()
     {
@@ -49,25 +47,31 @@ public abstract class Enemy : Core, IMoveSpeedModifiable
             patrolDir = -1f;
         }
 
-        stateMacines.set(patrolState);
+        selectState();
     }
 
     protected virtual void Update()
     {
         selectState();
         stateMacines.state.Do();
+        // stateMacines.state.DoBranch();
     }
 
+    // protected virtual void FixedUpdate()
+    // {
+    //     stateMacines.state.FixDoBranch();
+    // }
 
     protected virtual void selectState()
     {
-        if (combat != null && combat.DetectPlayer() && shootState != null)
+        // childStates เรียงตาม State.priority (มาก→น้อย) แล้วจาก Core.GetSortedChildStates()
+        foreach (State s in childStates)
         {
-            stateMacines.set(shootState);
-        }
-        else
-        {
-            stateMacines.set(patrolState);
+            if (s.CanEnter())
+            {
+                stateMacines.set(s);
+                return;
+            }
         }
     }
 

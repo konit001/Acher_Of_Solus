@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3b74185688dbc04a9bb7cbd40b3b72b, type: 3}
+  m_Name: _SlashWave
+  m_EditorClassIdentifier: Assembly-CSharp::ActiveSkillData
+  skillId: 1001
+  skillName: SlashWave
+  description: 
+  tier: 1
+  icon: {fileID: 0}
+  requiredPreviousSkill: {fileID: 11400000, guid: 463debe3fb3f845418b9e50b78e7e86a, type: 2}
+  skillPointCost: 1
+  skillType: 0
+  elementType: 2
+  cooldown: 1.5
+  damageMultiplier: 0.6
+  baseDamage: 25
+  meleeStats:
+    hitBoxSize: {x: 2, y: 1.5}
+    meleeRange: 1.5
+    knockbackForce: 8
+  rangedStats:
+    projectilePrefab: {fileID: 0}
+    projectileSpeed: 0
+    projectileLifeTime: 0
+    projectileCount: 0
+    targetLayers:
+      serializedVersion: 2
+      m_Bits: 0
+  effectRadius: 0
+  buffEffect: {fileID: 0}
+  castAnim: {fileID: 0}
+  castEffectPrefab: {fileID: 0}
+  hitEffectPrefab: {fileID: 0}
+  castSfx: {fileID: 0}

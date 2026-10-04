@@ -1,7 +1,19 @@
 using UnityEngine;
 using UI.Input;
 
-public enum UiPanelType { Inventory, Equipment, Skill, Map, Tasks, Codex }
+public enum UiPanelType
+{
+    Inventory,
+    Equipment,
+    // ไม่เคยถูกใช้จริง (SetCurrentPanel ไม่มี branch ให้) — หน้า skill tree จริง ๆ อยู่ใต้
+    // EquipmentManager.EquipmentCategory.Character แทน ห้ามลบค่านี้เพราะจะเลื่อนเลข int ของ
+    // Map/Tasks/Codex ที่ serialize ไว้ในที่อื่นให้เสีย ถ้าจะเลิกใช้ concept นี้จริงต้องคุยกับผู้ใช้ก่อน
+    [System.Obsolete("ไม่เคยถูกใช้จริง — skill tree UI อยู่ใต้ Equipment/Character แทน")]
+    Skill,
+    Map,
+    Tasks,
+    Codex
+}
 
 public class UiPanelController : MonoBehaviour
 {
@@ -12,16 +24,10 @@ public class UiPanelController : MonoBehaviour
     public UiPanelType? CurrentPanel { get; private set; }
 
     public bool IsInventoryOpen => IsPanelOpen && CurrentPanel == UiPanelType.Inventory;
-
-    // ช่องสวมใส่ (weaponSlot / ArtifactSlot) อยู่ใต้หน้า Equipment คลิกขวาถอดของจึงต้องเช็คหน้านี้
     public bool IsEquipmentOpen => IsPanelOpen && CurrentPanel == UiPanelType.Equipment;
-
-    // จำหน้าที่เปิดล่าสุด เริ่มต้นที่ Inventory
     [SerializeField] private UiPanelType lastPanel = UiPanelType.Inventory;
     public UiPanelType LastPanel => lastPanel;
-
-    // แท็บย่อยที่เปิดอยู่ในหน้า Equipment — EquipmentManager ใช้ตัวนี้ตัดสินว่าจะโชว์อะไรในกริด
-    public EquipmentCategory CurrentCategory { get; private set; } = EquipmentCategory.Charector;
+    public EquipmentCategory CurrentCategory { get; private set; } = EquipmentCategory.Character;
 
 
     void Awake()
@@ -37,8 +43,8 @@ public class UiPanelController : MonoBehaviour
     {
         // ปุ่ม ESC ไม่ได้จัดการที่นี่ ให้ PauseController เป็นคนตัดสินใจแทน
         if (uiInput.instance.OpenMenuInput) TogglePanel(lastPanel);
-        else if (uiInput.instance.InventoryUiInput) TogglePanel(UiPanelType.Inventory);
-        else if (uiInput.instance.EquipmentUiInput) TogglePanel(UiPanelType.Equipment);
+        // else if (uiInput.instance.InventoryUiInput) TogglePanel(UiPanelType.Inventory);
+        // else if (uiInput.instance.EquipmentUiInput) TogglePanel(UiPanelType.Equipment);
         else if (uiInput.instance.MapUiInput) TogglePanel(UiPanelType.Map);
 
     }
@@ -56,8 +62,6 @@ public class UiPanelController : MonoBehaviour
         CurrentPanel = panel;
         lastPanel = panel;
 
-        // ช่องของแต่ละหน้าเริ่มต้นเป็น inactive — ItemSlotUI.Awake() จะเรียก Clear() ตอนถูกเปิดครั้งแรก
-        // จึงต้องวาดใหม่ทุกครั้งที่เปิดหน้า ไม่งั้นของที่เก็บไว้ก่อนหน้านั้นจะถูกล้างทิ้ง
         if (panel == UiPanelType.Inventory)
             InventoryManager.instance?.DisplayItems();
         else if (panel == UiPanelType.Equipment)

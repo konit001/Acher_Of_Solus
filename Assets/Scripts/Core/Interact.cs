@@ -1,33 +1,79 @@
 using UnityEngine;
+using Player.Input;
 
 public class Interact : MonoBehaviour
 {
     public bool canInteract;
     public float radius;
     public LayerMask interactLayer;
-    void Start()
-    {
-        
-    }
 
-    public bool isInteract()
-    {
-        return canInteract = Physics2D.OverlapCircle(this.transform.position , radius , interactLayer);
-    }
+    [Header("Interact Prompt")]
+    public GameObject interactPromptPrefab;   // ลาก prefab ไอคอน (มี SpriteRenderer) จาก Project มาใส่
+    public Vector3 promptOffset = Vector3.up;
+
+    private GameObject activePrompt;
+    private Collider2D currentTarget;
+
     void Update()
     {
-        if(isInteract() == true)
+        currentTarget = FindNearestInteractable();
+        canInteract = currentTarget != null;
+
+        UpdatePrompt();
+
+        if (canInteract && userInput.instance.interactInput)
         {
-            // check if it is Chest show a Ui button to make a player actknowless hot to interact with it 
-            // if it a NPC start a dialohue UI
+            IInteractable interactable = currentTarget.GetComponent<IInteractable>()
+                ?? currentTarget.GetComponentInParent<IInteractable>();
+            interactable?.OnInteract(gameObject);
         }
+    }
+
+    private void UpdatePrompt()
+    {
+        if (interactPromptPrefab == null) return;
+
+        if (canInteract)
+        {
+            Vector3 promptPosition = currentTarget.transform.position + promptOffset;
+
+            if (activePrompt == null || !activePrompt.activeInHierarchy)
+            {
+                activePrompt = ObjectPooling.Instance.SpawnFromPool(interactPromptPrefab, promptPosition, Quaternion.identity);
+            }
+            else
+            {
+                activePrompt.transform.position = promptPosition;
+            }
+        }
+        else if (activePrompt != null)
+        {
+            activePrompt.SetActive(false);
+            activePrompt = null;
+        }
+    }
+
+    private Collider2D FindNearestInteractable()
+    {
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, radius, interactLayer);
+        Collider2D nearest = null;
+        float nearestSqrDist = float.MaxValue;
+
+        foreach (Collider2D hit in hits)
+        {
+            float sqrDist = ((Vector2)hit.transform.position - (Vector2)transform.position).sqrMagnitude;
+            if (sqrDist < nearestSqrDist)
+            {
+                nearestSqrDist = sqrDist;
+                nearest = hit;
+            }
+        }
+        return nearest;
     }
 
     public void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(this.transform.position , radius);
+        Gizmos.DrawWireSphere(transform.position, radius);
     }
-
-
 }

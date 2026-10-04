@@ -11,6 +11,9 @@ public abstract class ItemStorage : MonoBehaviour
     // จำนวนช่องที่หน้านี้มี — หน้าไหนมีกี่ช่องก็ดูจากที่ผูกไว้ใน Inspector
     public int SlotCount => itemSlots.Length;
 
+    // ยิงทุกครั้งที่กองของเปลี่ยน — ให้หน้าอื่นที่แคชจำนวนไว้ (เช่นปุ่ม Upgrade ในแผง Equipment) รีเฟรชตาม
+    public event System.Action OnChanged;
+
     // ─── Public API ───────────────────────────────────────────
 
     public void AddItem(BaseItemData item)
@@ -24,6 +27,7 @@ public abstract class ItemStorage : MonoBehaviour
             entry.amount++;
 
         DisplayItems();
+        OnChanged?.Invoke();
     }
 
     public void RemoveItem(BaseItemData item)
@@ -41,6 +45,7 @@ public abstract class ItemStorage : MonoBehaviour
             entries.Remove(entry);
 
         DisplayItems();
+        OnChanged?.Invoke();
     }
 
     public bool HasItem(BaseItemData item)

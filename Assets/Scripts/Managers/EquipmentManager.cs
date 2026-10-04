@@ -8,13 +8,11 @@ public class EquipmentManager : ItemStorage
 
     [SerializeField] private weaponSlot[] weaponSlots;
     [SerializeField] private weaponSlot[] hudWeaponSlots;
+    [Tooltip("การ์ดอาวุธในแท็บ Upgrade (Name/Level/ปุ่ม UPGRADE) — แยกจาก weaponSlots/hudWeaponSlots เพราะเป็นช่องแสดงผลคนละจุดกัน")]
+    [SerializeField] private weaponSlot[] upgradeWeaponSlots;
     [SerializeField] private ArtifactSlot[] artifactSlots;
 
-    [Header("--- ฝั่งขวาของหน้า Equipment ---")]
-    [Tooltip("GameObject 'EquipmentItem' ที่เป็นกริดเก็บของ — โชว์ตอนแท็บ Weapon / Artifact")]
-    [SerializeField] private GameObject itemGridRoot;
-    [Tooltip("GameObject 'SkillTree' — โชว์ตอนแท็บ Charector")]
-    [SerializeField] private GameObject skillTreeRoot;
+
 
     void Awake()
     {
@@ -24,33 +22,16 @@ public class EquipmentManager : ItemStorage
 
     // ─── แท็บย่อย ─────────────────────────────────────────────
 
-    // แท็บ Charector ไม่รับ item เลย โชว์ skill tree แทนกริด
     public void ShowCategory(EquipmentCategory category)
     {
-        bool isCharector = category == EquipmentCategory.Charector;
-
-        if (skillTreeRoot != null) skillTreeRoot.SetActive(isCharector);
-        if (itemGridRoot != null) itemGridRoot.SetActive(!isCharector);
-
-        if (!isCharector) DisplayItems();
+        DisplayItems();
     }
 
-    // ของถูกเก็บรวมกันทั้ง weapon และ artifact แท็บมีผลแค่ตอนแสดงเท่านั้น
+    // ของถูกเก็บรวมกันทั้ง weapon และ artifact กริดโชว์ทั้งคู่พร้อมกันเสมอ
     protected override bool ShouldDisplay(BaseItemData item)
     {
-        if (item == null || UiPanelController.instance == null) return false;
-
-        switch (UiPanelController.instance.CurrentCategory)
-        {
-            case EquipmentCategory.Weapon:
-                return item.itemType == ItemType.Weapon;
-
-            case EquipmentCategory.Artifact:
-                return item.itemType == ItemType.Artifact;
-
-            default:
-                return false;   // แท็บ Charector ซ่อนกริดอยู่แล้ว ไม่ต้องวาดอะไร
-        }
+        if (item == null) return false;
+        return item.itemType == ItemType.Weapon || item.itemType == ItemType.Artifact;
     }
 
     // ─── Weapon ───────────────────────────────────────────────
@@ -81,6 +62,8 @@ public class EquipmentManager : ItemStorage
 
         weaponSlots[targetIndex].SetItem(weapon, 1);
         hudWeaponSlots[targetIndex].SetItem(weapon, 1);
+        if (upgradeWeaponSlots != null && targetIndex < upgradeWeaponSlots.Length)
+            upgradeWeaponSlots[targetIndex].SetItem(weapon, 1);
         RemoveItem(weapon);
     }
 
@@ -90,6 +73,8 @@ public class EquipmentManager : ItemStorage
         AddItem(weaponSlots[index].GetCurrentItem());
         weaponSlots[index].Clear();
         hudWeaponSlots[index].Clear();
+        if (upgradeWeaponSlots != null && index < upgradeWeaponSlots.Length)
+            upgradeWeaponSlots[index].Clear();
     }
 
     // ─── Artifact ─────────────────────────────────────────────

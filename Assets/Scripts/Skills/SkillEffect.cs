@@ -1,16 +1,15 @@
 using UnityEngine;
 
-// [CreateAssetMenu(fileName = "SkillEffect", menuName = "SkillData/SkillEffect")]
-public class SkillEffect : ScriptableObject
+public abstract class SkillEffect : ScriptableObject
 {
     [Header("Skill Info")]
     public int skillId;
     public string skillName;
     [TextArea] public string description;
+    public SkillTier tier;
     public Sprite icon;
 
-    [Header("Weapon Tree")]
-    public weaponsData ownerWeaponType;
+    [Header("Skill Tree")]
     public SkillEffect requiredPreviousSkill;
 
     [Header("Unlock Cost")]

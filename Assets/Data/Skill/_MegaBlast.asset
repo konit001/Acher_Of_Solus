@@ -15,11 +15,30 @@ MonoBehaviour:
   skillId: 1000
   skillName: MegaBlast
   description: 
-  icon: {fileID: 0}
-  ownerWeaponType: {fileID: 0}
+  tier: 0
+  icon: {fileID: 21300000, guid: c9938d124260c1745b163e76772ab8d0, type: 3}
   requiredPreviousSkill: {fileID: 0}
   skillPointCost: 0
-  cooldown: 0
-  castAnim: {fileID: 0}
+  skillType: 1
+  elementType: 1
+  cooldown: 2
+  damageMultiplier: 1.5
+  baseDamage: 40
+  meleeStats:
+    hitBoxSize: {x: 0, y: 0}
+    meleeRange: 0
+    knockbackForce: 0
+  rangedStats:
+    projectilePrefab: {fileID: 7692125290546511984, guid: 5befbd922801ddf4890e69ba86fd4eab, type: 3}
+    projectileSpeed: 100
+    projectileLifeTime: 5
+    projectileCount: 5
+    targetLayers:
+      serializedVersion: 2
+      m_Bits: 128
+  effectRadius: 0
+  buffEffect: {fileID: 0}
+  castAnim: {fileID: 7400000, guid: 7e213453021e1824c879bd39764725c7, type: 2}
   castEffectPrefab: {fileID: 0}
+  hitEffectPrefab: {fileID: 0}
   castSfx: {fileID: 0}

@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using Player.Input;
 using UnityEngine;
@@ -7,10 +7,12 @@ using UnityEngine.InputSystem;
 public class PlayerAttack : MonoBehaviour, IActionGate
 {
     [Header("References")]
-    public Transform attackPoint;
+    public Transform attackPoint;          // จุดกำเนิดกระสุนปืน
+    public BoxCollider2D attackHitbox;     // กล่องโจมตีระยะประชิด ขนาด/ออฟเซ็ตคีย์ได้ในอนิเมชัน
     public LayerMask enemyLayers;
     public playerStatus playerStats;
     public playerControl playerController;
+    public SkillCaster skillCaster; // กันโจมตีปกติเริ่มซ้อนตอนกำลังร่ายสกิลค้างอยู่
 
     [Header("UI Weapon Slots")]
     public weaponSlot slot1; // ลาก Weapon Slot 1 จาก UI มาใส่ใน Inspector
@@ -26,14 +28,37 @@ public class PlayerAttack : MonoBehaviour, IActionGate
     // Internal Variables
     private weaponsData currentAttackWeapon;
 
+    // สร้างครั้งเดียวแล้วใช้ซ้ำทุกครั้งที่ฟัน เพื่อไม่ให้เกิดขยะหน่วยความจำกลางคอมแบต
+    private ContactFilter2D enemyFilter;
+    private readonly List<Collider2D> overlapResults = new List<Collider2D>();
+    private readonly HashSet<EnemyHealth> hitAlready = new HashSet<EnemyHealth>();
+
     #region Unity Methods
 
-private void Update()
+    private void Awake()
     {
-        // ให้ Attack Point หมุนตามการเล็งตลอดเวลา
-        RotateAttackPoint();
+        // ถ้าลืมลากใส่ ให้หาจาก attackPoint ให้เอง (collider อยู่บน GameObject เดียวกัน)
+        if (attackHitbox == null && attackPoint != null)
+        {
+            attackHitbox = attackPoint.GetComponent<BoxCollider2D>();
+        }
 
-        if (!canAttack || isAttacking || !canShoot || isShooting || !CanAct) return;
+        enemyFilter = new ContactFilter2D
+        {
+            useLayerMask = true,
+            layerMask = enemyLayers,
+            useTriggers = true   // ให้เหมือนพฤติกรรมเดิมของ OverlapBoxAll (queriesHitTriggers = true)
+        };
+    }
+
+    private void Update()
+    {
+        // ไม่ต้องหมุน attackPoint เอง: กล่องโจมตีเป็นลูกของ visual อยู่แล้ว
+        // จึงหมุนตามมุมเล็งและพลิกซ้ายขวาตามตัวละครโดยอัตโนมัติ
+
+        // เดิมไม่มีความรู้เรื่องสกิลเลย ผู้เล่นเลยแทงหอก/ยิงปืนซ้อนตอนกำลังร่ายสกิลได้ — เติมด่านนี้กันไว้
+        bool isCastingSkill = skillCaster != null && skillCaster.isCasting;
+        if (!canAttack || isAttacking || !canShoot || isShooting || !CanAct || isCastingSkill) return;
 
         if (userInput.instance.attackLeftInput)
         {
@@ -45,33 +70,18 @@ private void Update()
         }
     }
 
-    private void RotateAttackPoint()
+    private void OnDrawGizmosSelected()
     {
-        if (attackPoint == null || playerController == null) return;
-
-        Vector2 aimDir = playerController.aimDirection;
-        float aimAngle = Mathf.Atan2(aimDir.y, aimDir.x) * Mathf.Rad2Deg;
-        
-        // กำหนดองศาแกน Z ให้ attackPoint
-        attackPoint.rotation = Quaternion.Euler(0f, 0f, aimAngle);
-    }
-
-private void OnDrawGizmos()
-    {
-        if (attackPoint == null) return; 
+        if (attackHitbox == null) return;
 
         Gizmos.color = Color.red;
 
-        // นำ Position, Rotation, และ Scale ของ attackPoint มาสร้าง Matrix 
-        // เพื่อให้เส้น Gizmos เอียงตามแกนหมุนของวัตถุ
-        Matrix4x4 rotationMatrix = Matrix4x4.TRS(attackPoint.position, attackPoint.rotation, attackPoint.localScale);
-        Gizmos.matrix = rotationMatrix;
-        
-        // วาดที่ตำแหน่ง 0,0 และขนาด 1 เพราะตำแหน่งและสเกลถูกจัดการใน Matrix แล้ว
-        Gizmos.DrawWireCube(Vector3.zero, Vector3.one); 
-        
+        // localToWorldMatrix รวมการพลิกซ้ายขวาไว้ด้วย เส้นที่เห็นจึงตรงกับกล่องที่ Overlap() ใช้จริง
+        Gizmos.matrix = attackHitbox.transform.localToWorldMatrix;
+        Gizmos.DrawWireCube(attackHitbox.offset, attackHitbox.size);
+
         // คืนค่า Matrix กลับเป็นปกติเพื่อไม่ให้กระทบ Gizmos อื่นๆ
-        Gizmos.matrix = Matrix4x4.identity; 
+        Gizmos.matrix = Matrix4x4.identity;
     }
 
     #endregion
@@ -152,19 +162,21 @@ private void ExecuteGunAttack(weaponsData weaponInfo)
 
     public void TriggerSpearDamage()
     {
-        // เปลี่ยนจาก 0f เป็น attackPoint.eulerAngles.z เพื่อให้กล่องโจมตีเอียงตามทิศการเล็ง
-        Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(
-            attackPoint.position, 
-            attackPoint.localScale, 
-            attackPoint.eulerAngles.z, 
-            enemyLayers
-        );
-        
-        HashSet<EnemyHealth> hitAlready = new HashSet<EnemyHealth>();
+        if (attackHitbox == null) return;
 
-        foreach (Collider2D enemy in hitEnemies)
+        // อนิเมชันขยับ Transform ในรอบ Update ส่วนรูปทรงฟิสิกส์จะอัปเดตรอบ FixedUpdate
+        // จึงต้อง sync ก่อน ไม่งั้น Overlap() จะอ่านตำแหน่งของเฟรมก่อนหน้า
+        Physics2D.SyncTransforms();
+
+        hitAlready.Clear();
+        overlapResults.Clear();
+
+        // ให้ Unity คิดขนาดจริง, offset, มุม และการพลิกซ้ายขวาให้ครบจาก matrix ของ collider
+        int hitCount = attackHitbox.Overlap(enemyFilter, overlapResults);
+
+        for (int i = 0; i < hitCount; i++)
         {
-            EnemyHealth hitEnemyHealth = enemy.GetComponentInParent<EnemyHealth>();
+            EnemyHealth hitEnemyHealth = overlapResults[i].GetComponentInParent<EnemyHealth>();
 
             if (hitEnemyHealth != null && hitAlready.Add(hitEnemyHealth))
             {
@@ -173,18 +185,32 @@ private void ExecuteGunAttack(weaponsData weaponInfo)
         }
     }
 
-    public void DamageCalculation(EnemyHealth targetEnemy, float multiple, weaponsData attackWeapon)
+    // overrideElement = ธาตุของสกิล (None = ใช้ธาตุของอาวุธตามเดิม)
+    // bonusDamage     = ดาเมจของตัวสกิลเอง บวกเข้ากับ baseAttack ของผู้เล่น
+    public void DamageCalculation(EnemyHealth targetEnemy, float multiple, weaponsData attackWeapon,
+                                  ElementType overrideElement = ElementType.None, float bonusDamage = 0f)
     {
-        ElementType attackElement = attackWeapon != null ? attackWeapon.elementType : ElementType.None;
+        ElementType attackElement = overrideElement != ElementType.None
+            ? overrideElement
+            : (attackWeapon != null ? attackWeapon.elementType : ElementType.None);
 
         // --- Player + Weapon Damage Calculation ---
         // ค่าสถานะของอาวุธจะแรงขึ้นตามเลเวลของอาวุธเล่มนั้น
+        // อัพเกรดอาวุธก็บวกพลังโจมตีของตัวละครหลัก (MC) เพิ่มไปด้วย ไม่ใช่แค่ค่าโจมตีของอาวุธ
         float weaponMultiplier = GetWeaponMultiplier(attackWeapon);
 
-        float totalAttack = playerStats.baseAttack + GetWeaponBaseAttack(attackWeapon) * weaponMultiplier;
+        float totalAttack = playerStats.baseAttack * weaponMultiplier + GetWeaponBaseAttack(attackWeapon) * weaponMultiplier + bonusDamage;
         float totalElementalBonus = playerStats.ElementalBonus;
         float totalCritRate = playerStats.CritRate;
         float totalCritDamage = playerStats.CritDamage;
+
+        // โบนัสจาก Passive Skill ที่ปลดล็อกแล้ว (ถ้ามี SkillTreeManager อยู่ในฉาก)
+        if (SkillTreeManager.Instance != null)
+        {
+            totalElementalBonus += SkillTreeManager.Instance.GetTotalPassiveBonus(StatusType.ElementalBonus);
+            totalCritRate += SkillTreeManager.Instance.GetTotalPassiveBonus(StatusType.CritRate);
+            totalCritDamage += SkillTreeManager.Instance.GetTotalPassiveBonus(StatusType.CritDamage);
+        }
 
         if (attackWeapon != null)
         {
@@ -248,6 +274,15 @@ private void ExecuteGunAttack(weaponsData weaponInfo)
         if (weapon == null || WeaponProgressManager.instance == null) return 1f;
 
         return WeaponProgressManager.instance.GetStatMultiplier(weapon);
+    }
+
+    // สกิลไม่ได้มาจากการกดโจมตี จึงไม่มี currentAttackWeapon ของตัวเอง
+    // ยืมอาวุธที่สวมอยู่มาคิดดาเมจฐาน/คริต — ใช้ร่วมกับ DamageCalculation ตรง ๆ จาก SkillCaster
+    public weaponsData GetEquippedWeapon()
+    {
+        if (slot1 != null && !slot1.IsEmpty) return slot1.GetCurrentItem() as weaponsData;
+        if (slot2 != null && !slot2.IsEmpty) return slot2.GetCurrentItem() as weaponsData;
+        return null;
     }
 
     #endregion

@@ -3,10 +3,23 @@ using UnityEngine;
 public class ShootState : State
 {
     public AnimationClip shootAnim; // ใส่แอนิเมชันยิง (ถ้ามี)
+
+    [Header("Burst Fire")]
+    public int shotsPerBurst = 3;
+    public float cooldownDuration = 2f; // เวลารอหลังยิงครบ ก่อนยิงชุดใหม่ได้ (จังหวะระหว่างนัดใช้ enemyCombat.fireInterval เดิม)
+
     private Enemy enemyCore => core as Enemy; // เข้าถึงตัวแปรใน Enemy
+    private int shotsFired;
+
+    public override bool CanEnter()
+        => enemyCore != null && enemyCore.combat != null
+           && enemyCore.combat.DetectPlayer()
+           && Time.time >= enemyCore.combat.cooldownUntil; // ยังไม่หมดคูลดาวน์ = เข้าไม่ได้
 
     public override void Enter()
     {
+        shotsFired = 0;
+
         if (rb != null)
         {
             rb.linearVelocity = Vector2.zero;
@@ -25,9 +38,15 @@ public class ShootState : State
             rb.linearVelocity = Vector2.zero;
         }
 
-        if (enemyCore != null && enemyCore.combat != null)
+        if (shotsFired >= shotsPerBurst)
         {
-            enemyCore.combat.ExecuteShoot();
+            enemyCore.combat.cooldownUntil = Time.time + cooldownDuration; // เริ่มนับคูลดาวน์
+            return; // selectState() รอบหน้าจะเห็น CanEnter()=false แล้วสลับไป CooldownState แทน
+        }
+
+        if (enemyCore != null && enemyCore.combat != null && enemyCore.combat.ExecuteShoot())
+        {
+            shotsFired++; // นับเฉพาะเฟรมที่ ExecuteShoot() ยิงจริง (ตาม fireInterval เดิม)
         }
     }
 

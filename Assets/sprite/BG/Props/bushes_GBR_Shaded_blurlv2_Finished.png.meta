@@ -1,0 +1,546 @@
+fileFormatVersion: 2
+guid: 094bfb49355da7044b03dff0b799acee
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: bushes_GBR_Shaded_blurlv2_Finished_0
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 1852
+        width: 473
+        height: 509
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf9c8d31f794efd47acb7bf1734af44a
+      internalID: 191565836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bushes_GBR_Shaded_blurlv2_Finished_1
+      rect:
+        serializedVersion: 2
+        x: 1355
+        y: 1857
+        width: 472
+        height: 509
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a2a37bc90d4dea4188e4dccbadf25ac
+      internalID: 822120435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bushes_GBR_Shaded_blurlv2_Finished_2
+      rect:
+        serializedVersion: 2
+        x: 2228
+        y: 1855
+        width: 472
+        height: 509
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cfb97c859ec2a34ba9c84eb4085f287
+      internalID: 1737321469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bushes_GBR_Shaded_blurlv2_Finished_3
+      rect:
+        serializedVersion: 2
+        x: 3087
+        y: 1854
+        width: 473
+        height: 509
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88f432349b3c72e4085e2c5efa20b552
+      internalID: 954798166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bushes_GBR_Shaded_blurlv2_Finished_4
+      rect:
+        serializedVersion: 2
+        x: 3943
+        y: 1852
+        width: 473
+        height: 508
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 580d8ebc11af9584e933d267785dac1f
+      internalID: 1726690993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bushes_GBR_Shaded_blurlv2_Finished_5
+      rect:
+        serializedVersion: 2
+        x: 4841
+        y: 1850
+        width: 472
+        height: 510
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c736ce5d2e4a31e45afbeed0c3432bf9
+      internalID: 475518315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bushes_GBR_Shaded_blurlv2_Finished_6
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 987
+        width: 473
+        height: 508
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7683f3801d180ab4b82861c475872575
+      internalID: -1310330622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bushes_GBR_Shaded_blurlv2_Finished_7
+      rect:
+        serializedVersion: 2
+        x: 1352
+        y: 990
+        width: 473
+        height: 509
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b584539d16c6b214394a0dae3def47bf
+      internalID: 1847593250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bushes_GBR_Shaded_blurlv2_Finished_8
+      rect:
+        serializedVersion: 2
+        x: 2225
+        y: 990
+        width: 473
+        height: 508
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fed1f4877fb9f9d45a35ec564b71cc56
+      internalID: 140402265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bushes_GBR_Shaded_blurlv2_Finished_9
+      rect:
+        serializedVersion: 2
+        x: 3085
+        y: 988
+        width: 472
+        height: 508
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba9114ed409eb70448c1db9354b747b7
+      internalID: 1311216874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bushes_GBR_Shaded_blurlv2_Finished_10
+      rect:
+        serializedVersion: 2
+        x: 3941
+        y: 985
+        width: 472
+        height: 510
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acb5976451f4c6545ae6ee9490db1782
+      internalID: -1465288961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bushes_GBR_Shaded_blurlv2_Finished_11
+      rect:
+        serializedVersion: 2
+        x: 4838
+        y: 985
+        width: 472
+        height: 507
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f32c50a167411c84d9bbe3ce1c5f52ba
+      internalID: 1520663469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bushes_GBR_Shaded_blurlv2_Finished_12
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 215
+        width: 473
+        height: 508
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fd2e3c68fdff564c814e244ce8a0619
+      internalID: -1698702836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bushes_GBR_Shaded_blurlv2_Finished_13
+      rect:
+        serializedVersion: 2
+        x: 1350
+        y: 220
+        width: 472
+        height: 508
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11c6bd86679392643a38b168764ba64f
+      internalID: 1354413307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bushes_GBR_Shaded_blurlv2_Finished_14
+      rect:
+        serializedVersion: 2
+        x: 2223
+        y: 218
+        width: 472
+        height: 508
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d214a02486ad8bd4ab86b1c3a8e2656f
+      internalID: -753371615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bushes_GBR_Shaded_blurlv2_Finished_15
+      rect:
+        serializedVersion: 2
+        x: 3082
+        y: 215
+        width: 474
+        height: 510
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06252023e73b1234fad42d2d105706aa
+      internalID: 1607780372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bushes_GBR_Shaded_blurlv2_Finished_16
+      rect:
+        serializedVersion: 2
+        x: 3938
+        y: 214
+        width: 474
+        height: 509
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d075515c60e51ee48a25f5b2173aa24d
+      internalID: 136432702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bushes_GBR_Shaded_blurlv2_Finished_17
+      rect:
+        serializedVersion: 2
+        x: 4836
+        y: 212
+        width: 472
+        height: 508
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4f9fd5b3f88bd64ba77e22ca3ec566b
+      internalID: 66413156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: fe345b3ed5664044f8876fc5a2d70e0f
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      bushes_GBR_Shaded_blurlv2_Finished_0: 191565836
+      bushes_GBR_Shaded_blurlv2_Finished_1: 822120435
+      bushes_GBR_Shaded_blurlv2_Finished_10: -1465288961
+      bushes_GBR_Shaded_blurlv2_Finished_11: 1520663469
+      bushes_GBR_Shaded_blurlv2_Finished_12: -1698702836
+      bushes_GBR_Shaded_blurlv2_Finished_13: 1354413307
+      bushes_GBR_Shaded_blurlv2_Finished_14: -753371615
+      bushes_GBR_Shaded_blurlv2_Finished_15: 1607780372
+      bushes_GBR_Shaded_blurlv2_Finished_16: 136432702
+      bushes_GBR_Shaded_blurlv2_Finished_17: 66413156
+      bushes_GBR_Shaded_blurlv2_Finished_2: 1737321469
+      bushes_GBR_Shaded_blurlv2_Finished_3: 954798166
+      bushes_GBR_Shaded_blurlv2_Finished_4: 1726690993
+      bushes_GBR_Shaded_blurlv2_Finished_5: 475518315
+      bushes_GBR_Shaded_blurlv2_Finished_6: -1310330622
+      bushes_GBR_Shaded_blurlv2_Finished_7: 1847593250
+      bushes_GBR_Shaded_blurlv2_Finished_8: 140402265
+      bushes_GBR_Shaded_blurlv2_Finished_9: 1311216874
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

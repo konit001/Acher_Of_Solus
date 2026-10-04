@@ -1,0 +1,546 @@
+fileFormatVersion: 2
+guid: 47a4d01937bff054993007a657534a62
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: FullyWateredPlant_GB_Shaded_Blurlv1_Finished_0
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 1838
+        width: 565
+        height: 531
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5f7fec5024fdb145883095997c729d0
+      internalID: -1689860653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FullyWateredPlant_GB_Shaded_Blurlv1_Finished_1
+      rect:
+        serializedVersion: 2
+        x: 1311
+        y: 1838
+        width: 566
+        height: 531
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9fa59839d78fa040b78a5b68a62c9d2
+      internalID: -544444424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FullyWateredPlant_GB_Shaded_Blurlv1_Finished_2
+      rect:
+        serializedVersion: 2
+        x: 2186
+        y: 1857
+        width: 567
+        height: 532
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 239f95f291f8a2245871a25485bd333f
+      internalID: -269974382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FullyWateredPlant_GB_Shaded_Blurlv1_Finished_3
+      rect:
+        serializedVersion: 2
+        x: 3048
+        y: 1857
+        width: 567
+        height: 532
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2286453cf4458f54d92ad36287375dd3
+      internalID: 924952324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FullyWateredPlant_GB_Shaded_Blurlv1_Finished_4
+      rect:
+        serializedVersion: 2
+        x: 3895
+        y: 1857
+        width: 568
+        height: 532
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe2e6057d4d75864696133a70812d820
+      internalID: -1736237312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FullyWateredPlant_GB_Shaded_Blurlv1_Finished_5
+      rect:
+        serializedVersion: 2
+        x: 4794
+        y: 1857
+        width: 567
+        height: 532
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2c281a20d4e4c341836b650bae36307
+      internalID: 1269269471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FullyWateredPlant_GB_Shaded_Blurlv1_Finished_6
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 1012
+        width: 567
+        height: 531
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49244173539e3704a91cc551a25f6a50
+      internalID: -1914464751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FullyWateredPlant_GB_Shaded_Blurlv1_Finished_7
+      rect:
+        serializedVersion: 2
+        x: 1311
+        y: 1012
+        width: 566
+        height: 531
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df65e93754fe3ea43bf5c523cf23f169
+      internalID: 1204846127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FullyWateredPlant_GB_Shaded_Blurlv1_Finished_8
+      rect:
+        serializedVersion: 2
+        x: 2186
+        y: 1029
+        width: 567
+        height: 533
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3951268c61ab7b345bbd303f14d07057
+      internalID: -1383698375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FullyWateredPlant_GB_Shaded_Blurlv1_Finished_9
+      rect:
+        serializedVersion: 2
+        x: 3048
+        y: 1029
+        width: 567
+        height: 533
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 308f3c0bda6543a40a7af743b43d374d
+      internalID: 900948465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FullyWateredPlant_GB_Shaded_Blurlv1_Finished_10
+      rect:
+        serializedVersion: 2
+        x: 3895
+        y: 1029
+        width: 568
+        height: 533
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 066163d070430f34ebead1fac2e28696
+      internalID: -1038905747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FullyWateredPlant_GB_Shaded_Blurlv1_Finished_11
+      rect:
+        serializedVersion: 2
+        x: 4794
+        y: 1029
+        width: 567
+        height: 533
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bea9ccd26681a144392ad9684c836015
+      internalID: 1548590058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FullyWateredPlant_GB_Shaded_Blurlv1_Finished_12
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 195
+        width: 565
+        height: 531
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb48c2ab59099834eaa5307b357a6a78
+      internalID: 1919230867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FullyWateredPlant_GB_Shaded_Blurlv1_Finished_13
+      rect:
+        serializedVersion: 2
+        x: 1311
+        y: 195
+        width: 566
+        height: 531
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9034b0fff8848043bbd3cdfdc927bf7
+      internalID: -1348867270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FullyWateredPlant_GB_Shaded_Blurlv1_Finished_14
+      rect:
+        serializedVersion: 2
+        x: 2186
+        y: 214
+        width: 567
+        height: 532
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 686bca23868428b49828ac2e72be6c57
+      internalID: -233566948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FullyWateredPlant_GB_Shaded_Blurlv1_Finished_15
+      rect:
+        serializedVersion: 2
+        x: 3048
+        y: 214
+        width: 567
+        height: 532
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ed688497cbf58d46bde8e0c87a96a6c
+      internalID: 977166922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FullyWateredPlant_GB_Shaded_Blurlv1_Finished_16
+      rect:
+        serializedVersion: 2
+        x: 3895
+        y: 214
+        width: 568
+        height: 532
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a66cbfaaf40768458f1de2deec6813d
+      internalID: 2120242300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FullyWateredPlant_GB_Shaded_Blurlv1_Finished_17
+      rect:
+        serializedVersion: 2
+        x: 4794
+        y: 214
+        width: 567
+        height: 532
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47f92d7d70220764cad56f26f7e081ac
+      internalID: -1982099376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 05e1a5515cca60d40921cf59ce9a3683
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      FullyWateredPlant_GB_Shaded_Blurlv1_Finished_0: -1689860653
+      FullyWateredPlant_GB_Shaded_Blurlv1_Finished_1: -544444424
+      FullyWateredPlant_GB_Shaded_Blurlv1_Finished_10: -1038905747
+      FullyWateredPlant_GB_Shaded_Blurlv1_Finished_11: 1548590058
+      FullyWateredPlant_GB_Shaded_Blurlv1_Finished_12: 1919230867
+      FullyWateredPlant_GB_Shaded_Blurlv1_Finished_13: -1348867270
+      FullyWateredPlant_GB_Shaded_Blurlv1_Finished_14: -233566948
+      FullyWateredPlant_GB_Shaded_Blurlv1_Finished_15: 977166922
+      FullyWateredPlant_GB_Shaded_Blurlv1_Finished_16: 2120242300
+      FullyWateredPlant_GB_Shaded_Blurlv1_Finished_17: -1982099376
+      FullyWateredPlant_GB_Shaded_Blurlv1_Finished_2: -269974382
+      FullyWateredPlant_GB_Shaded_Blurlv1_Finished_3: 924952324
+      FullyWateredPlant_GB_Shaded_Blurlv1_Finished_4: -1736237312
+      FullyWateredPlant_GB_Shaded_Blurlv1_Finished_5: 1269269471
+      FullyWateredPlant_GB_Shaded_Blurlv1_Finished_6: -1914464751
+      FullyWateredPlant_GB_Shaded_Blurlv1_Finished_7: 1204846127
+      FullyWateredPlant_GB_Shaded_Blurlv1_Finished_8: -1383698375
+      FullyWateredPlant_GB_Shaded_Blurlv1_Finished_9: 900948465
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

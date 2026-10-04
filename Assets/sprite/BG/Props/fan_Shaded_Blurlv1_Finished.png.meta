@@ -1,0 +1,684 @@
+fileFormatVersion: 2
+guid: c23fe1a7cf1151747a6b675901081137
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: fan_Shaded_Blurlv1_Finished_0
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 2783
+        width: 659
+        height: 704
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c2b020644819854dbb2785547401dbd
+      internalID: -160657123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fan_Shaded_Blurlv1_Finished_1
+      rect:
+        serializedVersion: 2
+        x: 990
+        y: 2783
+        width: 659
+        height: 704
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6518c43fb168924d9e7c63621fc8cbc
+      internalID: 42422459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fan_Shaded_Blurlv1_Finished_2
+      rect:
+        serializedVersion: 2
+        x: 2014
+        y: 2783
+        width: 659
+        height: 704
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80011c72099267a4f9b60e99618a46cb
+      internalID: -95882035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fan_Shaded_Blurlv1_Finished_3
+      rect:
+        serializedVersion: 2
+        x: 3065
+        y: 2783
+        width: 659
+        height: 704
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e83aef20782be7e498a18a835a607d0f
+      internalID: 370535873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fan_Shaded_Blurlv1_Finished_4
+      rect:
+        serializedVersion: 2
+        x: 3966
+        y: 2783
+        width: 659
+        height: 704
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12c79b398a7a0ae4c844e72b958a6292
+      internalID: -347701328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fan_Shaded_Blurlv1_Finished_5
+      rect:
+        serializedVersion: 2
+        x: 4914
+        y: 2783
+        width: 659
+        height: 704
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2f7620e7315073409fa50bb99ff6af7
+      internalID: -2040808227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fan_Shaded_Blurlv1_Finished_6
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 1930
+        width: 642
+        height: 688
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b29a6b81492f6094d8b4cd8efdb8b529
+      internalID: -2913899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fan_Shaded_Blurlv1_Finished_7
+      rect:
+        serializedVersion: 2
+        x: 998
+        y: 1930
+        width: 643
+        height: 688
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 603daaa459612b14eb304fecbf1e7d7b
+      internalID: -1620648746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fan_Shaded_Blurlv1_Finished_8
+      rect:
+        serializedVersion: 2
+        x: 2021
+        y: 1930
+        width: 644
+        height: 688
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d776ee32d66c8e409932613aeec5f71
+      internalID: 1494794395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fan_Shaded_Blurlv1_Finished_9
+      rect:
+        serializedVersion: 2
+        x: 3074
+        y: 1930
+        width: 642
+        height: 688
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a0007ff64e182e4ea8c746c8cedf196
+      internalID: -420270670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fan_Shaded_Blurlv1_Finished_10
+      rect:
+        serializedVersion: 2
+        x: 3974
+        y: 1930
+        width: 643
+        height: 688
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cc9eed43f3a56c4ba95320f515bdb74
+      internalID: -1573191503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fan_Shaded_Blurlv1_Finished_11
+      rect:
+        serializedVersion: 2
+        x: 4922
+        y: 1930
+        width: 643
+        height: 688
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8aa2bec6e3b0f4458dd32e2cfe812e2
+      internalID: -496103315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fan_Shaded_Blurlv1_Finished_12
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 998
+        width: 642
+        height: 688
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4b00ef81c5814540b773d4ecdcde465
+      internalID: -15369609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fan_Shaded_Blurlv1_Finished_13
+      rect:
+        serializedVersion: 2
+        x: 998
+        y: 998
+        width: 643
+        height: 688
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08f6c2873d64542408c3011ba46ff5ac
+      internalID: -513942015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fan_Shaded_Blurlv1_Finished_14
+      rect:
+        serializedVersion: 2
+        x: 2021
+        y: 998
+        width: 644
+        height: 688
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46533a3f61a60ba489d82e1e50e9a096
+      internalID: 518065055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fan_Shaded_Blurlv1_Finished_15
+      rect:
+        serializedVersion: 2
+        x: 3074
+        y: 998
+        width: 642
+        height: 688
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbe90076b1dd3e84abc8ba2cf8c4f406
+      internalID: -479725998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fan_Shaded_Blurlv1_Finished_16
+      rect:
+        serializedVersion: 2
+        x: 3974
+        y: 998
+        width: 643
+        height: 688
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 239a997148688544da517ca7c3f67420
+      internalID: 2020727523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fan_Shaded_Blurlv1_Finished_17
+      rect:
+        serializedVersion: 2
+        x: 4922
+        y: 998
+        width: 643
+        height: 688
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76c829b832c25a242b0f3e53bbb3d7f0
+      internalID: 300647993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fan_Shaded_Blurlv1_Finished_18
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 83
+        width: 642
+        height: 687
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e93ade9bb6003634abd254d28c7fd1a1
+      internalID: 2033957471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fan_Shaded_Blurlv1_Finished_19
+      rect:
+        serializedVersion: 2
+        x: 998
+        y: 83
+        width: 643
+        height: 687
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb7c4ebaa6045d947bfb7fcd2a84981a
+      internalID: 1616872104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fan_Shaded_Blurlv1_Finished_20
+      rect:
+        serializedVersion: 2
+        x: 2021
+        y: 83
+        width: 644
+        height: 687
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa40fce200cc30640b9cf3d6a9fff5b9
+      internalID: -631495016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fan_Shaded_Blurlv1_Finished_21
+      rect:
+        serializedVersion: 2
+        x: 3074
+        y: 83
+        width: 642
+        height: 687
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59e722866551e404bad7337cb6c03556
+      internalID: 1788044187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fan_Shaded_Blurlv1_Finished_22
+      rect:
+        serializedVersion: 2
+        x: 3974
+        y: 83
+        width: 643
+        height: 687
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b9185b3f95d7db4c888b07b9d61b275
+      internalID: -1554261045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fan_Shaded_Blurlv1_Finished_23
+      rect:
+        serializedVersion: 2
+        x: 4922
+        y: 83
+        width: 643
+        height: 687
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95dd810289576d74d8ea9a09b304d7b5
+      internalID: 337431903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 50c16a098659dbc439ff9d275e9333e4
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      fan_Shaded_Blurlv1_Finished_0: -160657123
+      fan_Shaded_Blurlv1_Finished_1: 42422459
+      fan_Shaded_Blurlv1_Finished_10: -1573191503
+      fan_Shaded_Blurlv1_Finished_11: -496103315
+      fan_Shaded_Blurlv1_Finished_12: -15369609
+      fan_Shaded_Blurlv1_Finished_13: -513942015
+      fan_Shaded_Blurlv1_Finished_14: 518065055
+      fan_Shaded_Blurlv1_Finished_15: -479725998
+      fan_Shaded_Blurlv1_Finished_16: 2020727523
+      fan_Shaded_Blurlv1_Finished_17: 300647993
+      fan_Shaded_Blurlv1_Finished_18: 2033957471
+      fan_Shaded_Blurlv1_Finished_19: 1616872104
+      fan_Shaded_Blurlv1_Finished_2: -95882035
+      fan_Shaded_Blurlv1_Finished_20: -631495016
+      fan_Shaded_Blurlv1_Finished_21: 1788044187
+      fan_Shaded_Blurlv1_Finished_22: -1554261045
+      fan_Shaded_Blurlv1_Finished_23: 337431903
+      fan_Shaded_Blurlv1_Finished_3: 370535873
+      fan_Shaded_Blurlv1_Finished_4: -347701328
+      fan_Shaded_Blurlv1_Finished_5: -2040808227
+      fan_Shaded_Blurlv1_Finished_6: -2913899
+      fan_Shaded_Blurlv1_Finished_7: -1620648746
+      fan_Shaded_Blurlv1_Finished_8: 1494794395
+      fan_Shaded_Blurlv1_Finished_9: -420270670
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

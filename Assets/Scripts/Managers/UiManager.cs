@@ -15,6 +15,7 @@ public class UiManager : MonoBehaviour
     [Header("--- Controllers ---")]
     [SerializeField] private UiPanelController panelController;
     [SerializeField] private ItemUseDispatcher itemUseDispatcher;
+    [SerializeField] private FeedbackListUI feedbackList;
 
     void Awake()
     {
@@ -45,6 +46,16 @@ public class UiManager : MonoBehaviour
     {
         if (item == null) return;
         StorageFor(item).AddItem(item);
+    }
+
+    // ผู้เล่นเก็บของในฉากเข้าตัว — เข้ากระเป๋าแล้วเด้ง toast บอกบน HUD ด้วย
+    // ของที่แจกให้ตอนเริ่มเกมยังใช้ AddItem ตรง ๆ จะได้ไม่มี toast เด้งตอนเปิดเกม
+    public void CollectItem(BaseItemData item)
+    {
+        if (item == null) return;
+
+        AddItem(item);
+        if (feedbackList != null) feedbackList.Show(item);
     }
 
     public void RemoveItem(BaseItemData item)

@@ -13,6 +13,13 @@ public class weaponSlot : SlotBase
         if (WeaponProgressManager.instance != null)
             WeaponProgressManager.instance.OnWeaponUpgraded += OnWeaponUpgraded;
 
+        // เก็บวัสดุ/เหรียญเพิ่มระหว่างเปิดแผงค้างไว้ ก็ต้องรีเฟรชปุ่ม Upgrade ให้ทัน ไม่งั้นปุ่มจะค้าง
+        // interactable = false จากตอนที่ของยังไม่พอ กดยังไงก็ไม่ทำงาน
+        if (InventoryManager.instance != null)
+            InventoryManager.instance.OnChanged += OnMaterialsOrCoinChanged;
+        if (CoinManager.instance != null)
+            CoinManager.instance.OnCoinChanged += OnMaterialsOrCoinChanged;
+
         if (!IsEmpty) ShowInfo();   // เปิดแผงทีหลังก็ยังเห็นค่าล่าสุด
     }
 
@@ -20,12 +27,22 @@ public class weaponSlot : SlotBase
     {
         if (WeaponProgressManager.instance != null)
             WeaponProgressManager.instance.OnWeaponUpgraded -= OnWeaponUpgraded;
+
+        if (InventoryManager.instance != null)
+            InventoryManager.instance.OnChanged -= OnMaterialsOrCoinChanged;
+        if (CoinManager.instance != null)
+            CoinManager.instance.OnCoinChanged -= OnMaterialsOrCoinChanged;
     }
 
     // อาวุธเล่มเดียวกันโชว์อยู่ทั้งช่อง HUD และช่องในแผง Equipment จึงต้องรีเฟรชทั้งคู่
     private void OnWeaponUpgraded(weaponsData weapon)
     {
         if (currentItem == weapon) ShowInfo();
+    }
+
+    private void OnMaterialsOrCoinChanged()
+    {
+        if (!IsEmpty) ShowInfo();
     }
 
     protected override void ShowInfo()
@@ -39,6 +56,7 @@ public class weaponSlot : SlotBase
         ShowLevel(weapon);
         ShowMaterials(weapon);
         ShowUpgradeButton(weapon);
+        SkillListUI.instance?.ShowForWeapon(weapon);
     }
 
     private void ShowLevel(weaponsData weapon)

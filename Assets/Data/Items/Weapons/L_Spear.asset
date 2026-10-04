@@ -15,18 +15,7 @@ MonoBehaviour:
   maxLevel: 10
   steps:
   - materials:
-    - material: {fileID: 11400000, guid: f5b162d20ad98d5449ecc2b52d82258b, type: 2}
-      amount: 1
-    - material: {fileID: 11400000, guid: 18b20fd5512f58e4189037843575b481, type: 2}
-      amount: 2
-    coinCost: 0
-    statBonusPercent: 1
-  - materials:
-    - material: {fileID: 11400000, guid: f5b162d20ad98d5449ecc2b52d82258b, type: 2}
-      amount: 2
-    - material: {fileID: 11400000, guid: 18b20fd5512f58e4189037843575b481, type: 2}
-      amount: 3
-    - material: {fileID: 11400000, guid: 037650f257446ab41b73d21887c9b8dc, type: 2}
+    - material: {fileID: 11400000, guid: 8fbe48a56f73ca445b1a8eb9dcd20868, type: 2}
       amount: 1
     coinCost: 0
-    statBonusPercent: 3
+    statBonusPercent: 1000

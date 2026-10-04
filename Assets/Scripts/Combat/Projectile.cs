@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour, IPooledObject
+public class Projectile : Core, IPooledObject
 {
     // บัฟเฟอร์ร่วมของทุกกระสุน — Physics query ทำงานบนเธรดหลักทีละนัด จึงใช้ตัวเดียวกันได้
     // ขนาด 4 พอ เพราะสนใจแค่ตัวที่ใกล้ที่สุด
@@ -14,13 +14,36 @@ public class Projectile : MonoBehaviour, IPooledObject
 
     private float lifeTimer;
 
+    // BulletState อ่านค่านี้เพื่อยืดแอนิเมชันให้จบพอดีตอนกระสุนหมดอายุ
+    public float Lifetime => lifetime;
+
+    [Header("State")]
+    public State bullet;
+
+    // เลเยอร์สิ่งกีดขวางที่กระสุนทุกนัดต้องชนเสมอ ไม่ว่าใครยิง (พื้น/กำแพง) — ค่าเริ่มต้นคือ Ground (layer 6)
+    [Header("Obstacles")]
+    public LayerMask obstacleLayers = 1 << 6;
+
     // ฟังก์ชันนี้รับค่าคอนฟิกตอนยิง และรับคำสั่งว่าจะให้ทำอะไรตอนชน (Callback)
     public void Setup(float bulletSpeed, float bulletLifetime, LayerMask targetLayers, Action<Collider2D> onHitAction)
     {
         speed = bulletSpeed;
         lifetime = bulletLifetime;
-        hitFilter = BuildHitFilter(targetLayers);
+        hitFilter = BuildHitFilter(targetLayers | obstacleLayers);
         onHitCallback = onHitAction;
+
+        // เข้า State ตรงนี้ ไม่ใช่ใน OnObjectSpawn เพราะ BulletState ต้องรู้ lifetime ตอน Enter()
+        // แต่ ObjectPooling เรียก OnObjectSpawn ก่อนที่คนยิงจะเรียก Setup เสมอ
+        // forceReset = true จำเป็น เพราะกระสุนที่ใช้ซ้ำยังค้าง state เดิมอยู่ ถ้าไม่บังคับจะข้าม Enter()
+        stateMacines.set(bullet, true);
+    }
+
+    // สร้าง State Machine ครั้งเดียวตอนถูก Instantiate เข้า pool
+    // ไม่ทำใน OnObjectSpawn เพราะกระสุนถูก spawn ถี่มาก และ setupInstances()
+    // มี GetComponentsInChildren ที่ alloc array ใหม่ทุกครั้งที่เรียก
+    void Awake()
+    {
+        setupInstances();
     }
 
     public void OnObjectSpawn()
@@ -30,6 +53,8 @@ public class Projectile : MonoBehaviour, IPooledObject
 
     void Update()
     {
+        // กระสุนบางตัวอาจไม่ได้ผูก State ไว้ใน Inspector — ปล่อยให้บินต่อได้โดยไม่พังทั้งเกม
+        stateMacines.state?.Do();
         // 1. นับเวลา Lifetime
         lifeTimer += Time.deltaTime;
         if (lifeTimer >= lifetime)

@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3261a70fb056ccf42976bf27765d23dd, type: 3}
   m_Name: _spear
   m_EditorClassIdentifier: Assembly-CSharp::MeleeWeaponData
-  itemName: SpaerFormNorwhere
+  itemName: Spaer
   description: something ###@#@# From !@#!#$@
   itemType: 5
-  itemImage: {fileID: 21300000, guid: 20ad53729f6e5e441bf8fe47b17b171b, type: 3}
+  itemImage: {fileID: 21300000, guid: 45d087fdc5112b24da039ffb5ff2249f, type: 3}
+  autoCollect: 0
   weaponType: 1
   weaponId: 1001
   elementType: 1
@@ -23,12 +24,15 @@ MonoBehaviour:
   ElementalBonus: 2
   CritRate: 5
   CritDamage: 5
-  Luck: 100
+  Luck: 10
   level: 0
   levelData: {fileID: 11400000, guid: 1791a705ad9713148a1c93035855217e, type: 2}
-  first: {fileID: 11400000, guid: c958eeaf4545d83478d87bb2c337eed9, type: 2}
+  first: {fileID: 0}
+  firstUnlockLevel: 1
   second: {fileID: 0}
+  secondUnlockLevel: 1
   third: {fileID: 0}
+  thirdUnlockLevel: 1
   attackAnim: {fileID: 0}
   hitEffectPrefab: {fileID: 0}
   attackSfx: {fileID: 0}

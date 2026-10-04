@@ -16,3 +16,4 @@ MonoBehaviour:
   description: 
   itemType: 1
   itemImage: {fileID: 688366926, guid: 878307a56a5fc1c4cb986abbfa68ac94, type: 3}
+  autoCollect: 1

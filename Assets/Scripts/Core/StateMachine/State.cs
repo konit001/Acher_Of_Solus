@@ -7,15 +7,21 @@ public abstract class State : MonoBehaviour
     protected float time => Time.time - StartTime;
     protected Animator animator => core.animator;
     protected Rigidbody2D rb => core.rb;
-    
+
     // อ้างอิงกลับไปยัง Core หลัก
     protected Core core;
 
     public stateMacines macine;
     public State parent;
-    
+
     // Property สำหรับดูว่า State ปัจจุบันของ Machine คืออะไร
     public State state => macine.state;
+
+    [Header("Selection")]
+    public int priority = 0; // ยิ่งมาก = ถูกเช็คก่อน/สำคัญกว่า ตั้งค่าใน Inspector ไม่ต้องพึ่งลำดับ GameObject ใน Hierarchy
+
+    // เงื่อนไขว่า state นี้เข้าได้หรือไม่ตอนนี้ ใช้โดย selectState() ของ Core ที่สืบทอดต่อ (เช่น Enemy)
+    public virtual bool CanEnter() => false;
 
     /// ฟังก์ชันอำนวยความสะดวกในการสั่งเปลี่ยน State
     protected void set(State newState, bool forceReset = false)
@@ -29,6 +35,18 @@ public abstract class State : MonoBehaviour
         core = _core;
     }
 
+    // public void DoBranch()
+    // {
+    //     Do();
+    //     state?.DoBranch();
+    // }
+
+    // public void FixDoBranch()
+    // {
+    //     FixDo();
+    //     state?.FixDoBranch();
+    // }
+
     /// รีเซ็ตค่าพื้นฐานทุกครั้งก่อนเข้าสู่ State ใหม่
     public void initialise()
     {
@@ -39,10 +57,10 @@ public abstract class State : MonoBehaviour
 
     // --- ฟังก์ชัน Lifecycle สำหรับให้คลาสลูกนำไปเขียนทับ
     public virtual void Enter() { }
-    
+
     public virtual void Do() { }
-    
+
     public virtual void FixDo() { }
-    
+
     public virtual void Exit() { }
 }

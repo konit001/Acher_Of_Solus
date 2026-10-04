@@ -26,14 +26,18 @@ public class enemyCombat : MonoBehaviour, IActionGate
     public float fireInterval = 1.5f;
     protected float fireTimer;
 
+    [Header("Burst Cooldown")]
+    public float cooldownUntil; // Time.time ที่จะยิงชุดใหม่ได้ (0 = ยิงได้ทันที)
+
     public bool DetectPlayer()
     {
         return detectPlayer = Physics2D.OverlapCircle(detectCheck.transform.position, detectRadius, playerLayer);
     }
 
-    public void ExecuteShoot()
+    // คืนค่า true เฉพาะเฟรมที่ยิงจริง (fireTimer สะสมครบ fireInterval) เพื่อให้ผู้เรียก (เช่น ShootState) นับจำนวนนัดที่ยิงได้จริง
+    public bool ExecuteShoot()
     {
-        if (!canAct) return;
+        if (!canAct) return false;
 
         fireTimer += Time.deltaTime;
 
@@ -41,7 +45,10 @@ public class enemyCombat : MonoBehaviour, IActionGate
         {
             fireTimer = 0f;
             ShootAtPlayer();
+            return true;
         }
+
+        return false;
     }
 
     void ShootAtPlayer()

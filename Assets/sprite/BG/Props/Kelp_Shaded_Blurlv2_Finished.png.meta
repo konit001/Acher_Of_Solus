@@ -1,0 +1,684 @@
+fileFormatVersion: 2
+guid: be30e3f6c912a70408342c34b47f4dac
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Kelp_Shaded_Blurlv2_Finished_0
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 2722
+        width: 608
+        height: 587
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bb12dd764527eb42b833457f1e90143
+      internalID: 1250856814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kelp_Shaded_Blurlv2_Finished_1
+      rect:
+        serializedVersion: 2
+        x: 1079
+        y: 2722
+        width: 608
+        height: 587
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f12d814efd22eb4ebcb569facb98b56
+      internalID: 1202619721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kelp_Shaded_Blurlv2_Finished_2
+      rect:
+        serializedVersion: 2
+        x: 1988
+        y: 2723
+        width: 607
+        height: 586
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fcfe4ef35dc69249a5b0de28f6ad910
+      internalID: 360592897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kelp_Shaded_Blurlv2_Finished_3
+      rect:
+        serializedVersion: 2
+        x: 2942
+        y: 2722
+        width: 606
+        height: 587
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a87453aa3b8269641affd344fbc0c549
+      internalID: 1815974291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kelp_Shaded_Blurlv2_Finished_4
+      rect:
+        serializedVersion: 2
+        x: 3916
+        y: 2723
+        width: 606
+        height: 586
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae121e36d29d0d74eb9bd4a9defec435
+      internalID: -364661516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kelp_Shaded_Blurlv2_Finished_5
+      rect:
+        serializedVersion: 2
+        x: 4817
+        y: 2722
+        width: 608
+        height: 587
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 130b31e824d9ae042ad4bbcc1b872669
+      internalID: -385022100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kelp_Shaded_Blurlv2_Finished_6
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 2003
+        width: 608
+        height: 587
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e805661bbee3d04e993c2984f28d2a8
+      internalID: 597248963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kelp_Shaded_Blurlv2_Finished_7
+      rect:
+        serializedVersion: 2
+        x: 1079
+        y: 2003
+        width: 608
+        height: 586
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c0ef3d4e994ead46936717a971980c5
+      internalID: 369530729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kelp_Shaded_Blurlv2_Finished_8
+      rect:
+        serializedVersion: 2
+        x: 1988
+        y: 2003
+        width: 607
+        height: 587
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c612ac9e9fbb904d8bde7e7b2f56461
+      internalID: 41083236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kelp_Shaded_Blurlv2_Finished_9
+      rect:
+        serializedVersion: 2
+        x: 2942
+        y: 2003
+        width: 606
+        height: 586
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c58cf9076bc6a2440a63ced4ac36160a
+      internalID: -643534720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kelp_Shaded_Blurlv2_Finished_10
+      rect:
+        serializedVersion: 2
+        x: 3916
+        y: 2003
+        width: 606
+        height: 586
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcb37e9e92fcc0349aa30221d233fb1f
+      internalID: 1164751350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kelp_Shaded_Blurlv2_Finished_11
+      rect:
+        serializedVersion: 2
+        x: 4817
+        y: 2003
+        width: 608
+        height: 586
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f126958ac7da1447945c0654a0eb485
+      internalID: 1784502636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kelp_Shaded_Blurlv2_Finished_12
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 1197
+        width: 608
+        height: 586
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ec9ddeda42f9ef458f2d00155f1ca5f
+      internalID: -1711326300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kelp_Shaded_Blurlv2_Finished_13
+      rect:
+        serializedVersion: 2
+        x: 1079
+        y: 1197
+        width: 608
+        height: 586
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9feeb75eac1df4b498cd5d208d4efc81
+      internalID: -685251334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kelp_Shaded_Blurlv2_Finished_14
+      rect:
+        serializedVersion: 2
+        x: 1988
+        y: 1197
+        width: 607
+        height: 586
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9579796dd145bf47aad076e5a997046
+      internalID: -1978342095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kelp_Shaded_Blurlv2_Finished_15
+      rect:
+        serializedVersion: 2
+        x: 2942
+        y: 1197
+        width: 606
+        height: 586
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ecec3fc35b236e49b9a975fbb363159
+      internalID: -714921748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kelp_Shaded_Blurlv2_Finished_16
+      rect:
+        serializedVersion: 2
+        x: 3918
+        y: 1197
+        width: 604
+        height: 586
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1f3754791766f1409c47d33210ca18d
+      internalID: -1037558024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kelp_Shaded_Blurlv2_Finished_17
+      rect:
+        serializedVersion: 2
+        x: 4817
+        y: 1197
+        width: 608
+        height: 586
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ab12c8c598b35d48822067a60384303
+      internalID: -1444112279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kelp_Shaded_Blurlv2_Finished_18
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 401
+        width: 608
+        height: 587
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82c37df37ee93484f91989a5e5554847
+      internalID: 55840082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kelp_Shaded_Blurlv2_Finished_19
+      rect:
+        serializedVersion: 2
+        x: 1079
+        y: 401
+        width: 608
+        height: 587
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 493724d23e6a7a04a904a947bc0b5baa
+      internalID: -940670746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kelp_Shaded_Blurlv2_Finished_20
+      rect:
+        serializedVersion: 2
+        x: 1988
+        y: 402
+        width: 607
+        height: 586
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8de8dfb95932e1041afaba997bdd592b
+      internalID: 212323903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kelp_Shaded_Blurlv2_Finished_21
+      rect:
+        serializedVersion: 2
+        x: 2942
+        y: 401
+        width: 606
+        height: 587
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a61d36de0165fe2438dc432e8144b4a1
+      internalID: -344995027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kelp_Shaded_Blurlv2_Finished_22
+      rect:
+        serializedVersion: 2
+        x: 3916
+        y: 402
+        width: 606
+        height: 586
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5c21cd751608bb429f27cfb57d6988e
+      internalID: -1122870848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kelp_Shaded_Blurlv2_Finished_23
+      rect:
+        serializedVersion: 2
+        x: 4817
+        y: 401
+        width: 608
+        height: 587
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88954d2a06edd69418c09a1556e89bde
+      internalID: -255918160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 561e191cc407ed14f942243becc742e8
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Kelp_Shaded_Blurlv2_Finished_0: 1250856814
+      Kelp_Shaded_Blurlv2_Finished_1: 1202619721
+      Kelp_Shaded_Blurlv2_Finished_10: 1164751350
+      Kelp_Shaded_Blurlv2_Finished_11: 1784502636
+      Kelp_Shaded_Blurlv2_Finished_12: -1711326300
+      Kelp_Shaded_Blurlv2_Finished_13: -685251334
+      Kelp_Shaded_Blurlv2_Finished_14: -1978342095
+      Kelp_Shaded_Blurlv2_Finished_15: -714921748
+      Kelp_Shaded_Blurlv2_Finished_16: -1037558024
+      Kelp_Shaded_Blurlv2_Finished_17: -1444112279
+      Kelp_Shaded_Blurlv2_Finished_18: 55840082
+      Kelp_Shaded_Blurlv2_Finished_19: -940670746
+      Kelp_Shaded_Blurlv2_Finished_2: 360592897
+      Kelp_Shaded_Blurlv2_Finished_20: 212323903
+      Kelp_Shaded_Blurlv2_Finished_21: -344995027
+      Kelp_Shaded_Blurlv2_Finished_22: -1122870848
+      Kelp_Shaded_Blurlv2_Finished_23: -255918160
+      Kelp_Shaded_Blurlv2_Finished_3: 1815974291
+      Kelp_Shaded_Blurlv2_Finished_4: -364661516
+      Kelp_Shaded_Blurlv2_Finished_5: -385022100
+      Kelp_Shaded_Blurlv2_Finished_6: 597248963
+      Kelp_Shaded_Blurlv2_Finished_7: 369530729
+      Kelp_Shaded_Blurlv2_Finished_8: 41083236
+      Kelp_Shaded_Blurlv2_Finished_9: -643534720
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
