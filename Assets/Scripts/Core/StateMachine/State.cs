@@ -1,4 +1,6 @@
 using UnityEngine;
+public enum StateLayer { Base, Additive }
+
 public abstract class State : MonoBehaviour
 {
     public bool IsComplete { get; protected set; }
@@ -9,12 +11,15 @@ public abstract class State : MonoBehaviour
 
     protected Core core;
     public stateMacines macine;
-    public State parent;
+    // public State parent;
     public State state => macine.state;
 
     [Header("Selection")]
     public int priority = 0;
     public virtual bool CanEnter() => false;
+
+    public StateLayer layer = StateLayer.Base;
+
     protected void set(State newState, bool forceReset = false)
     {
         macine.set(newState, forceReset);

@@ -32,7 +32,7 @@ public class StartGameSceneController : MonoBehaviour
         // 1. สั่ง FadeManager ให้เริ่มมืดลง
         if (FadeManager.instance != null)
         {
-            FadeManager.instance.StartFadeOut();
+            FadeManager.instance.LoadSceneWithFade("1-1");
 
             // 2. รอจนกว่า Fade จะทำงานเสร็จ
             while (FadeManager.instance.IsFading)
@@ -41,7 +41,7 @@ public class StartGameSceneController : MonoBehaviour
             }
         }
 
-        SceneManager.LoadScene("1");
+        SceneManager.LoadScene("1-1");
     }
 
     // ฟังก์ชันเมื่อกดปุ่ม Gallery

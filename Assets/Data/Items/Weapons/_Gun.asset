@@ -19,7 +19,7 @@ MonoBehaviour:
   autoCollect: 0
   weaponType: 2
   weaponId: 2001
-  elementType: 3
+  elementType: 1
   rarity: 0
   ElementalBonus: 2
   CritRate: 32.2

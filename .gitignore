@@ -110,3 +110,6 @@ InitTestScene*.unity*
 
 # Local tool configs
 .claude/
+
+# Stored locally until it is split into smaller assets.
+/Assets/Scenes/1-1.unity

@@ -122,7 +122,7 @@ public class PlayerAttack : MonoBehaviour, IActionGate
     private void ExecuteSpearAttack()
     {
         print("Hoooit");
-        StartCoroutine(AttackRoutine(playerController.SpearAttackState));
+        StartCoroutine(AttackRoutine(PlayerStateMachine.instance.SpearAttackState));
     }
 
 private void ExecuteGunAttack(weaponsData weaponInfo)

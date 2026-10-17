@@ -6,6 +6,7 @@ public abstract class Core : MonoBehaviour
     public Animator animator;
     public Rigidbody2D rb;
     public stateMacines stateMacines;
+    public stateMacines AdditiveMachine;
 
     [Header("Child States (auto-detected, read-only)")]
     [SerializeField] protected State[] childStates;
@@ -13,12 +14,17 @@ public abstract class Core : MonoBehaviour
     public void setupInstances()
     {
         stateMacines = new stateMacines();
+        AdditiveMachine = new stateMacines();
+
+        stateMacines.layer = StateLayer.Base;
+        AdditiveMachine.layer = StateLayer.Additive;
+
         childStates = GetSortedChildStates();
 
         foreach (State state in childStates)
         {
             state.SetCore(this);
-            state.macine = stateMacines;
+            state.macine = (state.layer == StateLayer.Base) ? stateMacines : AdditiveMachine;
         }
     }
 

@@ -118,7 +118,7 @@ public class PauseController : MonoBehaviour
     {
         if (FadeManager.instance != null)
         {
-            FadeManager.instance.StartFadeOut();
+            FadeManager.instance.LoadSceneWithFade("StartGame");
             while (FadeManager.instance.IsFading)
             {
                 yield return null;
@@ -131,7 +131,7 @@ public class PauseController : MonoBehaviour
     {
         if (FadeManager.instance != null)
         {
-            FadeManager.instance.StartFadeIn();
+            FadeManager.instance.LoadSceneWithFade("SampleScene");
             while (FadeManager.instance.IsFading)
             {
                 yield return null;

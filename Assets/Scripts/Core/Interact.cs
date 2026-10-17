@@ -8,7 +8,7 @@ public class Interact : MonoBehaviour
     public LayerMask interactLayer;
 
     [Header("Interact Prompt")]
-    public GameObject interactPromptPrefab;   // ลาก prefab ไอคอน (มี SpriteRenderer) จาก Project มาใส่
+    public GameObject interactPromptPrefab;
     public Vector3 promptOffset = Vector3.up;
 
     private GameObject activePrompt;

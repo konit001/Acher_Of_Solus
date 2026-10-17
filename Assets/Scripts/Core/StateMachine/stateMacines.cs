@@ -2,6 +2,7 @@ using UnityEngine;
 public class stateMacines
 {
     public State state;
+    public StateLayer layer;
 
     public void set(State newState , bool forceReset = false )
     {

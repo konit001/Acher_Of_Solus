@@ -65,7 +65,7 @@ public class GameOverController : MonoBehaviour
     {
         if (FadeManager.instance != null)
         {
-            FadeManager.instance.StartFadeOut();
+            FadeManager.instance.LoadSceneWithFade(sceneName);
             while (FadeManager.instance.IsFading)
             {
                 yield return null;

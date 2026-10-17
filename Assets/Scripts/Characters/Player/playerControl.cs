@@ -3,8 +3,10 @@ using Player.Input;
 using Unity.Mathematics;
 using UnityEngine;
 
-public class playerControl : Core, IMoveSpeedModifiable
+public class playerControl : MonoBehaviour, IMoveSpeedModifiable
 {
+    public static playerControl instance;
+    public Rigidbody2D rb;
     [Header("Components & References")]
     public Transform visualTransform;
     public TrailRenderer trailRenderer;
@@ -29,14 +31,6 @@ public class playerControl : Core, IMoveSpeedModifiable
     [Header("Skills")]
     public SkillCaster skillCaster;
 
-    [Header("State Machine")]
-    public State IdleState;
-    public State MoveState;
-    public State DashState;
-    public State SpearAttackState;
-    public State GunAttackState;
-    public State SkillCastState;
-
     [Header("Status Flags")]
     public bool isFacingRight;
     public bool canDash { get; private set; }
@@ -59,12 +53,20 @@ public class playerControl : Core, IMoveSpeedModifiable
 
     #region Unity Methods
 
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     public void Start()
     {
         canDash = true;
-        setupInstances();
-        stateMacines.set(IdleState);
-
         // ตั้ง scale เริ่มต้นให้ตรงกับ isFacingRight ที่ตั้งไว้ใน inspector
         ApplyFacingScale();
     }
@@ -73,8 +75,7 @@ public class playerControl : Core, IMoveSpeedModifiable
     {
         UpdateAimState();
 
-        selectState();
-        stateMacines.state.Do();
+
 
         // ต้องหันตัวตามทิศเล็งก่อน แล้วค่อยคำนวณ tilt ทีหลัง
         // ไม่งั้น Rotate() จะใช้ isFacingRight ของเฟรมก่อนหน้าซึ่งอาจไม่ตรงกับ aimDirection ปัจจุบัน
@@ -101,45 +102,6 @@ public class playerControl : Core, IMoveSpeedModifiable
         if (!isAiming)
         {
             flip();
-        }
-    }
-
-    #endregion
-
-    #region State Logic
-
-    private void selectState()
-    {
-        if (isCasting)
-        {
-            stateMacines.set(SkillCastState);
-            return;
-        }
-        if (isAttacking)
-        {
-            stateMacines.set(SpearAttackState);
-            return;
-        }
-        if (isShooting)
-        {
-            stateMacines.set(GunAttackState);
-            return;
-        }
-
-        // เช็คว่าตัวละครกำลังไถลอยู่ (มีควาามเร็ว) หรือ ผู้เล่นกำลังกดปุ่มเดินอยู่ (มี Input)
-        bool hasVelocity = rb.linearVelocity.sqrMagnitude > 0.1f;
-        bool hasMoveInput = userInput.instance.moveInput.sqrMagnitude > 0.01f;
-
-        // ถ้าเข้าเงื่อนไขอย่างใดอย่างหนึ่ง ถือว่ากำลังขยับ
-        bool isMoving = hasVelocity || hasMoveInput;
-
-        if (!isMoving && !isDashing)
-        {
-            stateMacines.set(IdleState);
-        }
-        else if (isMoving && !isDashing)
-        {
-            stateMacines.set(MoveState);
         }
     }
 
